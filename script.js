@@ -881,7 +881,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =========================================================================
-    // 6. KTA Test Masası Aparat Doğrulama Formu Logic (PTR 07/222-02)
+    // 6. Test Masası Aparat Doğrulama Formu Logic (PTR 07/222-02)
     // =========================================================================
     const initialBaglantiParametreleri = [
         { id: "kilit", label: "Kilit Sistemi", status: "Görüyor", note: "Kilit mekanizması ve algılama switchi aktif", isDefault: true },
