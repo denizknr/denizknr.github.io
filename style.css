@@ -336,15 +336,32 @@ ul {
     font-size: 3.25rem;
     font-weight: 800;
     line-height: 1.2;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
     letter-spacing: -0.02em;
 }
 
+.hero-role {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(99, 102, 241, 0.1);
+    padding: 6px 18px;
+    border-radius: 9999px;
+    border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
 .hero-subtitle {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     color: var(--text-secondary);
     margin-bottom: 32px;
     line-height: 1.7;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hero-buttons {
@@ -434,6 +451,38 @@ ul {
 
 .about-card p:last-child {
     margin-bottom: 0;
+}
+
+.about-details-list {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.about-detail-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+}
+
+.about-detail-item i {
+    color: var(--primary);
+    width: 18px;
+    text-align: center;
+}
+
+.about-detail-item a {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.about-detail-item a:hover {
+    text-decoration: underline;
 }
 
 .stats-grid {
@@ -637,6 +686,62 @@ ul {
     color: var(--text-secondary);
     font-size: 0.92rem;
     line-height: 1.6;
+}
+
+.timeline-bullets {
+    list-style: none;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.timeline-bullets li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.timeline-bullets li::before {
+    content: "•";
+    position: absolute;
+    left: 4px;
+    top: 0;
+    color: var(--primary);
+    font-size: 1.2rem;
+    line-height: 1.4;
+}
+
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.cert-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    transition: var(--transition);
+}
+
+.cert-item i {
+    color: var(--primary);
+}
+
+.cert-item:hover {
+    border-color: var(--primary);
+    transform: translateX(4px);
 }
 
 /* ==========================================================================
