@@ -409,7 +409,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
                         <div class="result-cell">
                             <div class="result-cell-label">Tolerans / Standart</div>
-                            <div class="result-cell-value" style="font-size:0.85rem;color:var(--text-secondary);">± 0,30 mm (DIN/EN 60352-2)</div>
+                            <div class="result-cell-value" style="font-size:0.85rem;color:var(--text-secondary);">± 0,05 mm (DIN/EN 60352-2)</div>
                         </div>
                     </div>
                     <div class="tolerance-hint">
@@ -466,8 +466,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateToleranceLabelsFromRow(row) {
         const nom = parseNumeric(row.krimp);
         if (nom !== null) {
-            const min = parseFloat((nom - 0.30).toFixed(3));
-            const max = parseFloat((nom + 0.30).toFixed(3));
+            const min = parseFloat((nom - 0.05).toFixed(3));
+            const max = parseFloat((nom + 0.05).toFixed(3));
             if (tolMinLabel) tolMinLabel.textContent = `Min: ${min.toFixed(2)}`;
             if (tolNomLabel) tolNomLabel.textContent = `Nominal: ${nom.toFixed(2)}`;
             if (tolMaxLabel) tolMaxLabel.textContent = `Max: ${max.toFixed(2)}`;
@@ -493,7 +493,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        const tol = 0.30;
+        const tol = 0.05;
         const min = parseFloat((nom - tol).toFixed(3));
         const max = parseFloat((nom + tol).toFixed(3));
         const delta = parseFloat((measured - nom).toFixed(3));
@@ -599,7 +599,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ── MANUAL MODE ──
     function updateManualLabels() {
         const nom = parseFloat(manualNominalInput.value) || 1.20;
-        const tol = parseFloat(manualTolInput.value) || 0.30;
+        const tol = parseFloat(manualTolInput.value) || 0.05;
         const min = parseFloat((nom - tol).toFixed(3));
         const max = parseFloat((nom + tol).toFixed(3));
 
@@ -614,7 +614,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function runManualAnalysis() {
         const nom = parseFloat(manualNominalInput.value) || 1.20;
-        const tol = parseFloat(manualTolInput.value) || 0.30;
+        const tol = parseFloat(manualTolInput.value) || 0.05;
         const measured = parseFloat(manualMeasuredInput.value);
 
         if (isNaN(measured)) {

@@ -383,7 +383,7 @@
                                 <!-- Measurement & Quality Check Box -->
                                 <div class="measurement-input-box">
                                     <label for="measured-height"><i class="fa-solid fa-ruler-combined"></i> Ölçülen Krimp Yüksekliği (mm)</label>
-                                    <p class="measure-subtext">Kumpas veya mikrometre ile ölçtüğünüz değeri girerek tolerans uygunluğunu (±0.30 mm) test edin:</p>
+                                    <p class="measure-subtext">Kumpas veya mikrometre ile ölçtüğünüz değeri girerek tolerans uygunluğunu (±0.05 mm) test edin:</p>
                                     <div class="measurement-input-wrapper">
                                         <input type="number" id="measured-height" step="0.001" placeholder="Örn: 1.22">
                                         <button type="button" id="btn-analyze" class="btn btn-primary"><i class="fa-solid fa-check-double"></i> Test Et</button>
@@ -492,7 +492,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="manual-tolerance"><i class="fa-solid fa-arrows-left-right"></i> Tolerans (± mm)</label>
-                                        <input type="number" id="manual-tolerance" step="0.01" value="0.30" placeholder="0.30">
+                                        <input type="number" id="manual-tolerance" step="0.005" value="0.05" placeholder="0.05">
                                     </div>
                                 </div>
                                 <div class="form-row-2">
@@ -525,9 +525,9 @@
                                     </div>
                                     <div class="tolerance-bar-container">
                                         <div class="tolerance-labels">
-                                            <span id="manual-tol-min-label">Min: 0.90</span>
+                                            <span id="manual-tol-min-label">Min: 1.15</span>
                                             <span id="manual-tol-nom-label">Nominal: 1.20</span>
-                                            <span id="manual-tol-max-label">Max: 1.50</span>
+                                            <span id="manual-tol-max-label">Max: 1.25</span>
                                         </div>
                                         <div class="tolerance-bar">
                                             <div class="tolerance-zone zone-low"></div>
