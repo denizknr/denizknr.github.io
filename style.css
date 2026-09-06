@@ -2,22 +2,22 @@
    CSS Variables & Theme Settings
    ========================================================================== */
 :root {
-    --bg-primary: #f4f1eb;
-    --bg-secondary: #ebe7df;
-    --bg-card: #fffdf8;
-    --bg-card-hover: #f1e9dc;
-    --bg-tag: #e8dfd2;
-    --border-color: #d2c7b8;
-    --border-hover: #ad9b86;
+    --bg-primary: #f7f4ee;
+    --bg-secondary: #ece8df;
+    --bg-card: #fffefa;
+    --bg-card-hover: #f5e7d8;
+    --bg-tag: #eee0d1;
+    --border-color: #cbb9a5;
+    --border-hover: #a4876f;
     
     --text-primary: #0f172a;
-    --text-secondary: #475569;
-    --text-muted: #64748b;
+    --text-secondary: #34495e;
+    --text-muted: #657585;
     
-    --primary: #245b73;
-    --primary-light: #3d8198;
-    --primary-gradient: linear-gradient(135deg, #245b73 0%, #3d8198 100%);
-    --accent: #c96842;
+    --primary: #1d4e89;
+    --primary-light: #2878b5;
+    --primary-gradient: linear-gradient(135deg, #1d4e89 0%, #d95d39 100%);
+    --accent: #e08a27;
     --success: #10b981;
     --warning: #f59e0b;
     --danger: #ef4444;
@@ -32,22 +32,22 @@
 }
 
 [data-theme="dark"] {
-    --bg-primary: #202427;
-    --bg-secondary: #292e31;
-    --bg-card: #30363a;
-    --bg-card-hover: #3a4246;
-    --bg-tag: #3a4246;
-    --border-color: #4a555a;
-    --border-hover: #68767c;
+    --bg-primary: #171c22;
+    --bg-secondary: #222a32;
+    --bg-card: #2b353e;
+    --bg-card-hover: #384550;
+    --bg-tag: #384550;
+    --border-color: #4c5c68;
+    --border-hover: #718595;
 
     --text-primary: #f8fafc;
-    --text-secondary: #cbd5e1;
-    --text-muted: #94a3b8;
+    --text-secondary: #d2dce4;
+    --text-muted: #9eafbc;
 
-    --primary: #8cc8dc;
-    --primary-light: #b2dfeb;
-    --primary-gradient: linear-gradient(135deg, #245b73 0%, #3d8198 100%);
-    --accent: #f0a27d;
+    --primary: #6bb9e3;
+    --primary-light: #9bd7f2;
+    --primary-gradient: linear-gradient(135deg, #246aa0 0%, #e87552 100%);
+    --accent: #f2b84b;
 
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
@@ -74,7 +74,7 @@ html {
 body {
     font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     background-color: var(--bg-primary);
-    background-image: linear-gradient(rgba(36, 91, 115, 0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(36, 91, 115, 0.045) 1px, transparent 1px);
+    background-image: linear-gradient(rgba(29, 78, 137, 0.055) 1px, transparent 1px), linear-gradient(90deg, rgba(29, 78, 137, 0.055) 1px, transparent 1px);
     background-size: 32px 32px;
     color: var(--text-primary);
     line-height: 1.6;
@@ -165,12 +165,12 @@ ul {
 .btn-primary {
     background: var(--primary-gradient);
     color: #ffffff;
-    box-shadow: 0 4px 14px rgba(15, 118, 110, 0.25);
+    box-shadow: 0 4px 14px rgba(29, 78, 137, 0.28);
 }
 
 .btn-primary:hover {
     transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(15, 118, 110, 0.35);
+    box-shadow: 0 6px 20px rgba(217, 93, 57, 0.3);
 }
 
 .btn-outline {
@@ -1465,7 +1465,7 @@ ul {
     align-items: center;
     gap: 8px;
     padding: 10px 16px;
-    background: rgba(15, 118, 110, 0.08);
+    background: rgba(29, 78, 137, 0.1);
     font-size: 0.8rem;
     color: var(--primary);
     font-weight: 600;
@@ -2553,7 +2553,7 @@ ul {
 .hero {
     min-height: 620px;
     padding: 132px 0 110px;
-    background: linear-gradient(115deg, rgba(36, 91, 115, 0.12), transparent 54%), var(--bg-primary);
+    background: linear-gradient(115deg, rgba(29, 78, 137, 0.18), transparent 54%), var(--bg-primary);
     border-bottom: 1px solid var(--border-color);
 }
 
@@ -2590,8 +2590,8 @@ ul {
 }
 
 .hero-role {
-    background: rgba(36, 91, 115, 0.1);
-    border-color: rgba(36, 91, 115, 0.25);
+    background: rgba(29, 78, 137, 0.12);
+    border-color: rgba(29, 78, 137, 0.3);
 }
 
 .hero-buttons,
