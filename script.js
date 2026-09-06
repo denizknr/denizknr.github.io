@@ -7,8 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Check saved theme or system preference
     const savedTheme = localStorage.getItem('theme');
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const initialTheme = savedTheme || 'dark';
+    const requestedTheme = new URLSearchParams(window.location.search).get('theme');
+    const initialTheme = requestedTheme === 'light' || requestedTheme === 'dark'
+        ? requestedTheme
+        : (savedTheme || 'dark');
     
     setTheme(initialTheme);
 
