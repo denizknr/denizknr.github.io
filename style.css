@@ -2562,6 +2562,13 @@ ul {
     text-align: left;
 }
 
+.hero-container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 280px;
+    align-items: end;
+    gap: 64px;
+}
+
 .hero-content {
     max-width: 840px;
     margin: 0;
@@ -2596,6 +2603,66 @@ ul {
     border-radius: 4px;
 }
 
+.hero-spec-panel {
+    align-self: end;
+    border: 1px solid var(--border-color);
+    border-top: 4px solid var(--accent);
+    background: var(--bg-card);
+    padding: 20px;
+    box-shadow: var(--shadow-lg);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.hero-spec-heading,
+.hero-spec-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.hero-spec-heading {
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-muted);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+}
+
+.hero-spec-status {
+    color: var(--success);
+}
+
+.hero-spec-status i {
+    font-size: 0.45rem;
+    vertical-align: middle;
+}
+
+.hero-spec-line {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.hero-spec-line span {
+    color: var(--text-muted);
+    font-size: 0.68rem;
+    font-weight: 700;
+}
+
+.hero-spec-line strong {
+    color: var(--text-primary);
+    font-size: 0.82rem;
+}
+
+.hero-spec-footer {
+    padding-top: 15px;
+    color: var(--accent);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+}
+
 .about-card,
 .stat-card,
 .skill-category,
@@ -2610,11 +2677,25 @@ ul {
 .project-list {
     grid-template-columns: 1fr;
     gap: 12px;
+    counter-reset: project-card;
 }
 
 .project-card {
+    position: relative;
+    counter-increment: project-card;
     border-left: 5px solid var(--accent);
     padding: 22px 26px;
+}
+
+.project-card::before {
+    content: "0" counter(project-card);
+    position: absolute;
+    top: 22px;
+    left: -42px;
+    color: var(--accent);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
 }
 
 .project-card.is-collapsed {
@@ -2644,6 +2725,11 @@ ul {
 }
 
 @media (max-width: 768px) {
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+
     .hero {
         min-height: auto;
         padding: 92px 0 76px;
@@ -2651,5 +2737,9 @@ ul {
 
     .section-header {
         margin-bottom: 32px;
+    }
+
+    .project-card::before {
+        display: none;
     }
 }
