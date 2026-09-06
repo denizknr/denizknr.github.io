@@ -76,6 +76,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const links = card.querySelector('.project-links');
         if (!title || !links) return;
 
+        links.querySelectorAll('a').forEach(link => {
+            if (!link.getAttribute('aria-label')) {
+                link.setAttribute('aria-label', link.getAttribute('title') || 'Proje bağlantısı');
+            }
+        });
+
         card.classList.add('is-collapsed');
         title.setAttribute('tabindex', '0');
         title.setAttribute('role', 'button');
