@@ -70,6 +70,53 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Project cards start compact and reveal their details on demand.
+    document.querySelectorAll('.project-card').forEach((card, index) => {
+        const title = card.querySelector('.project-title');
+        const links = card.querySelector('.project-links');
+        if (!title || !links) return;
+
+        card.classList.add('is-collapsed');
+        title.setAttribute('tabindex', '0');
+        title.setAttribute('role', 'button');
+        title.setAttribute('aria-expanded', 'false');
+
+        const toggle = document.createElement('button');
+        toggle.type = 'button';
+        toggle.className = 'project-toggle';
+        toggle.innerHTML = '<i class="fa-solid fa-chevron-down"></i><span>Detayları Aç</span>';
+        toggle.setAttribute('aria-controls', `project-details-${index}`);
+        links.appendChild(toggle);
+
+        const description = card.querySelector('.project-desc');
+        const technologies = card.querySelector('.project-techs');
+        if (description && technologies) {
+            const details = document.createElement('div');
+            details.id = `project-details-${index}`;
+            details.className = 'project-details';
+            description.parentNode.insertBefore(details, description);
+            details.append(description, technologies);
+        }
+
+        const setExpanded = expanded => {
+            card.classList.toggle('is-collapsed', !expanded);
+            title.setAttribute('aria-expanded', String(expanded));
+            toggle.innerHTML = expanded
+                ? '<i class="fa-solid fa-chevron-up"></i><span>Detayları Kapat</span>'
+                : '<i class="fa-solid fa-chevron-down"></i><span>Detayları Aç</span>';
+        };
+
+        const toggleDetails = () => setExpanded(card.classList.contains('is-collapsed'));
+        toggle.addEventListener('click', toggleDetails);
+        title.addEventListener('click', toggleDetails);
+        title.addEventListener('keydown', event => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                toggleDetails();
+            }
+        });
+    });
+
     // Highlight active menu on scroll
     const sections = document.querySelectorAll('header, section');
     window.addEventListener('scroll', () => {
@@ -105,6 +152,180 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    const processChecks = [
+        'Doğru ürün, proje ve revizyon bilgisi kullanılıyor mu?',
+        'Kablo kesiti teknik dokümana uygun mu?',
+        'Terminal numarası ve terminal yönü doğru mu?',
+        'Kablo izolasyonu krimp bölgesine doğru mesafede mi?',
+        'İletken krimp yüksekliği ve genişliği tolerans içinde mi?',
+        'İzolasyon krimpi kabloyu yeterli şekilde kavrıyor mu?',
+        'Krimp bölgesinde çatlak, deformasyon veya gevşeklik var mı?',
+        'Kablo rengi ve soket pozisyonu teknik resme uygun mu?',
+        'Soket kilitleme ve terminal oturma kontrolü tamam mı?',
+        'Poke-Yoke ve hata önleme mekanizması doğru çalışıyor mu?',
+        'Ürün üzerinde hasar, yabancı parça veya eksik işlem var mı?',
+        'Etiket, izlenebilirlik ve son görsel kontrol tamam mı?'
+    ];
+
+    const processChecklist = document.getElementById('process-checklist');
+    const processState = processChecks.map(() => ({ status: '', note: '' }));
+    const processScore = document.getElementById('process-score');
+    const processCount = document.getElementById('process-count');
+    const processOkCount = document.getElementById('process-ok-count');
+    const processConditionalCount = document.getElementById('process-conditional-count');
+    const processNokCount = document.getElementById('process-nok-count');
+    const processDecision = document.getElementById('process-decision');
+    const processStatus = document.getElementById('process-status');
+    const processStandardOptions = document.getElementById('process-standard-options');
+    const processStandardCount = document.getElementById('process-standard-count');
+
+    function getSelectedProcessStandards() {
+        return processStandardOptions
+            ? [...processStandardOptions.querySelectorAll('input:checked')].map(input => input.value)
+            : [];
+    }
+
+    function updateProcessStandardCount() {
+        const count = getSelectedProcessStandards().length;
+        if (processStandardCount) processStandardCount.textContent = `${count} standart seçildi`;
+    }
+
+    processStandardOptions?.querySelectorAll('input').forEach(input => {
+        input.addEventListener('change', updateProcessStandardCount);
+    });
+
+    function renderProcessChecklist() {
+        if (!processChecklist) return;
+        processChecklist.innerHTML = processChecks.map((label, index) => {
+            const item = processState[index];
+            return `
+                <div class="process-check-item">
+                    <span class="process-check-number">${index + 1}</span>
+                    <span class="process-check-text">${label}</span>
+                    <div class="process-choice-group">
+                        <button type="button" class="process-choice ${item.status === 'ok' ? 'active-ok' : ''}" data-process-index="${index}" data-process-status="ok">Uygun</button>
+                        <button type="button" class="process-choice ${item.status === 'conditional' ? 'active-conditional' : ''}" data-process-index="${index}" data-process-status="conditional">Şartlı</button>
+                        <button type="button" class="process-choice ${item.status === 'nok' ? 'active-nok' : ''}" data-process-index="${index}" data-process-status="nok">Uygunsuz</button>
+                    </div>
+                    <textarea class="process-check-note" data-process-note="${index}" placeholder="Gerekirse kontrol notu veya aksiyon yazın...">${item.note}</textarea>
+                </div>
+            `;
+        }).join('');
+
+        processChecklist.querySelectorAll('.process-choice').forEach(button => {
+            button.addEventListener('click', () => {
+                const index = Number(button.dataset.processIndex);
+                processState[index].status = button.dataset.processStatus;
+                renderProcessChecklist();
+                updateProcessResult();
+            });
+        });
+
+        processChecklist.querySelectorAll('.process-check-note').forEach(note => {
+            note.addEventListener('input', () => {
+                processState[Number(note.dataset.processNote)].note = note.value;
+            });
+        });
+    }
+
+    function updateProcessResult() {
+        const completed = processState.filter(item => item.status).length;
+        const ok = processState.filter(item => item.status === 'ok').length;
+        const conditional = processState.filter(item => item.status === 'conditional').length;
+        const nok = processState.filter(item => item.status === 'nok').length;
+        const score = Math.round(((ok + conditional * 0.5) / processState.length) * 100);
+
+        if (processCount) processCount.textContent = `${completed} / ${processState.length} tamamlandı`;
+        if (processScore) processScore.textContent = `${score}%`;
+        if (processOkCount) processOkCount.textContent = ok;
+        if (processConditionalCount) processConditionalCount.textContent = conditional;
+        if (processNokCount) processNokCount.textContent = nok;
+        if (!processDecision) return;
+
+        processDecision.className = 'process-decision';
+        if (completed < processState.length) {
+            processDecision.textContent = 'Kontrol bekleniyor';
+        } else if (nok > 0) {
+            processDecision.textContent = 'Düzeltme gerekli';
+            processDecision.classList.add('rejected');
+        } else if (conditional > 0) {
+            processDecision.textContent = 'Şartlı onay';
+            processDecision.classList.add('conditional');
+        } else {
+            processDecision.textContent = 'Proses uygun';
+            processDecision.classList.add('approved');
+        }
+    }
+
+    function getProcessReport() {
+        const product = document.getElementById('process-product')?.value.trim() || '-';
+        const order = document.getElementById('process-order')?.value.trim() || '-';
+        const station = document.getElementById('process-station')?.value.trim() || '-';
+        const department = document.getElementById('process-department')?.value.trim() || '-';
+        const operator = document.getElementById('process-operator')?.value.trim() || '-';
+        const inspector = document.getElementById('process-inspector')?.value.trim() || '-';
+        const standards = getSelectedProcessStandards();
+        const score = processScore?.textContent || '0%';
+        const decision = processDecision?.textContent || 'Kontrol bekleniyor';
+        return { product, order, station, department, operator, inspector, standards, score, decision };
+    }
+
+    document.getElementById('process-save')?.addEventListener('click', () => {
+        const incomplete = processState.some(item => !item.status);
+        if (incomplete) {
+            if (processStatus) processStatus.textContent = 'Kaydetmeden önce tüm kontrol maddelerini değerlendirin.';
+            return;
+        }
+        const report = getProcessReport();
+        if (processStatus) processStatus.textContent = `${report.product} için ${report.department} bölümündeki kontrol kaydedildi (${report.score} - ${report.decision}).`;
+    });
+
+    document.getElementById('process-export')?.addEventListener('click', () => {
+        const incomplete = processState.some(item => !item.status);
+        if (incomplete) {
+            if (processStatus) processStatus.textContent = 'CSV raporu için tüm kontrol maddelerini değerlendirin.';
+            return;
+        }
+        const report = getProcessReport();
+        const rows = [
+            ['Ürün / Proje No', report.product],
+            ['İş Emri No', report.order],
+            ['İstasyon', report.station],
+            ['Bölüm', report.department],
+            ['Çalışan / Operatör', report.operator],
+            ['Kontrol Eden', report.inspector],
+            ['Kontrol Edilen Standartlar', report.standards.length ? report.standards.join(' | ') : '-'],
+            ['Uygunluk Skoru', report.score],
+            ['Nihai Karar', report.decision],
+            [],
+            ['No', 'Kontrol Maddesi', 'Durum', 'Not / Aksiyon'],
+            ...processChecks.map((label, index) => [index + 1, label, processState[index].status, processState[index].note || '-'])
+        ];
+        const csv = 'data:text/csv;charset=utf-8,\uFEFF' + rows.map(row => row.map(value => `"${String(value).replaceAll('"', '""')}"`).join(',')).join('\n');
+        const link = document.createElement('a');
+        link.href = encodeURI(csv);
+        link.download = `proses_kontrol_${new Date().toISOString().slice(0, 10)}.csv`;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+    });
+
+    document.getElementById('process-reset')?.addEventListener('click', () => {
+        processState.forEach(item => { item.status = ''; item.note = ''; });
+        ['process-product', 'process-order', 'process-station', 'process-department', 'process-operator', 'process-inspector'].forEach(id => {
+            const input = document.getElementById(id);
+            if (input) input.value = '';
+        });
+        processStandardOptions?.querySelectorAll('input').forEach(input => { input.checked = false; });
+        updateProcessStandardCount();
+        if (processStatus) processStatus.textContent = '';
+        renderProcessChecklist();
+        updateProcessResult();
+    });
+
+    renderProcessChecklist();
+    updateProcessResult();
 
     // =========================================================================
     // 5. PTR-KT-006-28 Krimp Yükseklik & Tolerans Sorgulama Logic (1.548 Kayıt)
@@ -372,7 +593,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const kesitLabel = kesit.startsWith('DOPPEL: ') ? '🔀 DOPPEL: ' + kesit.replace('DOPPEL: ', '') : kesit;
         if (resultLabel) {
-            resultLabel.innerHTML = `<i class="fa-solid fa-list-check"></i> Kontak: <strong>${kontak}</strong> · Kesit: <strong>${kesitLabel}</strong>`;
+            resultLabel.innerHTML = `<i class="fa-solid fa-list-check"></i> Terminal: <strong>${kontak}</strong> · Kesit: <strong>${kesitLabel}</strong>`;
         }
 
         if (rows.length === 0) {
@@ -545,7 +766,7 @@ document.addEventListener('DOMContentLoaded', () => {
         lastAnalysisResult = {
             id: measurementLogs.length + 1,
             time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' }),
-            terminal: `Kontak ${currentSelectedRow.kontak} (${currentSelectedRow.kalip ? 'Kalıp ' + currentSelectedRow.kalip : ''})`,
+            terminal: `Terminal ${currentSelectedRow.kontak} (${currentSelectedRow.kalip ? 'Kalıp ' + currentSelectedRow.kalip : ''})`,
             kesit: currentSelectedRow.kesit,
             nominal: `${nom.toFixed(2)} mm`,
             measured: `${measured.toFixed(3)} mm`,
@@ -806,7 +1027,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (measurementLogs.length === 0) {
             logTbody.innerHTML = `
                 <tr class="empty-row">
-                    <td colspan="8">Henüz kaydedilmiş bir ölçüm bulunmuyor. Kontak veya manuel sorgulama yaparak listeye ekleyebilirsiniz.</td>
+                    <td colspan="8">Henüz kaydedilmiş bir ölçüm bulunmuyor. Terminal veya manuel sorgulama yaparak listeye ekleyebilirsiniz.</td>
                 </tr>
             `;
             return;
@@ -848,7 +1069,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             let csvContent = "data:text/csv;charset=utf-8,\uFEFF";
-            csvContent += "No,Zaman,Terminal/Kontak,Kablo Kesiti,Nominal CCH (mm),Olculen CCH (mm),Sapma (mm),Durum\n";
+            csvContent += "No,Zaman,Terminal,Kablo Kesiti,Nominal CCH (mm),Olculen CCH (mm),Sapma (mm),Durum\n";
 
             measurementLogs.forEach((log, index) => {
                 const row = [

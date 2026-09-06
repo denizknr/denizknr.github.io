@@ -40,6 +40,7 @@
                     <li><a href="#deneyim" class="nav-link">Deneyim & Eğitim</a></li>
                     <li><a href="#projeler" class="nav-link">Projeler</a></li>
                     <li><a href="#krimp-araci" class="nav-link">Krimp Aracı</a></li>
+                    <li><a href="#proses-kontrol" class="nav-link">Proses Kontrolü</a></li>
                     <li><a href="#dogrulama-araci" class="nav-link">Doğrulama Formu</a></li>
                     <li><a href="#iletisim" class="nav-link">İletişim</a></li>
                 </ul>
@@ -115,7 +116,7 @@
                         </div>
                         <h3>Profesyonel Özet</h3>
                         <p>
-                            Kalite yönetim sistemleri ve proses kalite güvence süreçlerinde <strong>11 yıllık saha tecrübesine</strong> sahibim. Kablo ürün ağaçları (BOM), kablaj montaj hatlarının denetimi, proses iyileştirme ve teknik dökümantasyon yönetimi konularında derin uzmanlığa sahibim.
+                            Kalite yönetim sistemleri ve proses kalite güvence süreçlerinde <strong>11 yıllık saha tecrübesine</strong> sahibim. Kablo ürün ağaçları (BOM), kablo montaj hatlarının denetimi, proses iyileştirme ve teknik dökümantasyon yönetimi konularında derin uzmanlığa sahibim.
                         </p>
                         <p>
                             <strong>SAP</strong> ve <strong>ERPNext</strong> kurumsal kaynak planlama sistemleri üzerinden veriye dayalı hata analizi, risk değerlendirmesi ve süreç optimizasyonu odaklı çalışıyorum. Kalite süreçlerini modern yazılım ve otomasyon araçlarıyla dijitalleştirerek hata oranlarını minimize eden sistemler kuruyorum.
@@ -376,9 +377,30 @@
                             <span>Responsive</span>
                         </div>
                     </article>
+
+                    <article class="project-card">
+                        <div class="project-header">
+                            <i class="fa-solid fa-list-check project-icon"></i>
+                            <div class="project-links">
+                                <a href="#proses-kontrol" title="Web Üzerinde Canlı Çalıştır"><i class="fa-solid fa-play"></i></a>
+                            </div>
+                        </div>
+                        <h3 class="project-title">Dijital Kablo Montaj Proses Kontrolü</h3>
+                        <p class="project-desc">
+                            Kablo montaj adımlarını, terminal ve krimp kontrollerini dijital olarak değerlendirerek uygunluk skoru ve kayıtlı kalite raporu oluşturan kontrol aracı.
+                        </p>
+                        <div class="project-techs">
+                            <span>JavaScript</span>
+                            <span>Proses Kalite</span>
+                            <span>CSV Raporlama</span>
+                            <span>Canlı Araç</span>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
+        <!-- Eski, tekrarlanan proje kartları kaldırıldı. -->
+        <!--
                         <h3 class="project-title">Test Masası Aparat Doğrulama</h3>
                         <p class="project-desc">
                             Test ve form masası aparatlarının elektriksel, mekanik ve poke-yoke standartlarına uygunluğunu denetleyen dijital kalite kayıt formu (PTR 07/222-02).
@@ -449,6 +471,113 @@
                             <span>Responsive</span>
                         </div>
                     </article>
+
+                    <article class="project-card">
+                        <div class="project-header">
+                            <i class="fa-solid fa-list-check project-icon"></i>
+                            <div class="project-links">
+                                <a href="#proses-kontrol" title="Web Üzerinde Canlı Çalıştır"><i class="fa-solid fa-play"></i></a>
+                            </div>
+                        </div>
+                        <h3 class="project-title">Dijital Kablo Montaj Proses Kontrolü</h3>
+                        <p class="project-desc">
+                            Kablo montaj adımlarını, terminal ve krimp kontrollerini dijital olarak değerlendirerek uygunluk skoru ve kayıtlı kalite raporu oluşturan kontrol aracı.
+                        </p>
+                        <div class="project-techs">
+                            <span>JavaScript</span>
+                            <span>Proses Kalite</span>
+                            <span>CSV Raporlama</span>
+                            <span>Canlı Araç</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        -->
+
+        <section id="proses-kontrol" class="section process-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge"><i class="fa-solid fa-list-check"></i> PROSES KALİTE KONTROLÜ</span>
+                    <h2 class="section-title">Dijital Kablo Montaj Proses Kontrolü</h2>
+                    <p class="section-subtitle">Montaj adımlarını, terminal ve krimp kontrollerini tek form üzerinden değerlendirip uygunluk kaydı oluşturun.</p>
+                    <div class="title-bar"></div>
+                </div>
+
+                <div class="process-app-card">
+                    <div class="process-meta-grid">
+                        <div class="form-group">
+                            <label for="process-product"><i class="fa-solid fa-box"></i> Ürün / Proje No</label>
+                            <input type="text" id="process-product" placeholder="Örn: KBL-10000512">
+                        </div>
+                        <div class="form-group">
+                            <label for="process-order"><i class="fa-solid fa-file-invoice"></i> İş Emri No</label>
+                            <input type="text" id="process-order" placeholder="Örn: SIP-2026-940">
+                        </div>
+                        <div class="form-group">
+                            <label for="process-station"><i class="fa-solid fa-industry"></i> İstasyon</label>
+                            <input type="text" id="process-station" placeholder="Örn: Kablo Montaj Hattı 01">
+                        </div>
+                        <div class="form-group">
+                            <label for="process-department"><i class="fa-solid fa-building"></i> Bölüm</label>
+                            <input type="text" id="process-department" placeholder="Örn: Üretim / Kalite Güvence">
+                        </div>
+                        <div class="form-group">
+                            <label for="process-operator"><i class="fa-solid fa-user-gear"></i> Çalışan / Operatör</label>
+                            <input type="text" id="process-operator" placeholder="Ad Soyad / Sicil No">
+                        </div>
+                        <div class="form-group">
+                            <label for="process-inspector"><i class="fa-solid fa-user-check"></i> Kontrol Eden</label>
+                            <input type="text" id="process-inspector" placeholder="Ad Soyad">
+                        </div>
+                    </div>
+
+                    <div class="process-standards">
+                        <div class="process-checklist-header">
+                            <div>
+                                <h3>Kontrol Edilen Standartlar</h3>
+                                <p>Bu kontrolde kullanılan kalite kontrol yöntemlerini seçin.</p>
+                            </div>
+                            <span class="process-count" id="process-standard-count">0 standart seçildi</span>
+                        </div>
+                        <div class="process-standard-options" id="process-standard-options">
+                            <label class="process-standard-option"><input type="checkbox" value="Görsel Kontrol"><i class="fa-solid fa-eye"></i><span>Görsel Kontrol</span></label>
+                            <label class="process-standard-option"><input type="checkbox" value="Ölçüsel Kontrol"><i class="fa-solid fa-ruler-combined"></i><span>Ölçüsel Kontrol</span></label>
+                            <label class="process-standard-option"><input type="checkbox" value="Krimp Kontrolü"><i class="fa-solid fa-compress"></i><span>Krimp Kontrolü</span></label>
+                            <label class="process-standard-option"><input type="checkbox" value="Fonksiyon Testi"><i class="fa-solid fa-vial-circle-check"></i><span>Fonksiyon Testi</span></label>
+                            <label class="process-standard-option"><input type="checkbox" value="Poke-Yoke Kontrolü"><i class="fa-solid fa-shield-halved"></i><span>Poke-Yoke Kontrolü</span></label>
+                            <label class="process-standard-option"><input type="checkbox" value="BOM / Teknik Doküman"><i class="fa-solid fa-file-lines"></i><span>BOM / Teknik Doküman</span></label>
+                        </div>
+                    </div>
+
+                    <div class="process-checklist-header">
+                        <div>
+                            <h3>Kontrol Maddeleri</h3>
+                            <p>Her madde için uygunluk durumunu seçin. Uygunsuz veya şartlı maddelerde açıklama ekleyin.</p>
+                        </div>
+                        <span class="process-count" id="process-count">0 / 12 tamamlandı</span>
+                    </div>
+                    <div class="process-checklist" id="process-checklist"></div>
+
+                    <div class="process-result-box">
+                        <div class="process-score">
+                            <span class="process-score-label">Uygunluk Skoru</span>
+                            <strong id="process-score">0%</strong>
+                        </div>
+                        <div class="process-summary">
+                            <span><b id="process-ok-count">0</b> Uygun</span>
+                            <span><b id="process-conditional-count">0</b> Şartlı</span>
+                            <span><b id="process-nok-count">0</b> Uygunsuz</span>
+                        </div>
+                        <div class="process-decision" id="process-decision">Kontrol bekleniyor</div>
+                    </div>
+
+                    <div class="process-actions">
+                        <button type="button" class="btn btn-primary" id="process-save"><i class="fa-solid fa-file-circle-check"></i> Kontrolü Kaydet</button>
+                        <button type="button" class="btn btn-outline" id="process-export"><i class="fa-solid fa-file-arrow-down"></i> CSV Raporu İndir</button>
+                        <button type="button" class="btn btn-outline" id="process-reset"><i class="fa-solid fa-arrows-rotate"></i> Formu Sıfırla</button>
+                    </div>
+                    <div class="process-status" id="process-status"></div>
                 </div>
             </div>
         </section>
@@ -459,7 +588,7 @@
                 <div class="section-header">
                     <span class="section-badge"><i class="fa-solid fa-microchip"></i> PTR-KT-006-28 KONTROL TALİMATI</span>
                     <h2 class="section-title">Krimp Yükseklik Sorgulama & Analiz Aracı</h2>
-                    <p class="section-subtitle">1.548 teknik standart kaydı ve 388 kontak numarası ile krimp (CCH), izokrimp (ICH), kalıp ve çekme kuvveti kontrolü.</p>
+                    <p class="section-subtitle">1.548 teknik standart kaydı ve 388 terminal numarası ile krimp (CCH), izokrimp (ICH), kalıp ve çekme kuvveti kontrolü.</p>
                     <div class="title-bar"></div>
                 </div>
 
@@ -467,7 +596,7 @@
                     <!-- Tab Switcher -->
                     <div class="krimp-tab-buttons">
                         <button type="button" class="krimp-tab-btn active" id="tab-database">
-                            <i class="fa-solid fa-magnifying-glass"></i> Kontak & Kesit Sorgula
+                            <i class="fa-solid fa-magnifying-glass"></i> Terminal & Kesit Sorgula
                         </button>
                         <button type="button" class="krimp-tab-btn" id="tab-catalog">
                             <i class="fa-solid fa-table-list"></i> Tüm Standart Veri Kataloğu (1.548 Kayıt)
@@ -483,20 +612,20 @@
                             <!-- Left Controls -->
                             <div class="krimp-controls">
                                 <div class="form-group">
-                                    <label for="kontakInput"><i class="fa-solid fa-fingerprint"></i> Kontak No (Arama / Seçim)</label>
+                                    <label for="kontakInput"><i class="fa-solid fa-fingerprint"></i> Terminal No (Arama / Seçim)</label>
                                     <div class="kontak-input-wrap">
                                         <input type="text" id="kontakInput" placeholder="Örn: 10024441 veya 10000512..." autocomplete="off">
                                         <button type="button" class="clear-btn" id="clearKontak" title="Temizle">✕</button>
                                         <div class="dropdown-list" id="kontakDropdown"></div>
                                     </div>
-                                    <span class="field-hint">Kontak numarasını yazarak listeden seçebilirsiniz.</span>
+                                    <span class="field-hint">Terminal numarasını yazarak listeden seçebilirsiniz.</span>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="kesitSelect"><i class="fa-solid fa-bolt"></i> Kablo Kesiti (mm² / AWG / DOPPEL)</label>
                                     <div class="select-wrap">
                                         <select id="kesitSelect" class="krimp-select" disabled>
-                                            <option value="">Önce kontak seçiniz...</option>
+                                            <option value="">Önce terminal seçiniz...</option>
                                         </select>
                                     </div>
                                 </div>
@@ -516,7 +645,7 @@
                             <div class="krimp-results">
                                 <div id="hintState" class="hint-state">
                                     <div class="hint-icon"><i class="fa-solid fa-magnifying-glass-arrow-right"></i></div>
-                                    <p>Sorgulamak istediğiniz <span>Kontak Numarasını</span> girip ardından <span>Kablo Kesitini</span> seçin.</p>
+                                    <p>Sorgulamak istediğiniz <span>Terminal Numarasını</span> girip ardından <span>Kablo Kesitini</span> seçin.</p>
                                 </div>
 
                                 <div id="resultPanel" style="display: none;">
@@ -567,7 +696,7 @@
                         <div class="catalog-toolbar">
                             <div class="catalog-search-wrap">
                                 <i class="fa-solid fa-magnifying-glass"></i>
-                                <input type="text" id="catalog-search-input" placeholder="Kontak no, kesit, kalıp no veya notlarda ara (örn: 10023347, DOPPEL, 18 AWG, 44-259)...">
+                                <input type="text" id="catalog-search-input" placeholder="Terminal no, kesit, kalıp no veya notlarda ara (örn: 10023347, DOPPEL, 18 AWG, 44-259)...">
                             </div>
                             <div class="catalog-meta-info">
                                 Toplam <strong id="catalog-filtered-count">1.548</strong> kayıt listeleniyor
@@ -578,7 +707,7 @@
                             <table class="krimp-table">
                                 <thead>
                                     <tr>
-                                        <th>Kontak No</th>
+                                        <th>Terminal No</th>
                                         <th>Kablo Kesiti</th>
                                         <th>Kalıp No</th>
                                         <th>Krimp Yük. (mm)</th>
@@ -681,7 +810,7 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Zaman</th>
-                                        <th>Kontak / Terminal</th>
+                                        <th>Terminal</th>
                                         <th>Kesit</th>
                                         <th>Nominal CCH</th>
                                         <th>Ölçülen CCH</th>
@@ -691,7 +820,7 @@
                                 </thead>
                                 <tbody id="krimp-log-tbody">
                                     <tr class="empty-row">
-                                        <td colspan="8">Henüz kaydedilmiş bir ölçüm bulunmuyor. Kontak veya manuel sorgulama yaparak listeye ekleyebilirsiniz.</td>
+                                        <td colspan="8">Henüz kaydedilmiş bir ölçüm bulunmuyor. Terminal veya manuel sorgulama yaparak listeye ekleyebilirsiniz.</td>
                                     </tr>
                                 </tbody>
                             </table>
