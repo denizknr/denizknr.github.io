@@ -32,13 +32,13 @@
 }
 
 [data-theme="dark"] {
-    --bg-primary: #171c22;
-    --bg-secondary: #222a32;
-    --bg-card: #2b353e;
-    --bg-card-hover: #384550;
-    --bg-tag: #384550;
-    --border-color: #4c5c68;
-    --border-hover: #718595;
+    --bg-primary: #101418;
+    --bg-secondary: #161d23;
+    --bg-card: #1c252e;
+    --bg-card-hover: #26323d;
+    --bg-tag: #2b3945;
+    --border-color: #3a4a57;
+    --border-hover: #5b7180;
 
     --text-primary: #f8fafc;
     --text-secondary: #d2dce4;
@@ -54,7 +54,7 @@
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -4px rgba(0, 0, 0, 0.4);
     --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
 
-    --navbar-bg: rgba(32, 36, 39, 0.94);
+    --navbar-bg: rgba(16, 20, 24, 0.95);
 }
 
 /* ==========================================================================
