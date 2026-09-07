@@ -72,7 +72,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Project cards start compact and reveal their details on demand.
+    const compactProjectCards = window.matchMedia('(max-width: 768px)');
+
+    // Project cards stay fully visible on desktop and compact on mobile.
     document.querySelectorAll('.project-card').forEach((card, index) => {
         const title = card.querySelector('.project-title');
         const links = card.querySelector('.project-links');
@@ -114,6 +116,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 : '<i class="fa-solid fa-chevron-down"></i><span>Detayları Aç</span>';
         };
 
+        const syncProjectCardState = () => {
+            setExpanded(!compactProjectCards.matches);
+        };
+
         const toggleDetails = () => setExpanded(card.classList.contains('is-collapsed'));
         toggle.addEventListener('click', toggleDetails);
         title.addEventListener('click', toggleDetails);
@@ -123,7 +129,86 @@ document.addEventListener('DOMContentLoaded', () => {
                 toggleDetails();
             }
         });
+
+        syncProjectCardState();
+        compactProjectCards.addEventListener('change', syncProjectCardState);
     });
+
+    const timeline = document.querySelector('.timeline');
+    const timelineTrack = timeline?.querySelector('.timeline-track');
+    const timelineItems = timelineTrack ? [...timelineTrack.querySelectorAll('.timeline-item')] : [];
+    const timelineIndicators = [...document.querySelectorAll('.timeline-indicator')];
+    const timelinePrev = document.getElementById('timeline-prev');
+    const timelineNext = document.getElementById('timeline-next');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (timeline && timelineTrack && timelineItems.length) {
+        let activeTimelineIndex = 0;
+        let timelineAutoPlay;
+
+        const setTimelineIndex = index => {
+            activeTimelineIndex = (index + timelineItems.length) % timelineItems.length;
+            timeline.dataset.activeIndex = String(activeTimelineIndex);
+            timelineTrack.style.transform = `translateX(-${activeTimelineIndex * 100}%)`;
+
+            timelineItems.forEach((item, itemIndex) => {
+                item.classList.toggle('active', itemIndex === activeTimelineIndex);
+            });
+
+            timelineIndicators.forEach((indicator, indicatorIndex) => {
+                const isActive = indicatorIndex === activeTimelineIndex;
+                indicator.classList.toggle('active', isActive);
+                indicator.setAttribute('aria-selected', String(isActive));
+            });
+        };
+
+        const restartTimelineAutoPlay = () => {
+            if (prefersReducedMotion) return;
+            window.clearInterval(timelineAutoPlay);
+            timelineAutoPlay = window.setInterval(() => {
+                setTimelineIndex(activeTimelineIndex + 1);
+            }, 6500);
+        };
+
+        timelinePrev?.addEventListener('click', () => {
+            setTimelineIndex(activeTimelineIndex - 1);
+            restartTimelineAutoPlay();
+        });
+
+        timelineNext?.addEventListener('click', () => {
+            setTimelineIndex(activeTimelineIndex + 1);
+            restartTimelineAutoPlay();
+        });
+
+        timelineIndicators.forEach((indicator, indicatorIndex) => {
+            indicator.addEventListener('click', () => {
+                setTimelineIndex(indicatorIndex);
+                restartTimelineAutoPlay();
+            });
+        });
+
+        setTimelineIndex(0);
+        restartTimelineAutoPlay();
+    }
+
+    const revealTargets = document.querySelectorAll(
+        '.section-header, .about-card, .stat-card, .skill-category, .timeline-controls, .timeline, .project-card, .contact-info, .contact-form-card'
+    );
+
+    if ('IntersectionObserver' in window && revealTargets.length) {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            });
+        }, { threshold: 0.18 });
+
+        revealTargets.forEach(target => {
+            target.classList.add('reveal-on-scroll');
+            revealObserver.observe(target);
+        });
+    }
 
     // Highlight active menu on scroll
     const sections = document.querySelectorAll('header, section');

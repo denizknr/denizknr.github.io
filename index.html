@@ -36,8 +36,8 @@
                 <ul class="nav-list">
                     <li><a href="#anasayfa" class="nav-link active">Anasayfa</a></li>
                     <li><a href="#hakkimda" class="nav-link">Hakkımda</a></li>
-                    <li><a href="#yetenekler" class="nav-link">Yetkinlikler</a></li>
                     <li><a href="#deneyim" class="nav-link">Deneyim & Eğitim</a></li>
+                    <li><a href="#yetenekler" class="nav-link">Yetkinlikler</a></li>
                     <li><a href="#projeler" class="nav-link">Projeler</a></li>
                     <li><a href="#krimp-araci" class="nav-link">Krimp Aracı</a></li>
                     <li><a href="#proses-kontrol" class="nav-link">Proses Kontrolü</a></li>
@@ -65,8 +65,10 @@
                     <span class="badge-dot"></span> 11 Yıllık Kalite Güvence & Saha Tecrübesi
                 </div>
                 <h1 class="hero-title">
-                    Merhaba, Ben <span class="gradient-text">Deniz Kanar</span>
+                    <span class="hero-title-line">Kalite süreçlerini</span>
+                    <span class="hero-title-line gradient-text">dijital güce dönüştürüyorum.</span>
                 </h1>
+                <p class="hero-intro">Deniz Kanar · Proses kalite, denetim ve üretim dokümantasyonu uzmanı</p>
                 <p class="hero-role">
                     <i class="fa-solid fa-certificate"></i> Kalite Güvence & Proses Kalite Uzmanı
                 </p>
@@ -75,14 +77,28 @@
                 </p>
                 <div class="hero-buttons">
                     <a href="#hakkimda" class="btn btn-primary">
-                        <i class="fa-solid fa-user-tie"></i> Özgeçmişi İncele
+                        <i class="fa-solid fa-user-tie"></i> Portfolyoyu Keşfet
                     </a>
-                    <a href="#krimp-araci" class="btn btn-outline">
-                        <i class="fa-solid fa-microchip"></i> Krimp & Kalite Araçları
+                    <a href="#projeler" class="btn btn-outline btn-accent">
+                        <i class="fa-solid fa-grid-2"></i> Öne Çıkan Projeler
                     </a>
                     <a href="#iletisim" class="btn btn-outline">
-                        <i class="fa-regular fa-paper-plane"></i> İletişime Geç
+                        <i class="fa-regular fa-paper-plane"></i> İş Birliği Başlat
                     </a>
+                </div>
+                <div class="hero-highlights" aria-label="Ana uzmanlık metrikleri">
+                    <div class="hero-highlight">
+                        <strong>11+</strong>
+                        <span>Yıl saha tecrübesi</span>
+                    </div>
+                    <div class="hero-highlight">
+                        <strong>1.548</strong>
+                        <span>Krimp standardı</span>
+                    </div>
+                    <div class="hero-highlight">
+                        <strong>04</strong>
+                        <span>Canlı kalite aracı</span>
+                    </div>
                 </div>
                 <div class="hero-socials">
                     <a href="https://www.linkedin.com/in/deniz-kanar-688882423/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn Profili">
@@ -104,7 +120,9 @@
                 <div class="hero-spec-line"><span>UZMANLIK</span><strong>PROSES KALİTE</strong></div>
                 <div class="hero-spec-line"><span>SAHA DENEYİMİ</span><strong>11+ YIL</strong></div>
                 <div class="hero-spec-line"><span>DİJİTAL ARAÇ</span><strong>04 ADET</strong></div>
+                <div class="hero-spec-line"><span>ODAK</span><strong>BOM · KRİMP · ISO</strong></div>
                 <div class="hero-spec-footer">BOM · KRİMP · ISO · ERP</div>
+                <p class="hero-spec-note">Üretim sahası, kalite dokümantasyonu ve dijital kontrol akışları için uçtan uca profesyonel destek.</p>
             </aside>
         </div>
     </header>
@@ -114,6 +132,10 @@
         <section id="hakkimda" class="section about">
             <div class="container">
                 <div class="section-header">
+                    <div class="section-kicker">
+                        <span class="section-number">01.</span>
+                        <span class="section-label">HAKKIMDA</span>
+                    </div>
                     <span class="section-badge">Profesyonel Profil</span>
                     <h2 class="section-title">Hakkımda & Yetkinlik Özeti</h2>
                     <div class="title-bar"></div>
@@ -174,10 +196,133 @@
             </div>
         </section>
 
+        <!-- Experience, Education & Certifications Section -->
+        <section id="deneyim" class="section experience">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-kicker">
+                        <span class="section-number">02.</span>
+                        <span class="section-label">DENEYİM</span>
+                    </div>
+                    <span class="section-badge">Kariyer Yolculuğum</span>
+                    <h2 class="section-title">İş Deneyimi, Eğitim & Sertifikalar</h2>
+                    <p class="section-subtitle">Şirket deneyimi, eğitim geçmişi ve kalite uzmanlığı sertifikalarını slider mantığında inceleyin.</p>
+                    <div class="title-bar"></div>
+                </div>
+
+                <div class="timeline-controls" aria-label="Deneyim zaman çizelgesi kontrolleri">
+                    <button type="button" class="timeline-nav-btn" id="timeline-prev" aria-label="Önceki deneyim kartı">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+                    <div class="timeline-indicators" role="tablist" aria-label="Deneyim kartlarını seçin">
+                        <button type="button" class="timeline-indicator active" data-index="0" aria-label="Prettl Endüstri Sistemleri"></button>
+                        <button type="button" class="timeline-indicator" data-index="1" aria-label="Yıldız Teknik Üniversitesi"></button>
+                        <button type="button" class="timeline-indicator" data-index="2" aria-label="Halit Narin Anadolu Teknik Lisesi"></button>
+                        <button type="button" class="timeline-indicator" data-index="3" aria-label="Profesyonel sertifikalar"></button>
+                    </div>
+                    <button type="button" class="timeline-nav-btn" id="timeline-next" aria-label="Sonraki deneyim kartı">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="timeline" data-active-index="0">
+                    <div class="timeline-track">
+                        <article class="timeline-item active">
+                            <div class="timeline-logo">
+                                <span>PRETTL</span>
+                                <i class="fa-solid fa-industry"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <span class="timeline-date"><i class="fa-solid fa-briefcase"></i> 2015 – 2026</span>
+                                <h3 class="timeline-title">Proses / Giriş Kalite & Dökümantasyon Uzmanı</h3>
+                                <span class="timeline-company"><i class="fa-solid fa-building"></i> Prettl Endüstri Sistemleri</span>
+                                <div class="timeline-tags">
+                                    <span>Kalite Güvence</span>
+                                    <span>BOM</span>
+                                    <span>ERP / SAP</span>
+                                </div>
+                                <ul class="timeline-bullets">
+                                    <li>ISO 9001, 14001 ve 45001 standartlarına tam uyumluluk için süreç denetimlerinin ve iç tetkiklerin gerçekleştirilmesi.</li>
+                                    <li>Kablo ürün ağaçlarının (BOM) eksiksiz oluşturulması, montaj talimatları ve kalite dökümantasyonunun yönetimi.</li>
+                                    <li>Giriş kalite kontrol süreçlerinde hammadde ve yarı mamul uygunluk testleri ve raporlaması.</li>
+                                    <li>SAP ve ERPNext sistemleri üzerinden hata takip, risk değerlendirmesi ve veri analitiği uygulamalarının yürütülmesi.</li>
+                                    <li>Test ve krimp süreçlerinin dijitalleştirilmesi, aparat doğrulama formlarının ve kalite sorgulama araçlarının geliştirilmesi.</li>
+                                </ul>
+                            </div>
+                        </article>
+
+                        <article class="timeline-item">
+                            <div class="timeline-logo">
+                                <span>YTÜ</span>
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <span class="timeline-date"><i class="fa-solid fa-graduation-cap"></i> Öğrenimi Devam Ediyor</span>
+                                <h3 class="timeline-title">Makine Teknolojileri (Ön Lisans)</h3>
+                                <span class="timeline-company"><i class="fa-solid fa-university"></i> Yıldız Teknik Üniversitesi MYO</span>
+                                <div class="timeline-tags">
+                                    <span>Makine Elemanları</span>
+                                    <span>İmalat</span>
+                                    <span>Teknik Dökümantasyon</span>
+                                </div>
+                                <p>Makine elemanları, imalat yöntemleri, teknik dökümantasyon, malzeme bilimi ve mühendislik temelleri.</p>
+                            </div>
+                        </article>
+
+                        <article class="timeline-item">
+                            <div class="timeline-logo">
+                                <span>MTAL</span>
+                                <i class="fa-solid fa-school"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <span class="timeline-date"><i class="fa-solid fa-school"></i> 2009 Mezunu</span>
+                                <h3 class="timeline-title">Makine Teknolojisi</h3>
+                                <span class="timeline-company"><i class="fa-solid fa-university"></i> Çerkezköy Halit Narin Anadolu Teknik Lisesi</span>
+                                <div class="timeline-tags">
+                                    <span>Teknik Çizim</span>
+                                    <span>Ölçme & Kontrol</span>
+                                    <span>İmalat</span>
+                                </div>
+                                <p>Teknik çizim, talaşlı imalat, ölçme ve kontrol teknolojileri alanında temel mesleki formasyon.</p>
+                            </div>
+                        </article>
+
+                        <article class="timeline-item">
+                            <div class="timeline-logo">
+                                <span>ISO</span>
+                                <i class="fa-solid fa-award"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <span class="timeline-date"><i class="fa-solid fa-certificate"></i> Profesyonel Sertifikalar</span>
+                                <h3 class="timeline-title">Yönetim Sistemleri & Kalite Uzmanlığı</h3>
+                                <span class="timeline-company"><i class="fa-solid fa-stamp"></i> Akredite Eğitim ve Belgelendirme Kuruluşları</span>
+                                <div class="timeline-tags">
+                                    <span>ISO 9001</span>
+                                    <span>ISO 14001</span>
+                                    <span>ISO 45001</span>
+                                </div>
+                                <div class="cert-grid">
+                                    <div class="cert-item"><i class="fa-solid fa-award"></i> ISO 9001:2015 Kalite Yönetim Sistemi</div>
+                                    <div class="cert-item"><i class="fa-solid fa-award"></i> ISO 14001 Çevre Yönetim Sistemi</div>
+                                    <div class="cert-item"><i class="fa-solid fa-award"></i> ISO 45001 İş Sağlığı ve Güvenliği</div>
+                                    <div class="cert-item"><i class="fa-solid fa-award"></i> ISO 19011:2018 İç Tetkikçi Belgesi</div>
+                                    <div class="cert-item"><i class="fa-solid fa-award"></i> Kalite Mühendisliği ve Yöneticiliği Uzmanlık Eğitimleri</div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Skills Section -->
         <section id="yetenekler" class="section skills">
             <div class="container">
                 <div class="section-header">
+                    <div class="section-kicker">
+                        <span class="section-number">03.</span>
+                        <span class="section-label">YETKİNLİKLER</span>
+                    </div>
                     <span class="section-badge">Uzmanlık Alanlarım</span>
                     <h2 class="section-title">Teknik Yetkinlikler</h2>
                     <div class="title-bar"></div>
@@ -232,86 +377,26 @@
             </div>
         </section>
 
-        <!-- Experience, Education & Certifications Section -->
-        <section id="deneyim" class="section experience">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-badge">Kariyer Yolculuğum</span>
-                    <h2 class="section-title">İş Deneyimi, Eğitim & Sertifikalar</h2>
-                    <div class="title-bar"></div>
-                </div>
-
-                <div class="timeline">
-                    <!-- Work Experience -->
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <span class="timeline-date"><i class="fa-solid fa-briefcase"></i> 2015 – 2026</span>
-                            <h3 class="timeline-title">Proses / Giriş Kalite & Dökümantasyon Uzmanı</h3>
-                            <span class="timeline-company"><i class="fa-solid fa-building"></i> Prettl Endüstri Sistemleri</span>
-                            <ul class="timeline-bullets">
-                                <li>ISO 9001, 14001 ve 45001 standartlarına tam uyumluluk için süreç denetimlerinin ve iç tetkiklerin gerçekleştirilmesi.</li>
-                                <li>Kablo ürün ağaçlarının (BOM) eksiksiz oluşturulması, montaj talimatları ve kalite dökümantasyonunun yönetimi.</li>
-                                <li>Giriş kalite kontrol süreçlerinde hammadde ve yarı mamul uygunluk testleri ve raporlaması.</li>
-                                <li>SAP ve ERPNext sistemleri üzerinden hata takip, risk değerlendirmesi ve veri analitiği uygulamalarının yürütülmesi.</li>
-                                <li>Test ve krimp süreçlerinin dijitalleştirilmesi, aparat doğrulama formlarının ve kalite sorgulama araçlarının geliştirilmesi.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Education 1 -->
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <span class="timeline-date"><i class="fa-solid fa-graduation-cap"></i> Öğrenimi Devam Ediyor</span>
-                            <h3 class="timeline-title">Makine Teknolojileri (Ön Lisans)</h3>
-                            <span class="timeline-company"><i class="fa-solid fa-university"></i> Yıldız Teknik Üniversitesi MYO</span>
-                            <p>Makine elemanları, imalat yöntemleri, teknik dökümantasyon, malzeme bilimi ve mühendislik temelleri.</p>
-                        </div>
-                    </div>
-
-                    <!-- Education 2 -->
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <span class="timeline-date"><i class="fa-solid fa-school"></i> 2009 Mezunu</span>
-                            <h3 class="timeline-title">Makine Teknolojisi</h3>
-                            <span class="timeline-company"><i class="fa-solid fa-university"></i> Çerkezköy Halit Narin Anadolu Teknik Lisesi</span>
-                            <p>Teknik çizim, talaşlı imalat, ölçme ve kontrol teknolojileri alanında temel mesleki formasyon.</p>
-                        </div>
-                    </div>
-
-                    <!-- Certifications -->
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <span class="timeline-date"><i class="fa-solid fa-certificate"></i> Profesyonel Sertifikalar</span>
-                            <h3 class="timeline-title">Yönetim Sistemleri & Kalite Uzmanlığı</h3>
-                            <span class="timeline-company"><i class="fa-solid fa-stamp"></i> Akredite Eğitim ve Belgelendirme Kuruluşları</span>
-                            <div class="cert-grid">
-                                <div class="cert-item"><i class="fa-solid fa-award"></i> ISO 9001:2015 Kalite Yönetim Sistemi</div>
-                                <div class="cert-item"><i class="fa-solid fa-award"></i> ISO 14001 Çevre Yönetim Sistemi</div>
-                                <div class="cert-item"><i class="fa-solid fa-award"></i> ISO 45001 İş Sağlığı ve Güvenliği</div>
-                                <div class="cert-item"><i class="fa-solid fa-award"></i> ISO 19011:2018 İç Tetkikçi Belgesi</div>
-                                <div class="cert-item"><i class="fa-solid fa-award"></i> Kalite Mühendisliği ve Yöneticiliği Uzmanlık Eğitimleri</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Projects Section -->
         <section id="projeler" class="section projects">
             <div class="container">
                 <div class="section-header">
+                    <div class="section-kicker">
+                        <span class="section-number">04.</span>
+                        <span class="section-label">PROJELERİ</span>
+                    </div>
                     <span class="section-badge">Geliştirdiğim Araçlar</span>
                     <h2 class="section-title">Öne Çıkan Projelerim</h2>
+                    <p class="section-subtitle">Canlı kalite araçları, otomasyon çözümleri ve süreç odaklı dijital projeler.</p>
                     <div class="title-bar"></div>
                 </div>
 
                 <div class="project-list">
                     <article class="project-card">
+                        <div class="project-visual">
+                            <span class="project-visual-label">CANLI KALİTE AKIŞI</span>
+                            <strong>PTR 07/222-02</strong>
+                        </div>
                         <div class="project-header">
                             <i class="fa-solid fa-clipboard-check project-icon"></i>
                             <div class="project-links">
@@ -332,6 +417,10 @@
                     </article>
 
                     <article class="project-card">
+                        <div class="project-visual">
+                            <span class="project-visual-label">ÖLÇÜM & ANALİZ</span>
+                            <strong>1.548 STANDART</strong>
+                        </div>
                         <div class="project-header">
                             <i class="fa-solid fa-ruler-combined project-icon"></i>
                             <div class="project-links">
@@ -351,6 +440,10 @@
                     </article>
 
                     <article class="project-card">
+                        <div class="project-visual">
+                            <span class="project-visual-label">VERİ OTOMASYONU</span>
+                            <strong>MODÜLER RAPORLAMA</strong>
+                        </div>
                         <div class="project-header">
                             <i class="fa-brands fa-python project-icon"></i>
                             <div class="project-links">
@@ -370,6 +463,10 @@
                     </article>
 
                     <article class="project-card">
+                        <div class="project-visual">
+                            <span class="project-visual-label">PORTFOLYO PLATFORMU</span>
+                            <strong>RESPONSIVE UI</strong>
+                        </div>
                         <div class="project-header">
                             <i class="fa-solid fa-globe project-icon"></i>
                             <div class="project-links">
@@ -389,6 +486,10 @@
                     </article>
 
                     <article class="project-card">
+                        <div class="project-visual">
+                            <span class="project-visual-label">PROSES KONTROLÜ</span>
+                            <strong>SKOR & RAPOR</strong>
+                        </div>
                         <div class="project-header">
                             <i class="fa-solid fa-list-check project-icon"></i>
                             <div class="project-links">
@@ -1048,8 +1149,13 @@
         <section id="iletisim" class="section contact">
             <div class="container">
                 <div class="section-header">
+                    <div class="section-kicker">
+                        <span class="section-number">05.</span>
+                        <span class="section-label">İLETİŞİM</span>
+                    </div>
                     <span class="section-badge">Bana Ulaşın</span>
                     <h2 class="section-title">İletişim</h2>
+                    <p class="section-subtitle">Projeleriniz, kalite süreçleriniz veya dijital kontrol ihtiyaçlarınız için doğrudan iletişime geçin.</p>
                     <div class="title-bar"></div>
                 </div>
 
