@@ -24,9 +24,10 @@
     
     <link rel="stylesheet" href="style.css?v=dark-2">
     
-    <!-- Chart.js, SheetJS (Excel) & html2pdf (PDF) CDNs for Quality Modules -->
+    <!-- Chart.js, ExcelJS (Excel) & html2pdf (PDF) CDNs for Quality Modules -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <link rel="stylesheet" href="modules/qualityHub.css">
 </head>
@@ -1122,7 +1123,10 @@
                         <i class="fa-solid fa-clipboard-check"></i> DÖF / CAPA
                     </button>
                     <button type="button" class="qm-tab-btn" data-tab="eightd">
-                        <i class="fa-solid fa-network-wired"></i> 8D Raporu <span class="tab-badge" style="background: #0ea5e9;">Yeni</span>
+                        <i class="fa-solid fa-network-wired"></i> 8D Raporu
+                    </button>
+                    <button type="button" class="qm-tab-btn" data-tab="eightdalert">
+                        <i class="fa-solid fa-bullhorn"></i> 8D Bilgilendirme <span class="tab-badge" style="background: #e11d48;">Yeni</span>
                     </button>
                     <button type="button" class="qm-tab-btn" data-tab="kaizen">
                         <i class="fa-solid fa-arrow-trend-up"></i> Kaizen Aksiyonları
@@ -2379,6 +2383,145 @@
                                     </button>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel 9: 8D Kalite Bilgilendirme Formu -->
+                <div class="qm-tab-panel" id="qm-panel-eightdalert">
+                    <div class="fives-container">
+                        <div class="fives-header-card">
+                            <div class="fives-header-main">
+                                <div>
+                                    <h3 style="margin: 0; font-size: 1.25rem; color: var(--text-primary);">
+                                        <i class="fa-solid fa-bullhorn" style="color: #e11d48;"></i> 8D & Kalite Hata Bilgilendirme Formu (Quality Alert)
+                                    </h3>
+                                    <span style="font-size: 0.85rem; color: var(--text-muted);">Üretim hattını bilgilendirmek ve karantina aksiyonlarını duyurmak için tek sayfalık acil durum bildirim formatı.</span>
+                                </div>
+                                <div class="fives-actions-group">
+                                    <button type="button" class="btn btn-outline btn-sm btn-export-excel" id="btn-eightdalert-export-excel" style="color: #107c41; border-color: rgba(16, 124, 65, 0.4);">
+                                        <i class="fa-solid fa-file-excel"></i> Excel (.xlsx) İndir
+                                    </button>
+                                    <button type="button" class="btn btn-outline btn-sm btn-export-pdf" id="btn-eightdalert-export-pdf" style="color: #e11d48; border-color: rgba(225, 29, 72, 0.4);">
+                                        <i class="fa-solid fa-file-pdf"></i> PDF (.pdf) İndir
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="eightd-printable-area" id="eightdalert-printable-area" style="margin-top: 20px; border: 2px solid #e11d48; border-radius: 8px; padding: 20px;">
+                            <div style="text-align: center; border-bottom: 3px solid #e11d48; padding-bottom: 15px; margin-bottom: 20px;">
+                                <h1 style="color: #e11d48; margin: 0; font-size: 1.8rem; text-transform: uppercase;">Kalite Hata Bilgilendirme Formu</h1>
+                                <h3 style="color: var(--text-muted); margin: 5px 0 0 0; font-size: 1.1rem;">Quality Alert / 8D Initial Notification</h3>
+                            </div>
+
+                            <div class="fives-meta-grid" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 25px;">
+                                <div class="fives-meta-field">
+                                    <label>Bildirim Tarihi</label>
+                                    <input type="date" id="alert-date">
+                                </div>
+                                <div class="fives-meta-field">
+                                    <label>Müşteri / Proje</label>
+                                    <input type="text" id="alert-customer" placeholder="Örn: Otomotiv A.Ş.">
+                                </div>
+                                <div class="fives-meta-field">
+                                    <label>Parça No & Tanımı</label>
+                                    <input type="text" id="alert-part" placeholder="Örn: 12345-Kablo">
+                                </div>
+                                <div class="fives-meta-field">
+                                    <label>Bildirimi Yapan</label>
+                                    <input type="text" id="alert-author" placeholder="Örn: Kalite Müh.">
+                                </div>
+                            </div>
+
+                            <div class="eightd-discipline-card" style="border-left-color: #f59e0b; margin-bottom: 20px;">
+                                <div class="eightd-discipline-header">
+                                    <h4 class="eightd-d-title"><i class="fa-solid fa-triangle-exclamation" style="color: #f59e0b;"></i> Hata Tanımı (Problem Description)</h4>
+                                </div>
+                                <div class="fives-meta-grid" style="grid-template-columns: 1fr;">
+                                    <textarea id="alert-problem" rows="3" class="fives-textarea" placeholder="Hatanın ne olduğu, nerede bulunduğu ve boyutunu açıklayın..."></textarea>
+                                </div>
+                            </div>
+
+                            <div class="eightd-discipline-card" style="border-left-color: #3b82f6; margin-bottom: 20px;">
+                                <div class="eightd-discipline-header">
+                                    <h4 class="eightd-d-title"><i class="fa-solid fa-camera" style="color: #3b82f6;"></i> Görsel Karşılaştırma (Hatalı vs Doğru)</h4>
+                                </div>
+                                <div class="fives-meta-grid" style="grid-template-columns: 1fr 1fr; gap: 20px;">
+                                    <div style="text-align: center; border: 2px dashed #ef4444; padding: 20px; border-radius: 8px; background: rgba(239, 68, 68, 0.05);">
+                                        <h5 style="color: #ef4444; margin-top: 0; font-size: 1.1rem;">NOK / Hatalı Durum (X)</h5>
+                                        <i class="fa-solid fa-image" style="font-size: 3rem; color: #fca5a5;"></i>
+                                        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0;">Görsel Ekleyin (veya çıktı alıp yapıştırın)</p>
+                                    </div>
+                                    <div style="text-align: center; border: 2px dashed #10b981; padding: 20px; border-radius: 8px; background: rgba(16, 185, 129, 0.05);">
+                                        <h5 style="color: #10b981; margin-top: 0; font-size: 1.1rem;">OK / Doğru Durum (✓)</h5>
+                                        <i class="fa-solid fa-image" style="font-size: 3rem; color: #6ee7b7;"></i>
+                                        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0;">Görsel Ekleyin (veya çıktı alıp yapıştırın)</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="eightd-discipline-card" style="border-left-color: #10b981; margin-bottom: 20px;">
+                                <div class="eightd-discipline-header">
+                                    <h4 class="eightd-d-title"><i class="fa-solid fa-boxes-stacked" style="color: #10b981;"></i> Acil Önlem & Karantina (D3 Immediate Actions)</h4>
+                                </div>
+                                <div class="fives-meta-grid" style="grid-template-columns: 1fr;">
+                                    <textarea id="alert-action" rows="3" class="fives-textarea" placeholder="Hattın durdurulması, ayrıştırma/sorting operasyonları ve %100 kontrol şartları..."></textarea>
+                                </div>
+                                <div class="fives-meta-grid" style="grid-template-columns: repeat(3, 1fr); margin-top: 15px;">
+                                    <div class="fives-meta-field">
+                                        <label>Üretim Onayı</label>
+                                        <input type="text" placeholder="İmza:">
+                                    </div>
+                                    <div class="fives-meta-field">
+                                        <label>Kalite Onayı</label>
+                                        <input type="text" placeholder="İmza:">
+                                    </div>
+                                    <div class="fives-meta-field">
+                                        <label>Mühendislik Onayı</label>
+                                        <input type="text" placeholder="İmza:">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="eightd-discipline-card" style="border-left-color: #8b5cf6;">
+                                <div class="eightd-discipline-header">
+                                    <h4 class="eightd-d-title"><i class="fa-solid fa-users" style="color: #8b5cf6;"></i> Bilgilendirilen Personel (Katılımcı Listesi)</h4>
+                                </div>
+                                <div class="fives-meta-grid" style="grid-template-columns: repeat(5, 1fr); gap: 15px;">
+                                    <div class="fives-meta-field">
+                                        <label>1. Personel</label>
+                                        <input type="text" id="alert-att-1" placeholder="Ad Soyad">
+                                        <div style="height: 35px; border-bottom: 1px dashed #cbd5e1; margin-top: 5px;"></div>
+                                        <span style="font-size: 0.75rem; color: #94a3b8; display: block; text-align: center; margin-top: 4px;">İmza</span>
+                                    </div>
+                                    <div class="fives-meta-field">
+                                        <label>2. Personel</label>
+                                        <input type="text" id="alert-att-2" placeholder="Ad Soyad">
+                                        <div style="height: 35px; border-bottom: 1px dashed #cbd5e1; margin-top: 5px;"></div>
+                                        <span style="font-size: 0.75rem; color: #94a3b8; display: block; text-align: center; margin-top: 4px;">İmza</span>
+                                    </div>
+                                    <div class="fives-meta-field">
+                                        <label>3. Personel</label>
+                                        <input type="text" id="alert-att-3" placeholder="Ad Soyad">
+                                        <div style="height: 35px; border-bottom: 1px dashed #cbd5e1; margin-top: 5px;"></div>
+                                        <span style="font-size: 0.75rem; color: #94a3b8; display: block; text-align: center; margin-top: 4px;">İmza</span>
+                                    </div>
+                                    <div class="fives-meta-field">
+                                        <label>4. Personel</label>
+                                        <input type="text" id="alert-att-4" placeholder="Ad Soyad">
+                                        <div style="height: 35px; border-bottom: 1px dashed #cbd5e1; margin-top: 5px;"></div>
+                                        <span style="font-size: 0.75rem; color: #94a3b8; display: block; text-align: center; margin-top: 4px;">İmza</span>
+                                    </div>
+                                    <div class="fives-meta-field">
+                                        <label>5. Personel</label>
+                                        <input type="text" id="alert-att-5" placeholder="Ad Soyad">
+                                        <div style="height: 35px; border-bottom: 1px dashed #cbd5e1; margin-top: 5px;"></div>
+                                        <span style="font-size: 0.75rem; color: #94a3b8; display: block; text-align: center; margin-top: 4px;">İmza</span>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>

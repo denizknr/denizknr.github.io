@@ -16,17 +16,20 @@
 
 /* Hub Navigation Tabs */
 .qm-nav-bar {
-    display: flex;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 10px;
-    padding: 8px;
-    background: var(--bg-card);
+    padding: 12px;
+    background: var(--navbar-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border: 1px solid var(--border-color);
     border-radius: 12px;
     margin-bottom: 32px;
-    overflow-x: auto;
-    scrollbar-width: thin;
     box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 76px;
+    z-index: 900;
 }
 
 .qm-nav-bar::-webkit-scrollbar {
@@ -41,18 +44,20 @@
 .qm-tab-btn {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
-    padding: 10px 18px;
+    padding: 12px 16px;
     font-size: 0.9rem;
     font-weight: 600;
     color: var(--text-secondary);
-    background: transparent;
-    border: 1px solid transparent;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
     border-radius: 8px;
     cursor: pointer;
     white-space: nowrap;
     transition: var(--transition);
     text-decoration: none;
+    width: 100%;
 }
 
 .qm-tab-btn:hover {
@@ -366,6 +371,9 @@
 }
 
 @media (max-width: 1024px) {
+    .qm-nav-bar {
+        grid-template-columns: repeat(2, 1fr);
+    }
     .fives-main-layout {
         grid-template-columns: 1fr;
     }
@@ -1674,6 +1682,9 @@
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+    .qm-nav-bar {
+        grid-template-columns: 1fr;
+    }
     .fives-meta-grid {
         grid-template-columns: 1fr;
     }

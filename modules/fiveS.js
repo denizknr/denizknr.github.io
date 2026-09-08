@@ -927,7 +927,13 @@
         });
 
         if (window.ExportHelper) {
-            window.ExportHelper.toExcel(`5S_Denetim_${line.replace(/[^a-zA-Z0-9]/g, '_')}_${date}`, '5S Saha Denetimi', excelData);
+            window.ExportHelper.toExcel(
+                `5S_Denetim_${line.replace(/[^a-zA-Z0-9]/g, '_')}_${date}`, 
+                '5S Saha Denetimi', 
+                excelData,
+                null,
+                { chartCanvasId: 'fives-radar-chart' }
+            );
             alertFeedback('success', '5S Denetim Raporu Excel (.xlsx) formatında indirildi.');
         } else {
             exportToCSV();

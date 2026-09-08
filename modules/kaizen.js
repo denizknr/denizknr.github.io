@@ -434,7 +434,13 @@
         }));
 
         if (window.ExportHelper) {
-            window.ExportHelper.toExcel(`Kaizen_Aksiyon_Raporu_${new Date().toISOString().split('T')[0]}`, 'Kaizenler', excelData);
+            window.ExportHelper.toExcel(
+                `Kaizen_Aksiyon_Raporu_${new Date().toISOString().split('T')[0]}`, 
+                'Kaizenler', 
+                excelData,
+                null,
+                { chartCanvasId: 'kaizen-trend-chart' }
+            );
         }
     }
 

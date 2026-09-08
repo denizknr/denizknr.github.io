@@ -69,6 +69,11 @@
     }
 
     function bindEvents() {
+        const themeObserver = new MutationObserver(() => {
+            renderSvgFishbone();
+        });
+        themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
         // Problem alanı güncellemeleri
         const probInput = document.getElementById('fishbone-problem-input');
         if (probInput) {

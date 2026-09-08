@@ -2,59 +2,59 @@
    CSS Variables & Theme Settings
    ========================================================================== */
 :root {
-    --bg-primary: #f7f4ee;
-    --bg-secondary: #ece8df;
-    --bg-card: #fffefa;
-    --bg-card-hover: #f5e7d8;
-    --bg-tag: #eee0d1;
-    --border-color: #cbb9a5;
-    --border-hover: #a4876f;
+    --bg-primary: #f8fafc;
+    --bg-secondary: #f1f5f9;
+    --bg-card: #ffffff;
+    --bg-card-hover: #e2e8f0;
+    --bg-tag: #e2e8f0;
+    --border-color: #cbd5e1;
+    --border-hover: #94a3b8;
     
     --text-primary: #0f172a;
-    --text-secondary: #34495e;
-    --text-muted: #657585;
+    --text-secondary: #334155;
+    --text-muted: #64748b;
     
-    --primary: #1d4e89;
-    --primary-light: #2878b5;
-    --primary-gradient: linear-gradient(135deg, #1d4e89 0%, #d95d39 100%);
-    --accent: #e08a27;
+    --primary: #1e40af;
+    --primary-light: #3b82f6;
+    --primary-gradient: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    --accent: #f59e0b;
     --success: #10b981;
     --warning: #f59e0b;
     --danger: #ef4444;
 
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.03);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.025);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.025);
 
-    --navbar-bg: rgba(244, 241, 235, 0.94);
+    --navbar-bg: rgba(248, 250, 252, 0.94);
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 [data-theme="dark"] {
-    --bg-primary: #101418;
-    --bg-secondary: #161d23;
-    --bg-card: #1c252e;
-    --bg-card-hover: #26323d;
-    --bg-tag: #2b3945;
-    --border-color: #3a4a57;
-    --border-hover: #5b7180;
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-card: #1e293b;
+    --bg-card-hover: #334155;
+    --bg-tag: #334155;
+    --border-color: #334155;
+    --border-hover: #475569;
 
     --text-primary: #f8fafc;
     --text-secondary: #d2dce4;
     --text-muted: #9eafbc;
 
-    --primary: #6bb9e3;
-    --primary-light: #9bd7f2;
-    --primary-gradient: linear-gradient(135deg, #246aa0 0%, #e87552 100%);
-    --accent: #f2b84b;
+    --primary: #3b82f6;
+    --primary-light: #60a5fa;
+    --primary-gradient: linear-gradient(135deg, #2563eb 0%, #60a5fa 100%);
+    --accent: #fbbf24;
 
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -4px rgba(0, 0, 0, 0.4);
     --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
 
-    --navbar-bg: rgba(16, 20, 24, 0.95);
+    --navbar-bg: rgba(15, 23, 42, 0.95);
 }
 
 /* ==========================================================================
@@ -1238,7 +1238,7 @@ ul {
 
 .kontak-input-wrap input:focus {
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
 }
 
 .kontak-input-wrap .clear-btn {
@@ -1356,7 +1356,7 @@ ul {
 
 .krimp-select:focus {
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
 }
 
 .krimp-select:disabled {
@@ -1734,7 +1734,7 @@ ul {
 
 .catalog-search-wrap input:focus {
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
 }
 
 .catalog-meta-info {
@@ -2051,7 +2051,7 @@ ul {
 
 .custom-add-input-group input:focus {
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
 }
 
 .btn-delete-row {
@@ -2380,7 +2380,7 @@ ul {
 .form-group input:focus,
 .form-group textarea:focus {
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
 }
 
 .form-status {

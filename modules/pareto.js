@@ -328,7 +328,13 @@
         });
 
         if (window.ExportHelper) {
-            window.ExportHelper.toExcel(`Pareto_Analiz_Raporu_${new Date().toISOString().split('T')[0]}`, 'Pareto 80-20 Analizi', excelData);
+            window.ExportHelper.toExcel(
+                `Pareto_Analiz_Raporu_${new Date().toISOString().split('T')[0]}`, 
+                'Pareto 80-20 Analizi', 
+                excelData,
+                null,
+                { chartCanvasId: 'pareto-chart-canvas' }
+            );
         }
     }
 

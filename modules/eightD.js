@@ -205,6 +205,11 @@
         loadReport();
         bindEvents();
         updateCompletionProgress();
+        
+        const alertDateObj = document.getElementById('alert-date');
+        if (alertDateObj && !alertDateObj.value) {
+            alertDateObj.value = new Date().toISOString().split('T')[0];
+        }
     }
 
     function getDefaultReport() {
@@ -506,6 +511,62 @@
         });
     }
 
+    function exportAlertToPdf() {
+        if (typeof window.ExportHelper === 'undefined') {
+            alert('ExportHelper modülü bulunamadı.');
+            return;
+        }
+
+        const printableContainer = document.getElementById('eightdalert-printable-area');
+        if (!printableContainer) {
+            alert('Yazdırılacak Bilgilendirme Formu alanı bulunamadı.');
+            return;
+        }
+
+        const dateVal = document.getElementById('alert-date') ? document.getElementById('alert-date').value : new Date().toISOString().split('T')[0];
+        const fileName = `Kalite_Hata_Bilgilendirme_Formu_${dateVal}.pdf`;
+        
+        window.ExportHelper.toPdf(printableContainer, fileName, {
+            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        });
+    }
+
+    function exportAlertToExcel() {
+        if (typeof window.ExportHelper === 'undefined') {
+            alert('ExportHelper modülü bulunamadı.');
+            return;
+        }
+
+        const dateVal = document.getElementById('alert-date') ? document.getElementById('alert-date').value : '';
+        const customer = document.getElementById('alert-customer') ? document.getElementById('alert-customer').value : '';
+        const part = document.getElementById('alert-part') ? document.getElementById('alert-part').value : '';
+        const author = document.getElementById('alert-author') ? document.getElementById('alert-author').value : '';
+        const problem = document.getElementById('alert-problem') ? document.getElementById('alert-problem').value : '';
+        const action = document.getElementById('alert-action') ? document.getElementById('alert-action').value : '';
+        
+        const att1 = document.getElementById('alert-att-1') ? document.getElementById('alert-att-1').value : '';
+        const att2 = document.getElementById('alert-att-2') ? document.getElementById('alert-att-2').value : '';
+        const att3 = document.getElementById('alert-att-3') ? document.getElementById('alert-att-3').value : '';
+        const att4 = document.getElementById('alert-att-4') ? document.getElementById('alert-att-4').value : '';
+        const att5 = document.getElementById('alert-att-5') ? document.getElementById('alert-att-5').value : '';
+
+        const excelData = [
+            { "Kategori": "Bildirim Tarihi", "Değer": dateVal },
+            { "Kategori": "Müşteri / Proje", "Değer": customer },
+            { "Kategori": "Parça No", "Değer": part },
+            { "Kategori": "Bildirimi Yapan", "Değer": author },
+            { "Kategori": "Hata Tanımı (Problem)", "Değer": problem },
+            { "Kategori": "Acil Önlem (Karantina/Sorting)", "Değer": action },
+            { "Kategori": "Katılımcı 1", "Değer": att1 },
+            { "Kategori": "Katılımcı 2", "Değer": att2 },
+            { "Kategori": "Katılımcı 3", "Değer": att3 },
+            { "Kategori": "Katılımcı 4", "Değer": att4 },
+            { "Kategori": "Katılımcı 5", "Değer": att5 }
+        ];
+
+        window.ExportHelper.toExcel(`Kalite_Hata_Bilgilendirme_Formu_${dateVal || 'Rapor'}`, 'Quality Alert', excelData, ['Kategori', 'Değer']);
+    }
+
     function sendToDof() {
         collectFormData();
         try {
@@ -588,6 +649,12 @@
         const btnPdf = document.getElementById('btn-eightd-export-pdf');
         if (btnExcel) btnExcel.addEventListener('click', exportToExcel);
         if (btnPdf) btnPdf.addEventListener('click', exportToPdf);
+
+        // Quality Alert Export
+        const btnAlertPdf = document.getElementById('btn-eightdalert-export-pdf');
+        if (btnAlertPdf) btnAlertPdf.addEventListener('click', exportAlertToPdf);
+        const btnAlertExcel = document.getElementById('btn-eightdalert-export-excel');
+        if (btnAlertExcel) btnAlertExcel.addEventListener('click', exportAlertToExcel);
 
         // Inter-module bridges
         const btnToDof = document.getElementById('btn-eightd-to-dof');
