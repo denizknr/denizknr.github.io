@@ -6,14 +6,14 @@
     <title>Deniz Kanar | Kalite Güvence & Proses Kalite Uzmanı</title>
     
     <!-- SEO & Meta Tags -->
-    <meta name="description" content="Deniz Kanar - Kalite Güvence ve Proses Kalite Uzmanı. 11 yıllık saha tecrübesi, kablo ürün ağaçları (BOM), montaj hatları denetimi, SAP, ERPNext ve dijital kalite sistemleri.">
-    <meta name="keywords" content="Deniz Kanar, Kalite Güvence, Proses Kalite, Kablo Montaj, BOM, SAP, ERPNext, ISO 9001, ISO 19011, Krimp Analizi, Poke-Yoke, Python, Portfolyo">
+    <meta name="description" content="Deniz Kanar - Kalite Güvence, Proses Kalite ve Yalın Üretim Uzmanı. 11 yıllık saha tecrübesi, 5S, Kaizen, 8D, PFMEA, kablo ürün ağaçları (BOM), montaj denetimi, SAP, ERPNext ve dijital kalite sistemleri.">
+    <meta name="keywords" content="Deniz Kanar, Kalite Güvence, Proses Kalite, Yalın Üretim, 5S, Kaizen, 8D Problem Çözme, PFMEA, DÖF, Kablo Montaj, BOM, SAP, ERPNext, ISO 9001, ISO 19011, Krimp Analizi, Poke-Yoke, Python, Portfolyo">
     <meta name="author" content="Deniz Kanar">
     
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Deniz Kanar | Kalite Güvence & Proses Kalite Uzmanı">
-    <meta property="og:description" content="11 yıllık saha tecrübesiyle Kalite Güvence, Kablo Ürün Ağaçları (BOM), SAP/ERPNext ve veri odaklı süreç optimizasyonu.">
+    <meta property="og:title" content="Deniz Kanar | Kalite Güvence & Proses Kalite Uzmanı | Yalın Üretim & Kaizen">
+    <meta property="og:description" content="11 yıllık saha tecrübesiyle Kalite Güvence, Yalın Üretim, 5S, Kaizen, 8D Problem Çözme, Kablo Ürün Ağaçları (BOM), SAP/ERPNext ve veri odaklı süreç optimizasyonu.">
     <meta property="og:url" content="https://denizknr.github.io">
     
     <!-- Google Fonts & Font Awesome -->
@@ -23,6 +23,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <link rel="stylesheet" href="style.css?v=dark-2">
+    
+    <!-- Chart.js, SheetJS (Excel) & html2pdf (PDF) CDNs for Quality Modules -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <link rel="stylesheet" href="modules/qualityHub.css">
 </head>
 <body>
     <!-- Navbar -->
@@ -39,6 +45,7 @@
                     <li><a href="#yetenekler" class="nav-link">Yetkinlikler</a></li>
                     <li><a href="#deneyim" class="nav-link">Deneyim & Eğitim</a></li>
                     <li><a href="#projeler" class="nav-link">Projeler</a></li>
+                    <li><a href="#kalite-merkezi" class="nav-link"><i class="fa-solid fa-gauge-high"></i> Kalite Merkezi</a></li>
                     <li><a href="#krimp-araci" class="nav-link">Krimp Aracı</a></li>
                     <li><a href="#proses-kontrol" class="nav-link">Proses Kontrolü</a></li>
                     <li><a href="#dogrulama-araci" class="nav-link">Doğrulama Formu</a></li>
@@ -62,20 +69,23 @@
         <div class="container hero-container">
             <div class="hero-content">
                 <div class="badge">
-                    <span class="badge-dot"></span> 11 Yıllık Kalite Güvence & Saha Tecrübesi
+                    <span class="badge-dot"></span> 11 Yıllık Kalite Güvence, Yalın Üretim & Saha Tecrübesi
                 </div>
                 <h1 class="hero-title">
                     Merhaba, Ben <span class="gradient-text">Deniz Kanar</span>
                 </h1>
                 <p class="hero-role">
-                    <i class="fa-solid fa-certificate"></i> Kalite Güvence & Proses Kalite Uzmanı
+                    <i class="fa-solid fa-certificate"></i> Kalite Güvence & Proses Kalite Uzmanı | Yalın Üretim & Kaizen
                 </p>
                 <p class="hero-subtitle">
-                    Kablo ürün ağaçları (BOM), montaj hatları denetimi, ISO standartları ve SAP / ERPNext sistemleri üzerinden veriye dayalı kalite optimizasyonu ve dijital çözümler üretiyorum.
+                    11 yıllık endüstriyel üretim tecrübesiyle <strong>5S, Kaizen, Global 8D Problem Çözme, PFMEA ve DÖF/CAPA</strong> metodolojilerini sahada aktif uyguluyor; kablo ürün ağaçları (BOM), IPC-A-620 montaj denetimi, ISO standartları ve SAP / ERPNext sistemleri üzerinden sıfır hata ve veriye dayalı sürekli iyileştirme sağlıyorum.
                 </p>
                 <div class="hero-buttons">
                     <a href="#hakkimda" class="btn btn-primary">
                         <i class="fa-solid fa-user-tie"></i> Özgeçmişi İncele
+                    </a>
+                    <a href="#kalite-merkezi" class="btn btn-outline" style="border-color: var(--accent); color: var(--accent);">
+                        <i class="fa-solid fa-gauge-high"></i> Kalite Yönetim Merkezi
                     </a>
                     <a href="#krimp-araci" class="btn btn-outline">
                         <i class="fa-solid fa-microchip"></i> Krimp & Kalite Araçları
@@ -101,10 +111,12 @@
                     <span>PROFIL / 2026</span>
                     <span class="hero-spec-status"><i class="fa-solid fa-circle"></i> AKTİF</span>
                 </div>
-                <div class="hero-spec-line"><span>UZMANLIK</span><strong>PROSES KALİTE</strong></div>
+                <div class="hero-spec-line"><span>UZMANLIK</span><strong>PROSES KALİTE & YALIN</strong></div>
                 <div class="hero-spec-line"><span>SAHA DENEYİMİ</span><strong>11+ YIL</strong></div>
-                <div class="hero-spec-line"><span>DİJİTAL ARAÇ</span><strong>04 ADET</strong></div>
-                <div class="hero-spec-footer">BOM · KRİMP · ISO · ERP</div>
+                <div class="hero-spec-line"><span>METODOLOJİ</span><strong>5S · 8D · KAIZEN · FMEA</strong></div>
+                <div class="hero-spec-line"><span>STANDARTLAR</span><strong>ISO 9001/19011 · IPC-A-620</strong></div>
+                <div class="hero-spec-line"><span>DİJİTAL SİSTEM</span><strong>SAP · ERPNEXT · WEB HUB</strong></div>
+                <div class="hero-spec-footer">BOM · KRİMP · POKA-YOKE · DÖF/CAPA</div>
             </aside>
         </div>
     </header>
@@ -124,13 +136,29 @@
                         <div class="about-avatar">
                             <i class="fa-solid fa-award"></i>
                         </div>
-                        <h3>Profesyonel Özet</h3>
+                        <h3>Profesyonel Özet & Kalite Felsefesi</h3>
                         <p>
-                            Kalite yönetim sistemleri ve proses kalite güvence süreçlerinde <strong>11 yıllık saha tecrübesine</strong> sahibim. Kablo ürün ağaçları (BOM), kablo montaj hatlarının denetimi, proses iyileştirme ve teknik dökümantasyon yönetimi konularında derin uzmanlığa sahibim.
+                            Kalite güvence sistemleri, proses kalite kontrol ve <strong>Yalın Üretim (Lean Manufacturing)</strong> süreçlerinde <strong>11 yıllık endüstriyel saha ve hat denetimi tecrübesine</strong> sahibim. Üretim sahasında (Gemba) <strong>5S metodolojisi</strong> (Ayıkla, Düzenle, Temizle, Standartlaştır, Sürdür) ile görsel fabrika standartlarını tesis etmek, <strong>Kaizen (Sürekli İyileştirme)</strong> projeleriyle israfları (Muda, Muri, Mura) ve ergonomik/operasyonel darboğazları ortadan kaldırmak konusunda aktif liderlik yürütüyorum.
                         </p>
                         <p>
-                            <strong>SAP</strong> ve <strong>ERPNext</strong> kurumsal kaynak planlama sistemleri üzerinden veriye dayalı hata analizi, risk değerlendirmesi ve süreç optimizasyonu odaklı çalışıyorum. Kalite süreçlerini modern yazılım ve otomasyon araçlarıyla dijitalleştirerek hata oranlarını minimize eden sistemler kuruyorum.
+                            Müşteri şikayetleri ve kritik iç proses uygunsuzluklarında <strong>Global 8D Problem Çözme (5W2H, D1–D8, acil karantina/ICA ve kalıcı aksiyon/PCA)</strong> disiplinini yönetiyor; <strong>5 Neden (5 Why)</strong> ve <strong>Ishikawa (Balık Kılçığı - 6M)</strong> kök neden analizleriyle kronik hataların tekrarlanmasını önlüyorum. <strong>PFMEA (Proses Hata Türü ve Etkileri Analizi)</strong> ile potansiyel riskleri önceden öngörüp RPN/AP risk skorlarını düşürüyor; <strong>DÖF / CAPA</strong> süreçlerini kök neden aksiyon planları ve etkinlik doğrulama kriterleriyle güvenceye alıyorum.
                         </p>
+                        <p>
+                            Kablo ürün ağaçları (BOM), montaj talimatları, <strong>IPC/WHMA-A-620</strong> standartlarına göre krimp parametreleri (CCH/CW toleransları, çekme kuvveti / pull-force testleri), elektriksel testler ve <strong>Poka-Yoke (Hata Önleme)</strong> mekanizmaları üzerine derin uzmanlığa sahibim. <strong>SAP</strong> ve <strong>ERPNext</strong> kurumsal kaynak planlama sistemleri ile modern web ve veri analitiği teknolojilerini entegre ederek kalite süreçlerini dijitalleştiren araçlar geliştiriyorum.
+                        </p>
+
+                        <!-- Temel Kalite & Yalın Metodoloji Rozetleri -->
+                        <div class="about-lean-pills">
+                            <span class="lean-pill"><i class="fa-solid fa-broom"></i> 5S & Görsel Fabrika</span>
+                            <span class="lean-pill"><i class="fa-solid fa-arrow-trend-up"></i> Kaizen (Sürekli İyileştirme)</span>
+                            <span class="lean-pill"><i class="fa-solid fa-network-wired"></i> Global 8D Problem Çözme</span>
+                            <span class="lean-pill"><i class="fa-solid fa-triangle-exclamation"></i> PFMEA & RPN / AP Analizi</span>
+                            <span class="lean-pill"><i class="fa-solid fa-clipboard-check"></i> DÖF / CAPA & Etkinlik</span>
+                            <span class="lean-pill"><i class="fa-solid fa-diagram-project"></i> 5 Neden & Balık Kılçığı</span>
+                            <span class="lean-pill"><i class="fa-solid fa-chart-column"></i> Pareto (80/20 Kuralı)</span>
+                            <span class="lean-pill"><i class="fa-solid fa-shield-halved"></i> Poka-Yoke & Hata Önleme</span>
+                            <span class="lean-pill"><i class="fa-solid fa-microchip"></i> IPC-A-620 Krimp Standartları</span>
+                        </div>
 
                         <div class="about-details-list">
                             <div class="about-detail-item">
@@ -152,22 +180,22 @@
                         <div class="stat-card">
                             <div class="stat-icon"><i class="fa-solid fa-user-shield"></i></div>
                             <div class="stat-number">11+ Yıl</div>
-                            <div class="stat-label">Kalite Güvence & Saha Tecrübesi</div>
+                            <div class="stat-label">Kalite Güvence & Yalın Saha Tecrübesi</div>
                         </div>
                         <div class="stat-card">
-                            <div class="stat-icon"><i class="fa-solid fa-diagram-project"></i></div>
+                            <div class="stat-icon"><i class="fa-solid fa-network-wired"></i></div>
+                            <div class="stat-number">8 Metot</div>
+                            <div class="stat-label">5S, Kaizen, 8D, FMEA, DÖF, Balık Kılçığı, Pareto</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fa-solid fa-microchip"></i></div>
                             <div class="stat-number">1.548+</div>
-                            <div class="stat-label">Krimp & Standart Parametre Yönetimi</div>
+                            <div class="stat-label">IPC-A-620 Krimp & Parametre Yönetimi</div>
                         </div>
                         <div class="stat-card">
                             <div class="stat-icon"><i class="fa-solid fa-file-shield"></i></div>
-                            <div class="stat-number">4 Standart</div>
-                            <div class="stat-label">ISO 9001 / 14001 / 45001 / 19011</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-icon"><i class="fa-solid fa-chart-line"></i></div>
-                            <div class="stat-number">100%</div>
-                            <div class="stat-label">Veri & Proses İyileştirme Odaklı</div>
+                            <div class="stat-number">ISO & Tetkik</div>
+                            <div class="stat-label">ISO 9001 / 14001 / 45001 / 19011 İç Tetkikçi</div>
                         </div>
                     </div>
                 </div>
@@ -187,45 +215,65 @@
                     <div class="skill-category">
                         <div class="category-header">
                             <i class="fa-solid fa-clipboard-check"></i>
-                            <h3>Kalite Yönetimi & Standartlar</h3>
+                            <h3>Kalite Yönetim Sistemleri & Standartlar</h3>
                         </div>
                         <div class="skill-tags">
-                            <span class="tag"><i class="fa-solid fa-check-circle"></i> ISO 9001:2015</span>
-                            <span class="tag"><i class="fa-solid fa-leaf"></i> ISO 14001</span>
-                            <span class="tag"><i class="fa-solid fa-helmet-safety"></i> ISO 45001</span>
+                            <span class="tag"><i class="fa-solid fa-check-circle"></i> ISO 9001:2015 Kalite Yönetimi</span>
                             <span class="tag"><i class="fa-solid fa-magnifying-glass"></i> ISO 19011 İç Tetkikçi</span>
-                            <span class="tag"><i class="fa-solid fa-shield-halved"></i> Kalite Güvence</span>
-                            <span class="tag"><i class="fa-solid fa-triangle-exclamation"></i> Risk & Hata Analizi</span>
+                            <span class="tag"><i class="fa-solid fa-leaf"></i> ISO 14001 Çevre</span>
+                            <span class="tag"><i class="fa-solid fa-helmet-safety"></i> ISO 45001 İSG</span>
+                            <span class="tag"><i class="fa-solid fa-car"></i> IATF 16949 İlkeleri</span>
+                            <span class="tag"><i class="fa-solid fa-shield-halved"></i> Kalite Güvence & Süreç Denetimi</span>
+                            <span class="tag"><i class="fa-solid fa-vial-circle-check"></i> Giriş/Çıkış Kalite & AQL</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <div class="category-header">
+                            <i class="fa-solid fa-arrow-trend-up"></i>
+                            <h3>Yalın Üretim & Problem Çözme (Core Tools)</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="tag"><i class="fa-solid fa-broom"></i> 5S Saha Denetimi & Radar Skor</span>
+                            <span class="tag"><i class="fa-solid fa-chart-line"></i> Kaizen (Gemba & PUKÖ/PDCA)</span>
+                            <span class="tag"><i class="fa-solid fa-network-wired"></i> Global 8D Metodolojisi (D1-D8)</span>
+                            <span class="tag"><i class="fa-solid fa-triangle-exclamation"></i> PFMEA & RPN / AP Risk Matrisi</span>
+                            <span class="tag"><i class="fa-solid fa-list-check"></i> DÖF / CAPA & Etkinlik Doğrulama</span>
+                            <span class="tag"><i class="fa-solid fa-diagram-project"></i> 5 Neden & Ishikawa Balık Kılçığı</span>
+                            <span class="tag"><i class="fa-solid fa-chart-column"></i> Pareto Analizi (80/20 Kuralı)</span>
+                            <span class="tag"><i class="fa-solid fa-fingerprint"></i> Poka-Yoke (Hata Önleyici Tasarım)</span>
                         </div>
                     </div>
 
                     <div class="skill-category">
                         <div class="category-header">
                             <i class="fa-solid fa-industry"></i>
-                            <h3>Süreç & Üretim Uzmanlığı</h3>
+                            <h3>Kablo Montaj & Proses Kalite Uzmanlığı</h3>
                         </div>
                         <div class="skill-tags">
-                            <span class="tag"><i class="fa-solid fa-sitemap"></i> Ürün Ağaçları (BOM)</span>
-                            <span class="tag"><i class="fa-solid fa-screwdriver-wrench"></i> Montaj Hatları Denetimi</span>
-                            <span class="tag"><i class="fa-solid fa-ruler"></i> Krimp Yükseklik Analizi (CCH/ICH)</span>
-                            <span class="tag"><i class="fa-solid fa-fingerprint"></i> Poke-Yoke Sistemleri</span>
-                            <span class="tag"><i class="fa-solid fa-vial"></i> Giriş Kalite & Testler</span>
-                            <span class="tag"><i class="fa-solid fa-file-lines"></i> Proses Dökümantasyonu</span>
+                            <span class="tag"><i class="fa-solid fa-sitemap"></i> Ürün Ağaçları (BOM) & Talimatlar</span>
+                            <span class="tag"><i class="fa-solid fa-microchip"></i> IPC/WHMA-A-620 Standartları</span>
+                            <span class="tag"><i class="fa-solid fa-ruler"></i> Krimp Yükseklik / Genişlik (CCH/CW)</span>
+                            <span class="tag"><i class="fa-solid fa-weight-hanging"></i> Çekme Testi (Pull-Force) & Kesit</span>
+                            <span class="tag"><i class="fa-solid fa-bolt"></i> Elektriksel Süreklilik & Test Masası</span>
+                            <span class="tag"><i class="fa-solid fa-file-contract"></i> Kontrol Planı (Control Plan) & SOP</span>
+                            <span class="tag"><i class="fa-solid fa-chart-pie"></i> Proses Yeterlilik (Cpk / Ppk)</span>
                         </div>
                     </div>
 
                     <div class="skill-category">
                         <div class="category-header">
                             <i class="fa-solid fa-laptop-code"></i>
-                            <h3>Sistem, ERP & Veri Analitiği</h3>
+                            <h3>Sistem, ERP & Dijital Kalite Araçları</h3>
                         </div>
                         <div class="skill-tags">
-                            <span class="tag"><i class="fa-solid fa-cubes"></i> SAP Kalite Modülleri</span>
-                            <span class="tag"><i class="fa-solid fa-network-wired"></i> ERPNext / Frappe</span>
-                            <span class="tag"><i class="fa-solid fa-file-excel"></i> İleri Düzey Excel (Raporlama)</span>
-                            <span class="tag"><i class="fa-brands fa-python"></i> Python (Veri & Otomasyon)</span>
-                            <span class="tag"><i class="fa-solid fa-code"></i> HTML5 / CSS3 / JavaScript</span>
-                            <span class="tag"><i class="fa-solid fa-database"></i> SQL / SQLite</span>
+                            <span class="tag"><i class="fa-solid fa-cubes"></i> SAP Kalite Modülleri (QM/PP)</span>
+                            <span class="tag"><i class="fa-solid fa-network-wired"></i> ERPNext / Frappe Kalite</span>
+                            <span class="tag"><i class="fa-solid fa-gauge-high"></i> Kalite Yönetim Merkezi (8 Modül)</span>
+                            <span class="tag"><i class="fa-solid fa-file-excel"></i> İleri Excel & Makrolar (Raporlama)</span>
+                            <span class="tag"><i class="fa-brands fa-python"></i> Python (Veri Analitiği & Pandas)</span>
+                            <span class="tag"><i class="fa-solid fa-code"></i> HTML5 / CSS3 / Vanilla JS</span>
+                            <span class="tag"><i class="fa-solid fa-database"></i> SQL / SQLite ile Hata Takibi</span>
                         </div>
                     </div>
                 </div>
@@ -247,14 +295,16 @@
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <span class="timeline-date"><i class="fa-solid fa-briefcase"></i> 2015 – 2026</span>
-                            <h3 class="timeline-title">Proses / Giriş Kalite & Dökümantasyon Uzmanı</h3>
+                            <h3 class="timeline-title">Proses / Giriş Kalite & Yalın Üretim Uzmanı</h3>
                             <span class="timeline-company"><i class="fa-solid fa-building"></i> Prettl Endüstri Sistemleri</span>
                             <ul class="timeline-bullets">
-                                <li>ISO 9001, 14001 ve 45001 standartlarına tam uyumluluk için süreç denetimlerinin ve iç tetkiklerin gerçekleştirilmesi.</li>
-                                <li>Kablo ürün ağaçlarının (BOM) eksiksiz oluşturulması, montaj talimatları ve kalite dökümantasyonunun yönetimi.</li>
-                                <li>Giriş kalite kontrol süreçlerinde hammadde ve yarı mamul uygunluk testleri ve raporlaması.</li>
-                                <li>SAP ve ERPNext sistemleri üzerinden hata takip, risk değerlendirmesi ve veri analitiği uygulamalarının yürütülmesi.</li>
-                                <li>Test ve krimp süreçlerinin dijitalleştirilmesi, aparat doğrulama formlarının ve kalite sorgulama araçlarının geliştirilmesi.</li>
+                                <li>ISO 9001, 14001, 45001 ve ISO 19011 standartları kapsamında süreç denetimlerinin, montaj hatlarının ve iç tetkiklerin yürütülmesi.</li>
+                                <li>Üretim sahasında (Gemba) <strong>5S saha denetimlerinin</strong> yürütülmesi, radar analizi ile periyodik skorlanması ve atölye genelinde <strong>Kaizen (Sürekli İyileştirme)</strong> projelerinin koordine edilmesi.</li>
+                                <li>Müşteri şikayetleri ve kritik iç proses uygunsuzluklarında <strong>Global 8D Metodolojisi (D1-D8, 5W2H, acil karantina/ICA, kalıcı faaliyet/PCA)</strong> ile kök neden analizi (5 Neden & Ishikawa Balık Kılçığı) yönetimi.</li>
+                                <li><strong>PFMEA</strong> risk analizlerinin yapılması, RPN/AP skorlarının düşürülmesi; <strong>DÖF / CAPA</strong> süreçlerinin aksiyon takibi ve etkinlik doğrulamalarının tamamlanması.</li>
+                                <li>Kablo ürün ağaçlarının (BOM) eksiksiz oluşturulması, montaj talimatları, Kontrol Planları (Control Plan) ve <strong>IPC/WHMA-A-620</strong> standartlarına uygun kalite dökümantasyonunun yönetimi.</li>
+                                <li>Krimp yükseklik (CCH/CW ±0.05mm), çekme kuvveti (Pull-Force) testleri, <strong>Poka-Yoke</strong> sistemleri ve elektriksel test masası aparat doğrulama süreçlerinin dijitalleştirilmesi.</li>
+                                <li>SAP ve ERPNext sistemleri üzerinden hata takip, <strong>Pareto (80/20) analizleri</strong>, risk değerlendirmesi ve veri analitiği uygulamalarının yürütülmesi.</li>
                             </ul>
                         </div>
                     </div>
@@ -285,14 +335,17 @@
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
-                            <span class="timeline-date"><i class="fa-solid fa-certificate"></i> Profesyonel Sertifikalar</span>
-                            <h3 class="timeline-title">Yönetim Sistemleri & Kalite Uzmanlığı</h3>
+                            <span class="timeline-date"><i class="fa-solid fa-certificate"></i> Profesyonel Sertifikalar & Uzmanlıklar</span>
+                            <h3 class="timeline-title">Yönetim Sistemleri, Yalın Üretim & Kalite Uzmanlığı</h3>
                             <span class="timeline-company"><i class="fa-solid fa-stamp"></i> Akredite Eğitim ve Belgelendirme Kuruluşları</span>
                             <div class="cert-grid">
                                 <div class="cert-item"><i class="fa-solid fa-award"></i> ISO 9001:2015 Kalite Yönetim Sistemi</div>
+                                <div class="cert-item"><i class="fa-solid fa-award"></i> ISO 19011:2018 İç Tetkikçi Belgesi</div>
+                                <div class="cert-item"><i class="fa-solid fa-award"></i> Yalın Üretim, 5S & Kaizen Uygulama Uzmanlığı</div>
+                                <div class="cert-item"><i class="fa-solid fa-award"></i> Global 8D Problem Çözme & Kök Neden (5 Why / Ishikawa)</div>
+                                <div class="cert-item"><i class="fa-solid fa-award"></i> PFMEA Proses Hata Türü ve Etkileri Analizi (RPN)</div>
                                 <div class="cert-item"><i class="fa-solid fa-award"></i> ISO 14001 Çevre Yönetim Sistemi</div>
                                 <div class="cert-item"><i class="fa-solid fa-award"></i> ISO 45001 İş Sağlığı ve Güvenliği</div>
-                                <div class="cert-item"><i class="fa-solid fa-award"></i> ISO 19011:2018 İç Tetkikçi Belgesi</div>
                                 <div class="cert-item"><i class="fa-solid fa-award"></i> Kalite Mühendisliği ve Yöneticiliği Uzmanlık Eğitimleri</div>
                             </div>
                         </div>
@@ -1044,6 +1097,1294 @@
             </div>
         </section>
 
+        <!-- Kalite Yönetim Merkezi Section -->
+        <section id="kalite-merkezi" class="section kalite-merkezi-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge"><i class="fa-solid fa-medal"></i> Endüstriyel Kalite Yönetimi</span>
+                    <h2 class="section-title">Kalite Yönetim Merkezi</h2>
+                    <p class="section-subtitle">5S Saha Denetimi, 5 Neden & Ishikawa Balık Kılçığı, DÖF / CAPA Takibi, Kaizen ve FMEA ile veri odaklı dijital kalite güvence ekosistemi.</p>
+                    <div class="title-bar"></div>
+                </div>
+
+                <!-- Navigation Tabs between modules -->
+                <div class="qm-nav-bar" id="qm-nav-bar">
+                    <button type="button" class="qm-tab-btn active" data-tab="dashboard">
+                        <i class="fa-solid fa-gauge-high"></i> Genel Bakış
+                    </button>
+                    <button type="button" class="qm-tab-btn" data-tab="fives">
+                        <i class="fa-solid fa-chart-pie"></i> 5S & Radar Grafik <span class="tab-badge">Aktif</span>
+                    </button>
+                    <button type="button" class="qm-tab-btn" data-tab="ishikawa">
+                        <i class="fa-solid fa-diagram-project"></i> 5 Neden & Balık Kılçığı
+                    </button>
+                    <button type="button" class="qm-tab-btn" data-tab="dof">
+                        <i class="fa-solid fa-clipboard-check"></i> DÖF / CAPA
+                    </button>
+                    <button type="button" class="qm-tab-btn" data-tab="eightd">
+                        <i class="fa-solid fa-network-wired"></i> 8D Raporu <span class="tab-badge" style="background: #0ea5e9;">Yeni</span>
+                    </button>
+                    <button type="button" class="qm-tab-btn" data-tab="kaizen">
+                        <i class="fa-solid fa-arrow-trend-up"></i> Kaizen Aksiyonları
+                    </button>
+                    <button type="button" class="qm-tab-btn" data-tab="fmea">
+                        <i class="fa-solid fa-triangle-exclamation"></i> FMEA Risk Matrisi
+                    </button>
+                    <button type="button" class="qm-tab-btn" data-tab="pareto">
+                        <i class="fa-solid fa-chart-column"></i> Pareto (80/20)
+                    </button>
+                </div>
+
+                <!-- Tab Panels -->
+                <!-- Panel 1: Dashboard -->
+                <div class="qm-tab-panel active" id="qm-panel-dashboard">
+                    <div class="qm-dashboard-kpis">
+                        <div class="qm-kpi-card accent-gold">
+                            <div class="qm-kpi-icon"><i class="fa-solid fa-chart-pie"></i></div>
+                            <div class="qm-kpi-info">
+                                <span class="qm-kpi-label">Güncel 5S Skoru</span>
+                                <span class="qm-kpi-value" id="kpi-5s-score">%82</span>
+                                <span class="qm-kpi-sub">Kablo Montaj & Krimp Hattı</span>
+                            </div>
+                        </div>
+                        <div class="qm-kpi-card accent-success">
+                            <div class="qm-kpi-icon"><i class="fa-solid fa-clipboard-check"></i></div>
+                            <div class="qm-kpi-info">
+                                <span class="qm-kpi-label">Kayıtlı 5S Denetimi</span>
+                                <span class="qm-kpi-value" id="kpi-fives-count">1</span>
+                                <span class="qm-kpi-sub">Yerel Veri Tabanı (LocalStorage)</span>
+                            </div>
+                        </div>
+                        <div class="qm-kpi-card">
+                            <div class="qm-kpi-icon"><i class="fa-solid fa-list-check"></i></div>
+                            <div class="qm-kpi-info">
+                                <span class="qm-kpi-label">DÖF / CAPA Oranı</span>
+                                <span class="qm-kpi-value">%94</span>
+                                <span class="qm-kpi-sub">Zamanında Kapatılan Aksiyonlar</span>
+                            </div>
+                        </div>
+                        <div class="qm-kpi-card accent-danger">
+                            <div class="qm-kpi-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                            <div class="qm-kpi-info">
+                                <span class="qm-kpi-label">FMEA Kritik RPN (&gt;100)</span>
+                                <span class="qm-kpi-value">02</span>
+                                <span class="qm-kpi-sub">Aksiyon Planı Aktif Riskler</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Module Cards Grid -->
+                    <div class="qm-modules-grid">
+                        <div class="qm-module-card">
+                            <span class="qm-module-badge status-active">Aktif & Hazır</span>
+                            <div class="qm-module-icon"><i class="fa-solid fa-chart-pie"></i></div>
+                            <h3>3. 5S Skorlama & Radar Grafiği</h3>
+                            <p>Seiri, Seiton, Seiso, Seiketsu ve Shitsuke adımlarını endüstriyel sorularla puanlayın, Chart.js radar grafiğiyle olgunluk analizini canlı izleyin ve Excel'e aktarın.</p>
+                            <div class="qm-module-footer">
+                                <span class="qm-module-meta"><i class="fa-solid fa-chart-simple"></i> Chart.js + Excel/PDF</span>
+                                <button type="button" class="btn btn-primary btn-sm btn-launch-module" data-target="fives">
+                                    <i class="fa-solid fa-play"></i> Modülü Başlat
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="qm-module-card">
+                            <span class="qm-module-badge status-active">Aktif</span>
+                            <div class="qm-module-icon"><i class="fa-solid fa-diagram-project"></i></div>
+                            <h3>2. 5 Neden & Balık Kılçığı (Ishikawa)</h3>
+                            <p>Problem çözme süreçlerinde 6M metodolojisi (İnsan, Makine, Malzeme, Metot, Ortam, Ölçüm) ile kök nedene inin ve interaktif SVG diyagramı oluşturun.</p>
+                            <div class="qm-module-footer">
+                                <span class="qm-module-meta"><i class="fa-solid fa-code-branch"></i> Kök Neden Analizi</span>
+                                <button type="button" class="btn btn-outline btn-sm btn-launch-module" data-target="ishikawa">
+                                    <i class="fa-solid fa-play"></i> Modülü Başlat
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="qm-module-card">
+                            <span class="qm-module-badge status-active">Aktif</span>
+                            <div class="qm-module-icon"><i class="fa-solid fa-clipboard-check"></i></div>
+                            <h3>4. DÖF / CAPA Takip Tablosu</h3>
+                            <p>Düzeltici ve Önleyici Faaliyetleri ISO 9001:2015 standartlarına uygun olarak statü, kök neden, sorumlu ve termin süreleriyle kaydedip takip edin.</p>
+                            <div class="qm-module-footer">
+                                <span class="qm-module-meta"><i class="fa-solid fa-database"></i> LocalStorage + Export</span>
+                                <button type="button" class="btn btn-outline btn-sm btn-launch-module" data-target="dof">
+                                    <i class="fa-solid fa-play"></i> Modülü Başlat
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="qm-module-card">
+                            <span class="qm-module-badge status-active">Aktif</span>
+                            <div class="qm-module-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                            <h3>5. Kaizen Aksiyonları & Trend</h3>
+                            <p>Önce/Sonra Kaizen kartları, ergonomi ve verimlilik kazanımları, tasarruf hesaplamaları ve kümülatif tamamlama trend grafiği.</p>
+                            <div class="qm-module-footer">
+                                <span class="qm-module-meta"><i class="fa-solid fa-bolt"></i> Sürekli İyileştirme</span>
+                                <button type="button" class="btn btn-outline btn-sm btn-launch-module" data-target="kaizen">
+                                    <i class="fa-solid fa-play"></i> Modülü Başlat
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="qm-module-card">
+                            <span class="qm-module-badge status-active">Aktif</span>
+                            <div class="qm-module-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                            <h3>6. FMEA Risk Matrisi (RPN)</h3>
+                            <p>Hata Türü ve Etkileri Analizi. Şiddet (S), Olasılık (O) ve Saptanabilirlik (D) parametreleri ile Risk Öncelik Sayısını (RPN = S x O x D) otomatik hesaplayın.</p>
+                            <div class="qm-module-footer">
+                                <span class="qm-module-meta"><i class="fa-solid fa-calculator"></i> Otomatik RPN Matrisi</span>
+                                <button type="button" class="btn btn-outline btn-sm btn-launch-module" data-target="fmea">
+                                    <i class="fa-solid fa-play"></i> Modülü Başlat
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="qm-module-card">
+                            <span class="qm-module-badge status-active">Aktif</span>
+                            <div class="qm-module-icon"><i class="fa-solid fa-chart-column"></i></div>
+                            <h3>7. Pareto Analizi (80/20 Kuralı)</h3>
+                            <p>Hataların %80'ine sebep olan %20'lik kök nedenleri tespit eden dinamik frekans ve kümülatif yüzde çift eksenli Chart.js grafiği.</p>
+                            <div class="qm-module-footer">
+                                <span class="qm-module-meta"><i class="fa-solid fa-chart-line"></i> Çift Eksenli Pareto</span>
+                                <button type="button" class="btn btn-outline btn-sm btn-launch-module" data-target="pareto">
+                                    <i class="fa-solid fa-play"></i> Modülü Başlat
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="qm-module-card">
+                            <span class="qm-module-badge status-active" style="background: #0ea5e9;">Yeni & Aktif</span>
+                            <div class="qm-module-icon"><i class="fa-solid fa-network-wired" style="color: #0ea5e9;"></i></div>
+                            <h3>8. Global 8D Problem Çözme Formu</h3>
+                            <p>Otomotiv (VDA/AIAG) standartlarında müşteri şikayetleri ve kritik iç hatalar için D1'den D8'e tam kapsamlı analiz, acil karantina (ICA), kök neden ve doğrulama formu.</p>
+                            <div class="qm-module-footer">
+                                <span class="qm-module-meta"><i class="fa-solid fa-file-contract"></i> D1 - D8 + Excel/PDF</span>
+                                <button type="button" class="btn btn-outline btn-sm btn-launch-module" data-target="eightd">
+                                    <i class="fa-solid fa-play"></i> Modülü Başlat
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel 2: 5S Skorlama & Radar Grafiği -->
+                <div class="qm-tab-panel" id="qm-panel-fives">
+                    <div class="fives-container">
+                        <!-- Audit Header & Meta Inputs -->
+                        <div class="fives-meta-card">
+                            <div class="fives-meta-header">
+                                <div class="fives-title-group">
+                                    <h3><i class="fa-solid fa-clipboard-check" style="color: var(--primary);"></i> 5S Saha Denetim Formu & Radar Analizi</h3>
+                                    <span style="font-size: 0.85rem; color: var(--text-muted);">IPC-A-620 & Yalın Üretim Standartları</span>
+                                </div>
+                                <div class="fives-actions-group">
+                                    <button type="button" class="btn btn-primary btn-sm" id="btn-sample-5s-audit">
+                                        <i class="fa-solid fa-wand-magic-sparkles"></i> Örnek Denetim Yükle
+                                    </button>
+                                    <button type="button" class="btn btn-outline btn-sm" id="btn-save-5s-audit">
+                                        <i class="fa-solid fa-floppy-disk"></i> Denetimi Kaydet
+                                    </button>
+                                    <button type="button" class="btn btn-outline btn-sm btn-export-excel" id="btn-export-5s-excel" style="color: #107c41; border-color: rgba(16, 124, 65, 0.4);">
+                                        <i class="fa-solid fa-file-excel"></i> Excel (.xlsx)
+                                    </button>
+                                    <button type="button" class="btn btn-outline btn-sm btn-export-pdf" id="btn-export-5s-pdf" style="color: #e11d48; border-color: rgba(225, 29, 72, 0.4);">
+                                        <i class="fa-solid fa-file-pdf"></i> PDF (.pdf)
+                                    </button>
+                                    <button type="button" class="btn btn-outline btn-sm" id="btn-reset-5s-audit" title="Sıfırla">
+                                        <i class="fa-solid fa-rotate-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="fives-meta-grid">
+                                <div class="fives-meta-field">
+                                    <label for="fives-auditor-name"><i class="fa-solid fa-user-check"></i> Denetçi Adı</label>
+                                    <input type="text" id="fives-auditor-name" value="Deniz Kanar (Proses Kalite Uzmanı)">
+                                </div>
+                                <div class="fives-meta-field">
+                                    <label for="fives-department"><i class="fa-solid fa-building"></i> Departman / Alan</label>
+                                    <input type="text" id="fives-department" value="Kablo Montaj & Üretim">
+                                </div>
+                                <div class="fives-meta-field">
+                                    <label for="fives-line"><i class="fa-solid fa-industry"></i> Denetlenen Hat / İstasyon</label>
+                                    <input type="text" id="fives-line" value="Hat 03 / Krimp İstasyonu">
+                                </div>
+                                <div class="fives-meta-field">
+                                    <label for="fives-date"><i class="fa-solid fa-calendar-day"></i> Denetim Tarihi</label>
+                                    <input type="date" id="fives-date" value="2026-09-08">
+                                </div>
+                                <div class="fives-meta-field">
+                                    <label for="fives-shift"><i class="fa-solid fa-clock"></i> Vardiya</label>
+                                    <select id="fives-shift">
+                                        <option value="1. Vardiya (08:00 - 16:00)">1. Vardiya (08:00 - 16:00)</option>
+                                        <option value="2. Vardiya (16:00 - 24:00)">2. Vardiya (16:00 - 24:00)</option>
+                                        <option value="3. Vardiya (24:00 - 08:00)">3. Vardiya (24:00 - 08:00)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div id="fives-feedback-msg" style="display: none;"></div>
+                        </div>
+
+                        <!-- 5S Layout: Left Checklist, Right Chart -->
+                        <div class="fives-main-layout">
+                            <!-- Left: Pillar Tabs and Questions -->
+                            <div class="fives-checklist-col">
+                                <div class="fives-pillars-nav" id="fives-pillars-nav"></div>
+
+                                <div class="fives-questions-card">
+                                    <div class="fives-pillar-info-banner" id="fives-pillar-banner"></div>
+                                    <div class="fives-questions-list" id="fives-questions-container"></div>
+                                </div>
+
+                                <!-- Action Items generated from audit -->
+                                <div class="fives-actions-card" style="margin-top: 24px;">
+                                    <div class="fives-actions-header">
+                                        <h4><i class="fa-solid fa-list-check" style="color: var(--accent);"></i> Otomatik DÖF & İyileştirme Aksiyonları (<span id="fives-action-count">0</span>)</h4>
+                                        <span style="font-size: 0.8rem; color: var(--text-muted);">Puanı ≤ 3 olan maddelerden derlendi</span>
+                                    </div>
+                                    <div class="fives-action-items-list" id="fives-actions-list"></div>
+                                </div>
+                            </div>
+
+                            <!-- Right: Score Summary & Radar Chart -->
+                            <div class="fives-analytics-col">
+                                <div class="fives-score-summary-card">
+                                    <span class="qm-kpi-label">Genel 5S Başarı Skoru</span>
+                                    <div class="fives-score-main-value" id="fives-overall-score">%82</div>
+                                    <div class="fives-score-out-of" id="fives-out-of-5">4.10 / 5.00 Puan</div>
+                                    <div class="fives-level-badge level-good" id="fives-level-badge">
+                                        <i class="fa-solid fa-check"></i> Seviye 3: Standart Seviye (%70-%84)
+                                    </div>
+
+                                    <div class="fives-breakdown-list">
+                                        <div class="fives-breakdown-row">
+                                            <span class="fives-breakdown-name">1S Ayıkla</span>
+                                            <div class="fives-progress-track">
+                                                <div class="fives-progress-fill" id="fives-bar-seiri" style="width: 70%;"></div>
+                                            </div>
+                                            <span class="fives-breakdown-pct" id="fives-pct-seiri">%70</span>
+                                        </div>
+                                        <div class="fives-breakdown-row">
+                                            <span class="fives-breakdown-name">2S Düzenle</span>
+                                            <div class="fives-progress-track">
+                                                <div class="fives-progress-fill" id="fives-bar-seiton" style="width: 85%;"></div>
+                                            </div>
+                                            <span class="fives-breakdown-pct" id="fives-pct-seiton">%85</span>
+                                        </div>
+                                        <div class="fives-breakdown-row">
+                                            <span class="fives-breakdown-name">3S Temizle</span>
+                                            <div class="fives-progress-track">
+                                                <div class="fives-progress-fill" id="fives-bar-seiso" style="width: 75%;"></div>
+                                            </div>
+                                            <span class="fives-breakdown-pct" id="fives-pct-seiso">%75</span>
+                                        </div>
+                                        <div class="fives-breakdown-row">
+                                            <span class="fives-breakdown-name">4S Standart</span>
+                                            <div class="fives-progress-track">
+                                                <div class="fives-progress-fill" id="fives-bar-seiketsu" style="width: 85%;"></div>
+                                            </div>
+                                            <span class="fives-breakdown-pct" id="fives-pct-seiketsu">%85</span>
+                                        </div>
+                                        <div class="fives-breakdown-row">
+                                            <span class="fives-breakdown-name">5S Sürdür</span>
+                                            <div class="fives-progress-track">
+                                                <div class="fives-progress-fill" id="fives-bar-shitsuke" style="width: 75%;"></div>
+                                            </div>
+                                            <span class="fives-breakdown-pct" id="fives-pct-shitsuke">%75</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="fives-chart-card">
+                                    <div class="fives-chart-header">
+                                        <h4><i class="fa-solid fa-spider" style="color: var(--primary);"></i> 5S Radar Analiz Grafiği</h4>
+                                        <span class="badge" style="font-size: 0.75rem; background: var(--bg-secondary); color: var(--text-secondary); border: 1px solid var(--border-color);">Benchmark: %85</span>
+                                    </div>
+                                    <div class="fives-radar-container">
+                                        <canvas id="fives-radar-chart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Audit History Table -->
+                        <div class="fives-history-card">
+                            <div class="fives-history-header">
+                                <h4><i class="fa-solid fa-clock-rotate-left"></i> Kayıtlı 5S Saha Denetimleri Geçmişi (<span id="fives-history-count">0</span>)</h4>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="krimp-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Tarih</th>
+                                            <th>Hat / İstasyon</th>
+                                            <th>Denetçi</th>
+                                            <th>Genel Skor</th>
+                                            <th>Pillar Dağılımı</th>
+                                            <th>İşlemler</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="fives-history-tbody">
+                                        <tr class="empty-row">
+                                            <td colspan="6">Kayıtlı denetim yükleniyor...</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel 3: 5 Neden & Ishikawa -->
+                <div class="qm-tab-panel" id="qm-panel-ishikawa">
+                    <div class="fives-container">
+                        <!-- Header & Meta Controls -->
+                        <div class="fives-header-card">
+                            <div class="fives-header-main">
+                                <div>
+                                    <h3 style="margin: 0; font-size: 1.25rem; color: var(--text-primary);">
+                                        <i class="fa-solid fa-diagram-project" style="color: #e11d48;"></i> 5 Neden & Balık Kılçığı (Ishikawa - 6M)
+                                    </h3>
+                                    <span style="font-size: 0.85rem; color: var(--text-muted);">IPC-A-620 Kök Neden Analizi & 6M Metodolojisi</span>
+                                </div>
+                                <div class="fives-actions-group">
+                                    <button type="button" class="btn btn-outline btn-sm btn-export-excel" id="btn-fishbone-export-excel" style="color: #107c41; border-color: rgba(16, 124, 65, 0.4);">
+                                        <i class="fa-solid fa-file-excel"></i> Excel (.xlsx)
+                                    </button>
+                                    <button type="button" class="btn btn-outline btn-sm btn-export-pdf" id="btn-fishbone-export-pdf" style="color: #e11d48; border-color: rgba(225, 29, 72, 0.4);">
+                                        <i class="fa-solid fa-file-pdf"></i> PDF (.pdf)
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Problem & Line Metadata -->
+                            <div class="fives-meta-grid" style="margin-top: 16px;">
+                                <div class="fives-meta-field" style="grid-column: span 2;">
+                                    <label for="fishbone-problem-input"><i class="fa-solid fa-triangle-exclamation" style="color: #e11d48;"></i> Problem Tanımı / Etki</label>
+                                    <input type="text" id="fishbone-problem-input" value="Kablo Donanım Hattı 03 - Krimp Çekme Testi (Pull-Force) Spesifikasyon Altında (< 60 N)">
+                                </div>
+                                <div class="fives-meta-field">
+                                    <label for="fishbone-line-input"><i class="fa-solid fa-industry"></i> İstasyon / Hat</label>
+                                    <input type="text" id="fishbone-line-input" value="Hat 03 / Krimp Presi">
+                                </div>
+                                <div class="fives-meta-field">
+                                    <label for="fishbone-leader-input"><i class="fa-solid fa-user-check"></i> Analiz Lideri</label>
+                                    <input type="text" id="fishbone-leader-input" value="Deniz Kanar (Proses Kalite)">
+                                </div>
+                            </div>
+
+                            <!-- Preset Scenarios -->
+                            <div style="margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
+                                <span style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted);"><i class="fa-solid fa-wand-magic-sparkles"></i> Örnek Vakalar:</span>
+                                <button type="button" class="btn btn-outline btn-sm" id="btn-fishbone-sample-1" style="font-size: 0.78rem;">
+                                    Krimp Çekme Kuvveti Düşüklüğü
+                                </button>
+                                <button type="button" class="btn btn-outline btn-sm" id="btn-fishbone-sample-2" style="font-size: 0.78rem;">
+                                    Kablo Sıyırmada Kesik Damar
+                                </button>
+                                <button type="button" class="btn btn-outline btn-sm" id="btn-fishbone-sample-3" style="font-size: 0.78rem;">
+                                    Terminal Pin Eğrilmesi
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Balık Kılçığı SVG Diyagramı Kartı -->
+                        <div class="fives-chart-card" style="padding: 16px; margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                                <h4 style="margin: 0; font-size: 1rem; color: var(--text-primary);">
+                                    <i class="fa-solid fa-draw-polygon" style="color: #e11d48;"></i> İnteraktif 6M Ishikawa (Balık Kılçığı) Diyagramı
+                                </h4>
+                                <span class="badge" style="font-size: 0.75rem; background: var(--bg-secondary); border: 1px solid var(--border-color);">
+                                    Vektörel SVG Çizim
+                                </span>
+                            </div>
+                            <div class="fishbone-svg-wrapper">
+                                <svg id="fishbone-svg" viewBox="0 0 1000 520" preserveAspectRatio="xMidYMid meet"></svg>
+                            </div>
+                        </div>
+
+                        <!-- 6M Kategorileri ve Neden Ekleme -->
+                        <div class="fishbone-causes-section">
+                            <div class="fishbone-add-bar">
+                                <div style="display: flex; gap: 8px; flex-wrap: wrap; width: 100%; align-items: center;">
+                                    <select id="fishbone-new-cat" style="min-width: 170px; padding: 8px 12px; border-radius: 6px; border: 1px solid var(--border-color); background: var(--bg-card); color: var(--text-primary);">
+                                        <option value="man">İnsan (Man)</option>
+                                        <option value="machine">Makine (Machine)</option>
+                                        <option value="material">Malzeme (Material)</option>
+                                        <option value="method">Metot (Method)</option>
+                                        <option value="milieu">Ortam (Environment)</option>
+                                        <option value="measurement">Ölçüm (Measurement)</option>
+                                    </select>
+                                    <input type="text" id="fishbone-new-cause-text" placeholder="Yeni olası neden giriniz..." style="flex: 1; min-width: 240px; padding: 8px 12px; border-radius: 6px; border: 1px solid var(--border-color); background: var(--bg-card); color: var(--text-primary);">
+                                    <button type="button" class="btn btn-primary btn-sm" id="btn-fishbone-add-cause">
+                                        <i class="fa-solid fa-plus"></i> Neden Ekle
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="fishbone-cat-grid" id="fishbone-categories-container"></div>
+                        </div>
+
+                        <!-- 5 Why (5 Neden) Analiz Bölümü -->
+                        <div class="five-why-card">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                                <div>
+                                    <h4 style="margin: 0; font-size: 1.05rem; color: var(--text-primary);">
+                                        <i class="fa-solid fa-arrows-down-to-line" style="color: #f59e0b;"></i> 5 Neden (5 Why) Kök Neden Analizi
+                                    </h4>
+                                    <span style="font-size: 0.8rem; color: var(--text-muted);">Semptomlardan gerçek kök nedene doğru adım adım sorgulama zinciri</span>
+                                </div>
+                                <button type="button" class="btn btn-outline btn-sm" id="btn-fishbone-add-why">
+                                    <i class="fa-solid fa-plus"></i> Neden Adımı Ekle
+                                </button>
+                            </div>
+
+                            <div id="fishbone-five-why-steps"></div>
+
+                            <!-- Root Cause & Corrective Action Summary -->
+                            <div class="five-why-summary-grid">
+                                <div class="five-why-box box-root">
+                                    <label><i class="fa-solid fa-bullseye" style="color: #e11d48;"></i> Kesin Kök Neden (Root Cause)</label>
+                                    <textarea id="fishbone-root-cause" rows="3" placeholder="Analiz sonucu ulaşılan kök neden..."></textarea>
+                                </div>
+                                <div class="five-why-box box-action">
+                                    <label><i class="fa-solid fa-shield-halved" style="color: #10b981;"></i> Kalıcı Düzeltici / Önleyici Faaliyet (Poka-Yoke)</label>
+                                    <textarea id="fishbone-corrective-action" rows="3" placeholder="Kalıcı aksiyon planı..."></textarea>
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 16px; display: flex; justify-content: flex-end; gap: 10px;">
+                                <button type="button" class="btn btn-primary btn-sm" id="btn-fishbone-to-dof" style="background: #e11d48; border-color: #e11d48;">
+                                    <i class="fa-solid fa-share-from-square"></i> Bu Analizi DÖF / CAPA'ya Aktar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel 4: DÖF / CAPA -->
+                <div class="qm-tab-panel" id="qm-panel-dof">
+                    <div class="fives-container">
+                        <!-- Header & KPIs -->
+                        <div class="fives-header-card">
+                            <div class="fives-header-main">
+                                <div>
+                                    <h3 style="margin: 0; font-size: 1.25rem; color: var(--text-primary);">
+                                        <i class="fa-solid fa-clipboard-check" style="color: #0ea5e9;"></i> DÖF / CAPA Takip ve Yönetim Sistemi
+                                    </h3>
+                                    <span style="font-size: 0.85rem; color: var(--text-muted);">ISO 9001:2015 & IATF 16949 Uyumlu Dijital Aksiyon Takibi</span>
+                                </div>
+                                <div class="fives-actions-group">
+                                    <button type="button" class="btn btn-primary btn-sm" id="btn-toggle-dof-form">
+                                        <i class="fa-solid fa-plus"></i> Yeni DÖF / CAPA Aç
+                                    </button>
+                                    <button type="button" class="btn btn-outline btn-sm btn-export-excel" id="btn-dof-export-excel" style="color: #107c41; border-color: rgba(16, 124, 65, 0.4);">
+                                        <i class="fa-solid fa-file-excel"></i> Excel (.xlsx)
+                                    </button>
+                                    <button type="button" class="btn btn-outline btn-sm btn-export-pdf" id="btn-dof-export-pdf" style="color: #e11d48; border-color: rgba(225, 29, 72, 0.4);">
+                                        <i class="fa-solid fa-file-pdf"></i> PDF (.pdf)
+                                    </button>
+                                    <button type="button" class="btn btn-outline btn-sm" id="btn-reset-dof-data" title="Sıfırla">
+                                        <i class="fa-solid fa-rotate-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- KPI Counters -->
+                            <div class="dof-kpi-grid">
+                                <div class="dof-kpi-card">
+                                    <span class="dof-kpi-num" id="dof-kpi-total">0</span>
+                                    <span class="dof-kpi-label"><i class="fa-solid fa-folder-open"></i> Toplam DÖF</span>
+                                </div>
+                                <div class="dof-kpi-card kpi-danger">
+                                    <span class="dof-kpi-num" id="dof-kpi-open">0</span>
+                                    <span class="dof-kpi-label"><i class="fa-solid fa-hourglass-start"></i> Açık & Devam Eden</span>
+                                </div>
+                                <div class="dof-kpi-card kpi-success">
+                                    <span class="dof-kpi-num" id="dof-kpi-closed">0</span>
+                                    <span class="dof-kpi-label"><i class="fa-solid fa-circle-check"></i> Kapatılan DÖF</span>
+                                </div>
+                                <div class="dof-kpi-card kpi-warning">
+                                    <span class="dof-kpi-num" id="dof-kpi-high">0</span>
+                                    <span class="dof-kpi-label"><i class="fa-solid fa-triangle-exclamation"></i> Yüksek Öncelikli</span>
+                                </div>
+                            </div>
+
+                            <!-- Filter & Search Bar -->
+                            <div class="dof-filter-bar">
+                                <div class="dof-filters-group">
+                                    <button type="button" class="dof-filter-btn active" data-status="all">Tümü</button>
+                                    <button type="button" class="dof-filter-btn" data-status="Açık">Açık</button>
+                                    <button type="button" class="dof-filter-btn" data-status="Aksiyon Aşamasında">Aksiyonda</button>
+                                    <button type="button" class="dof-filter-btn" data-status="Doğrulama Bekliyor">Doğrulama</button>
+                                    <button type="button" class="dof-filter-btn" data-status="Kapatıldı">Kapatıldı</button>
+                                </div>
+                                <div class="dof-search-box">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                    <input type="text" id="dof-search-input" placeholder="DÖF no, başlık, sorumlu veya hat ara...">
+                                </div>
+                            </div>
+
+                            <!-- Yeni DÖF Formu (Genişletilebilir) -->
+                            <div id="dof-new-form-container" style="display: none; margin-top: 16px; padding: 16px; background: var(--bg-secondary); border-radius: 8px; border: 1px solid var(--border-color);">
+                                <h4 style="margin-top: 0; font-size: 1rem; color: var(--primary);">
+                                    <i class="fa-solid fa-pen-to-square"></i> Yeni Düzeltici / Önleyici Faaliyet Kaydı
+                                </h4>
+                                <div class="fives-meta-grid">
+                                    <div class="fives-meta-field" style="grid-column: span 2;">
+                                        <label>Uygunsuzluk / Hata Başlığı</label>
+                                        <input type="text" id="dof-form-title" placeholder="Örn: Krimp Çekme Testi Spesifikasyon Düşüklüğü">
+                                    </div>
+                                    <div class="fives-meta-field">
+                                        <label>Uygunsuzluk Kaynağı</label>
+                                        <select id="dof-form-source">
+                                            <option value="Proses Kontrol">Proses Kontrol</option>
+                                            <option value="5S Denetimi">5S Denetimi</option>
+                                            <option value="Müşteri Şikayeti">Müşteri Şikayeti</option>
+                                            <option value="İç Tetkik">İç Tetkik</option>
+                                            <option value="Tedarikçi">Tedarikçi</option>
+                                        </select>
+                                    </div>
+                                    <div class="fives-meta-field">
+                                        <label>Departman / İstasyon</label>
+                                        <input type="text" id="dof-form-dept" value="Kablo Montaj Hat 03">
+                                    </div>
+                                    <div class="fives-meta-field">
+                                        <label>Sorumlu Kişi</label>
+                                        <input type="text" id="dof-form-assignee" value="Deniz Kanar">
+                                    </div>
+                                    <div class="fives-meta-field">
+                                        <label>Öncelik Seviyesi</label>
+                                        <select id="dof-form-priority">
+                                            <option value="Yüksek">Yüksek</option>
+                                            <option value="Orta" selected>Orta</option>
+                                            <option value="Düşük">Düşük</option>
+                                        </select>
+                                    </div>
+                                    <div class="fives-meta-field">
+                                        <label>Termin Tarihi</label>
+                                        <input type="date" id="dof-form-due">
+                                    </div>
+                                    <div class="fives-meta-field" style="grid-column: span 3;">
+                                        <label>Kök Neden Açıklaması</label>
+                                        <input type="text" id="dof-form-root" placeholder="Tespit edilen kök neden...">
+                                    </div>
+                                    <div class="fives-meta-field" style="grid-column: span 3;">
+                                        <label>Düzeltici & Önleyici Faaliyet Planı</label>
+                                        <input type="text" id="dof-form-action" placeholder="Alınacak kalıcı aksiyon...">
+                                    </div>
+                                </div>
+                                <div style="margin-top: 12px; display: flex; justify-content: flex-end; gap: 8px;">
+                                    <button type="button" class="btn btn-primary btn-sm" id="btn-save-new-dof">
+                                        <i class="fa-solid fa-check"></i> DÖF Kaydını Oluştur
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- DÖF Tablosu -->
+                        <div class="fives-history-card">
+                            <div class="table-responsive">
+                                <table class="krimp-table">
+                                    <thead>
+                                        <tr>
+                                            <th>DÖF No</th>
+                                            <th>Uygunsuzluk & Kaynak</th>
+                                            <th>Sorumlu</th>
+                                            <th>Öncelik</th>
+                                            <th>Tarihler</th>
+                                            <th>Statü</th>
+                                            <th>Aksiyon</th>
+                                            <th style="text-align: right;">İşlemler</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="dof-table-tbody">
+                                        <tr class="empty-row">
+                                            <td colspan="8">DÖF kayıtları yükleniyor...</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel 5: Kaizen -->
+                <div class="qm-tab-panel" id="qm-panel-kaizen">
+                    <div class="fives-container">
+                        <!-- Header & KPIs -->
+                        <div class="fives-header-card">
+                            <div class="fives-header-main">
+                                <div>
+                                    <h3 style="margin: 0; font-size: 1.25rem; color: var(--text-primary);">
+                                        <i class="fa-solid fa-arrow-trend-up" style="color: #10b981;"></i> Kaizen Aksiyonları & İlerleme Trend Grafiği
+                                    </h3>
+                                    <span style="font-size: 0.85rem; color: var(--text-muted);">Yalın Üretim Önce/Sonra (Before/After) ve Sürekli İyileştirme Yönetimi</span>
+                                </div>
+                                <div class="fives-actions-group">
+                                    <button type="button" class="btn btn-primary btn-sm" id="btn-toggle-kaizen-form">
+                                        <i class="fa-solid fa-plus"></i> Yeni Kaizen Önerisi Gir
+                                    </button>
+                                    <button type="button" class="btn btn-outline btn-sm btn-export-excel" id="btn-kaizen-export-excel" style="color: #107c41; border-color: rgba(16, 124, 65, 0.4);">
+                                        <i class="fa-solid fa-file-excel"></i> Excel (.xlsx)
+                                    </button>
+                                    <button type="button" class="btn btn-outline btn-sm btn-export-pdf" id="btn-kaizen-export-pdf" style="color: #e11d48; border-color: rgba(225, 29, 72, 0.4);">
+                                        <i class="fa-solid fa-file-pdf"></i> PDF (.pdf)
+                                    </button>
+                                    <button type="button" class="btn btn-outline btn-sm" id="btn-reset-kaizen-data" title="Sıfırla">
+                                        <i class="fa-solid fa-rotate-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- KPI Counters -->
+                            <div class="dof-kpi-grid">
+                                <div class="dof-kpi-card">
+                                    <span class="dof-kpi-num" id="kaizen-kpi-count">0</span>
+                                    <span class="dof-kpi-label"><i class="fa-solid fa-lightbulb"></i> Tamamlanan Kaizen</span>
+                                </div>
+                                <div class="dof-kpi-card kpi-success">
+                                    <span class="dof-kpi-num" id="kaizen-kpi-savings">293.000 ₺</span>
+                                    <span class="dof-kpi-label"><i class="fa-solid fa-coins"></i> Yıllık Tahmini Getiri</span>
+                                </div>
+                                <div class="dof-kpi-card kpi-warning">
+                                    <span class="dof-kpi-num" id="kaizen-kpi-hours">175+ Saat</span>
+                                    <span class="dof-kpi-label"><i class="fa-solid fa-stopwatch"></i> Duruş & Zaman Tasarrufu</span>
+                                </div>
+                            </div>
+
+                            <!-- Yeni Kaizen Formu (Açılır/Kapanır) -->
+                            <div id="kaizen-new-form-container" style="display: none; margin-top: 16px; padding: 16px; background: var(--bg-secondary); border-radius: 8px; border: 1px solid var(--border-color);">
+                                <h4 style="margin-top: 0; font-size: 1rem; color: var(--primary);">
+                                    <i class="fa-solid fa-wand-magic-sparkles"></i> Yeni Kaizen / Öneri Formu
+                                </h4>
+                                <div class="fives-meta-grid">
+                                    <div class="fives-meta-field" style="grid-column: span 2;">
+                                        <label>Kaizen Başlığı</label>
+                                        <input type="text" id="kaizen-form-title" placeholder="Örn: Krimp Aplikatör Hızlı Bağlantı Pimi">
+                                    </div>
+                                    <div class="fives-meta-field">
+                                        <label>Kaizen Türü</label>
+                                        <select id="kaizen-form-type">
+                                            <option value="Hızlı Kaizen (Teian)">Hızlı Kaizen (Teian)</option>
+                                            <option value="Standart Kaizen">Standart Kaizen</option>
+                                            <option value="Kobetsu Kaizen">Kobetsu (Odaklanmış) Kaizen</option>
+                                        </select>
+                                    </div>
+                                    <div class="fives-meta-field">
+                                        <label>Kategori</label>
+                                        <select id="kaizen-form-category">
+                                            <option value="Verimlilik / Hız">Verimlilik / Hız</option>
+                                            <option value="Kalite">Kalite</option>
+                                            <option value="Ergonomi">Ergonomi</option>
+                                            <option value="Maliyet / Hurda">Maliyet / Hurda</option>
+                                        </select>
+                                    </div>
+                                    <div class="fives-meta-field">
+                                        <label>Departman / Hat</label>
+                                        <input type="text" id="kaizen-form-dept" value="Kablo Montaj Hat 03">
+                                    </div>
+                                    <div class="fives-meta-field">
+                                        <label>Öneri Sahibi / Sorumlu</label>
+                                        <input type="text" id="kaizen-form-owner" value="Deniz Kanar">
+                                    </div>
+                                    <div class="fives-meta-field" style="grid-column: span 3;">
+                                        <label>ÖNCEKİ DURUM (Mevcut Problem & Kayıp)</label>
+                                        <textarea id="kaizen-form-before" rows="2" placeholder="Önceden yaşanan zorluk veya zaman kaybı..."></textarea>
+                                    </div>
+                                    <div class="fives-meta-field" style="grid-column: span 3;">
+                                        <label>SONRAKİ DURUM (Yapılan İyileştirme & Çözüm)</label>
+                                        <textarea id="kaizen-form-after" rows="2" placeholder="Nasıl çözüldü, ne uygulandı..."></textarea>
+                                    </div>
+                                    <div class="fives-meta-field">
+                                        <label>Zaman Tasarrufu</label>
+                                        <input type="text" id="kaizen-form-time" placeholder="Örn: 15 dk / ayar">
+                                    </div>
+                                    <div class="fives-meta-field">
+                                        <label>Yıllık Tasarruf (₺)</label>
+                                        <input type="text" id="kaizen-form-saving" placeholder="Örn: 40.000 ₺ / Yıl">
+                                    </div>
+                                </div>
+                                <div style="margin-top: 12px; display: flex; justify-content: flex-end; gap: 8px;">
+                                    <button type="button" class="btn btn-primary btn-sm" id="btn-save-new-kaizen">
+                                        <i class="fa-solid fa-check"></i> Kaizen Kaydet
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Trend Grafiği Kartı -->
+                        <div class="fives-chart-card" style="padding: 16px; margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                                <h4 style="margin: 0; font-size: 1rem; color: var(--text-primary);">
+                                    <i class="fa-solid fa-chart-line" style="color: #10b981;"></i> Kaizen İlerleme ve Kümülatif Getiri Trendi
+                                </h4>
+                                <span class="badge" style="font-size: 0.75rem; background: var(--bg-secondary); border: 1px solid var(--border-color);">
+                                    Aylık Gerçekleşen & Hedef
+                                </span>
+                            </div>
+                            <div style="position: relative; height: 260px; width: 100%;">
+                                <canvas id="kaizen-trend-chart"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- Önce / Sonra Kaizen Kartları -->
+                        <div class="kaizen-cards-grid" id="kaizen-cards-grid"></div>
+                    </div>
+                </div>
+
+                <!-- Panel 6: FMEA -->
+                <div class="qm-tab-panel" id="qm-panel-fmea">
+                    <div class="fives-container">
+                        <!-- Header & KPIs -->
+                        <div class="fives-header-card">
+                            <div class="fives-header-main">
+                                <div>
+                                    <h3 style="margin: 0; font-size: 1.25rem; color: var(--text-primary);">
+                                        <i class="fa-solid fa-triangle-exclamation" style="color: #f59e0b;"></i> FMEA Risk Matrisi & Otomatik RPN Hesaplayıcı
+                                    </h3>
+                                    <span style="font-size: 0.85rem; color: var(--text-muted);">AIAG & VDA Proses FMEA (PFMEA) Standartlarında Risk Değerlendirme</span>
+                                </div>
+                                <div class="fives-actions-group">
+                                    <button type="button" class="btn btn-primary btn-sm" id="btn-add-fmea-row">
+                                        <i class="fa-solid fa-plus"></i> Yeni Risk Satırı
+                                    </button>
+                                    <button type="button" class="btn btn-outline btn-sm" id="btn-filter-critical-fmea">
+                                        <i class="fa-solid fa-triangle-exclamation"></i> Sadece Kritik Riskler (RPN &gt; 100)
+                                    </button>
+                                    <button type="button" class="btn btn-outline btn-sm btn-export-excel" id="btn-fmea-export-excel" style="color: #107c41; border-color: rgba(16, 124, 65, 0.4);">
+                                        <i class="fa-solid fa-file-excel"></i> Excel (.xlsx)
+                                    </button>
+                                    <button type="button" class="btn btn-outline btn-sm btn-export-pdf" id="btn-fmea-export-pdf" style="color: #e11d48; border-color: rgba(225, 29, 72, 0.4);">
+                                        <i class="fa-solid fa-file-pdf"></i> PDF (.pdf)
+                                    </button>
+                                    <button type="button" class="btn btn-outline btn-sm" id="btn-reset-fmea-data" title="Sıfırla">
+                                        <i class="fa-solid fa-rotate-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- KPI Counters -->
+                            <div class="dof-kpi-grid">
+                                <div class="dof-kpi-card">
+                                    <span class="dof-kpi-num" id="fmea-kpi-total">0</span>
+                                    <span class="dof-kpi-label"><i class="fa-solid fa-list-check"></i> Proses Adımı</span>
+                                </div>
+                                <div class="dof-kpi-card kpi-danger">
+                                    <span class="dof-kpi-num" id="fmea-kpi-critical">0</span>
+                                    <span class="dof-kpi-label"><i class="fa-solid fa-circle-exclamation"></i> Kritik Risk (RPN &gt; 100)</span>
+                                </div>
+                                <div class="dof-kpi-card kpi-warning">
+                                    <span class="dof-kpi-num" id="fmea-kpi-avg-rpn">0</span>
+                                    <span class="dof-kpi-label"><i class="fa-solid fa-calculator"></i> Ortalama Başlangıç RPN</span>
+                                </div>
+                                <div class="dof-kpi-card kpi-success">
+                                    <span class="dof-kpi-num" id="fmea-kpi-reduction">%0</span>
+                                    <span class="dof-kpi-label"><i class="fa-solid fa-shield-halved"></i> Aksiyon Sonrası Risk Düşüşü</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FMEA Tablosu -->
+                        <div class="fives-history-card">
+                            <div class="table-responsive">
+                                <table class="krimp-table fmea-table">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Proses Adımı</th>
+                                            <th>Potansiyel Hata Türü</th>
+                                            <th>Hatanın Etkisi</th>
+                                            <th title="Şiddet (1-10)">S</th>
+                                            <th>Hata Nedeni</th>
+                                            <th title="Olasılık (1-10)">O</th>
+                                            <th>Mevcut Kontroller</th>
+                                            <th title="Saptanabilirlik (1-10)">D</th>
+                                            <th title="RPN = S x O x D">RPN</th>
+                                            <th>Önleyici Faaliyet & Sorumlu</th>
+                                            <th title="Revize Şiddet">S'</th>
+                                            <th title="Revize Olasılık">O'</th>
+                                            <th title="Revize Saptama">D'</th>
+                                            <th title="Revize RPN">RPN'</th>
+                                            <th>Sil</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="fmea-table-tbody">
+                                        <tr class="empty-row">
+                                            <td colspan="16">FMEA tablosu yükleniyor...</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel 7: Pareto -->
+                <div class="qm-tab-panel" id="qm-panel-pareto">
+                    <div class="fives-container">
+                        <!-- Header & KPIs -->
+                        <div class="fives-header-card">
+                            <div class="fives-header-main">
+                                <div>
+                                    <h3 style="margin: 0; font-size: 1.25rem; color: var(--text-primary);">
+                                        <i class="fa-solid fa-chart-column" style="color: #ec4899;"></i> Pareto Analizi (80/20 Kuralı)
+                                    </h3>
+                                    <span style="font-size: 0.85rem; color: var(--text-muted);">Hayati Azınlık (Vital Few) & Önemsiz Çoğunluk Hata Dağılım Grafiği</span>
+                                </div>
+                                <div class="fives-actions-group">
+                                    <button type="button" class="btn btn-primary btn-sm" id="btn-pareto-add-defect">
+                                        <i class="fa-solid fa-plus"></i> Hata Ekle
+                                    </button>
+                                    <button type="button" class="btn btn-outline btn-sm btn-export-excel" id="btn-pareto-export-excel" style="color: #107c41; border-color: rgba(16, 124, 65, 0.4);">
+                                        <i class="fa-solid fa-file-excel"></i> Excel (.xlsx)
+                                    </button>
+                                    <button type="button" class="btn btn-outline btn-sm btn-export-pdf" id="btn-pareto-export-pdf" style="color: #e11d48; border-color: rgba(225, 29, 72, 0.4);">
+                                        <i class="fa-solid fa-file-pdf"></i> PDF (.pdf)
+                                    </button>
+                                    <button type="button" class="btn btn-outline btn-sm" id="btn-reset-pareto-data" title="Sıfırla">
+                                        <i class="fa-solid fa-rotate-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Preset Scenarios -->
+                            <div style="margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
+                                <span style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted);"><i class="fa-solid fa-wand-magic-sparkles"></i> Analiz Senaryoları:</span>
+                                <button type="button" class="btn btn-outline btn-sm" id="btn-pareto-preset-crimp" style="font-size: 0.78rem;">
+                                    Kablo Donanım & Krimp Hataları
+                                </button>
+                                <button type="button" class="btn btn-outline btn-sm" id="btn-pareto-preset-connector" style="font-size: 0.78rem;">
+                                    Konnektör & Pin Montaj Kusurları
+                                </button>
+                                <button type="button" class="btn btn-outline btn-sm" id="btn-pareto-preset-elec" style="font-size: 0.78rem;">
+                                    Elektriksel Test Red Sebepleri
+                                </button>
+                            </div>
+
+                            <!-- KPI Counters -->
+                            <div class="dof-kpi-grid" style="margin-top: 14px;">
+                                <div class="dof-kpi-card">
+                                    <span class="dof-kpi-num" id="pareto-kpi-total-defects">0</span>
+                                    <span class="dof-kpi-label"><i class="fa-solid fa-circle-xmark"></i> Toplam Red Parça</span>
+                                </div>
+                                <div class="dof-kpi-card kpi-danger">
+                                    <span class="dof-kpi-num" id="pareto-kpi-vital-count">0</span>
+                                    <span class="dof-kpi-label"><i class="fa-solid fa-bullseye"></i> Vital Few Hata Türü</span>
+                                </div>
+                                <div class="dof-kpi-card kpi-warning">
+                                    <span class="dof-kpi-num" id="pareto-kpi-vital-pct">%0</span>
+                                    <span class="dof-kpi-label"><i class="fa-solid fa-percent"></i> Hayati Hataların Payı</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pareto Grafiği Kartı -->
+                        <div class="fives-chart-card" style="padding: 16px; margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                                <h4 style="margin: 0; font-size: 1rem; color: var(--text-primary);">
+                                    <i class="fa-solid fa-chart-column" style="color: #ec4899;"></i> Çift Eksenli Pareto Grafiği (Frekans & Kümülatif %)
+                                </h4>
+                                <span class="badge" style="font-size: 0.75rem; background: var(--bg-secondary); border: 1px solid var(--border-color);">
+                                    Kırmızı: %80 Hayati Odak
+                                </span>
+                            </div>
+                            <div style="position: relative; height: 320px; width: 100%;">
+                                <canvas id="pareto-chart-canvas"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- Pareto Tablosu -->
+                        <div class="fives-history-card">
+                            <div style="padding: 12px 16px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between;">
+                                <h4 style="margin: 0; font-size: 0.95rem; color: var(--text-primary);">
+                                    <i class="fa-solid fa-table-list"></i> Hata Dağılımı ve Kümülatif Yüzde Tablosu
+                                </h4>
+                                <span style="font-size: 0.8rem; color: var(--text-muted);">Hata adetlerini değiştirerek grafiği anlık güncelleyebilirsiniz</span>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="krimp-table">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 50px; text-align: center;">Sıra</th>
+                                            <th>Hata Türü / Kusur</th>
+                                            <th style="width: 120px; text-align: center;">Hata Sayısı</th>
+                                            <th style="width: 100px; text-align: right;">Oran (%)</th>
+                                            <th style="width: 120px; text-align: right;">Kümülatif %</th>
+                                            <th style="width: 120px; text-align: right;">Maliyet Kaybı</th>
+                                            <th style="width: 60px; text-align: right;">Sil</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="pareto-table-tbody">
+                                        <tr class="empty-row">
+                                            <td colspan="7">Pareto verileri yükleniyor...</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel 8: 8D Problem Çözme Raporu -->
+                <div class="qm-tab-panel" id="qm-panel-eightd">
+                    <div class="fives-container">
+                        <!-- Header & Actions -->
+                        <div class="fives-header-card">
+                            <div class="fives-header-main">
+                                <div>
+                                    <h3 style="margin: 0; font-size: 1.25rem; color: var(--text-primary);">
+                                        <i class="fa-solid fa-network-wired" style="color: #0ea5e9;"></i> Global 8D Problem Çözme Raporu
+                                    </h3>
+                                    <span style="font-size: 0.85rem; color: var(--text-muted);">AIAG & VDA Standartlarında D1 - D8 Disiplinleri ile Müşteri Şikayeti ve Kök Neden Yönetimi</span>
+                                </div>
+                                <div class="fives-actions-group">
+                                    <button type="button" class="btn btn-primary btn-sm" id="btn-eightd-save">
+                                        <i class="fa-solid fa-floppy-disk"></i> Raporu Kaydet
+                                    </button>
+                                    <button type="button" class="btn btn-outline btn-sm btn-export-excel" id="btn-eightd-export-excel" style="color: #107c41; border-color: rgba(16, 124, 65, 0.4);">
+                                        <i class="fa-solid fa-file-excel"></i> Excel (.xlsx)
+                                    </button>
+                                    <button type="button" class="btn btn-outline btn-sm btn-export-pdf" id="btn-eightd-export-pdf" style="color: #e11d48; border-color: rgba(225, 29, 72, 0.4);">
+                                        <i class="fa-solid fa-file-pdf"></i> PDF (.pdf)
+                                    </button>
+                                    <button type="button" class="btn btn-outline btn-sm" id="btn-eightd-reset" title="Sıfırla">
+                                        <i class="fa-solid fa-rotate-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Preset Scenarios -->
+                            <div style="margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
+                                <span style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted);"><i class="fa-solid fa-wand-magic-sparkles"></i> 8D Örnek Vakalar:</span>
+                                <button type="button" class="btn btn-outline btn-sm" id="btn-eightd-sample-1" style="font-size: 0.78rem;">
+                                    Ters Pin / Yanlış Konnektör (Otomotiv Müşteri Şikayeti)
+                                </button>
+                                <button type="button" class="btn btn-outline btn-sm" id="btn-eightd-sample-2" style="font-size: 0.78rem;">
+                                    Düşük Çekme Kuvveti (Krimp IPC-A-620 Hat Duruşu)
+                                </button>
+                                <button type="button" class="btn btn-outline btn-sm" id="btn-eightd-sample-3" style="font-size: 0.78rem;">
+                                    Elektriksel Kaçak & İzolasyon Hasarı (Gövde Demeti)
+                                </button>
+                            </div>
+
+                            <!-- Active Case Title Display -->
+                            <div style="margin-top: 12px; padding: 10px 14px; background: var(--bg-secondary); border-radius: 6px; border-left: 4px solid #0ea5e9;">
+                                <span style="font-size: 0.75rem; font-weight: 700; color: #0ea5e9; text-transform: uppercase;">Aktif Vaka Başlığı</span>
+                                <div id="eightd-display-title" style="font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin-top: 2px;">8D Problem Çözme Raporu</div>
+                            </div>
+                        </div>
+
+                        <!-- Progress & Discipline Stepper -->
+                        <div class="eightd-progress-card">
+                            <div class="eightd-progress-header">
+                                <div>
+                                    <span style="font-weight: 700; font-size: 0.92rem; color: var(--text-primary);"><i class="fa-solid fa-list-check" style="color: #10b981;"></i> 8D Disiplin Tamamlanma Durumu</span>
+                                    <span style="font-size: 0.8rem; color: var(--text-muted); margin-left: 8px;" id="eightd-completed-steps">0 / 8</span>
+                                </div>
+                                <span style="font-weight: 800; font-size: 1.1rem; color: #10b981;" id="eightd-progress-pct">%0</span>
+                            </div>
+                            <div class="eightd-progress-bar-bg">
+                                <div class="eightd-progress-bar" id="eightd-progress-bar"></div>
+                            </div>
+                            <!-- Quick Nav Stepper Pills -->
+                            <div class="eightd-stepper">
+                                <a href="#eightd-section-d1" class="eightd-step-pill" id="eightd-pill-d1" data-step="d1"><i class="fa-solid fa-users"></i> D1 Ekip</a>
+                                <a href="#eightd-section-d2" class="eightd-step-pill" id="eightd-pill-d2" data-step="d2"><i class="fa-solid fa-circle-question"></i> D2 Problem (5W2H)</a>
+                                <a href="#eightd-section-d3" class="eightd-step-pill" id="eightd-pill-d3" data-step="d3"><i class="fa-solid fa-boxes-stacked"></i> D3 Karantina (ICA)</a>
+                                <a href="#eightd-section-d4" class="eightd-step-pill" id="eightd-pill-d4" data-step="d4"><i class="fa-solid fa-magnifying-glass-chart"></i> D4 Kök Neden (RCA)</a>
+                                <a href="#eightd-section-d5" class="eightd-step-pill" id="eightd-pill-d5" data-step="d5"><i class="fa-solid fa-lightbulb"></i> D5 Kalıcı Aksiyon (PCA)</a>
+                                <a href="#eightd-section-d6" class="eightd-step-pill" id="eightd-pill-d6" data-step="d6"><i class="fa-solid fa-vial-circle-check"></i> D6 Doğrulama</a>
+                                <a href="#eightd-section-d7" class="eightd-step-pill" id="eightd-pill-d7" data-step="d7"><i class="fa-solid fa-repeat"></i> D7 Önleme (SOP/FMEA)</a>
+                                <a href="#eightd-section-d8" class="eightd-step-pill" id="eightd-pill-d8" data-step="d8"><i class="fa-solid fa-award"></i> D8 Kapatma & Tebrik</a>
+                            </div>
+                        </div>
+
+                        <!-- Printable Area for PDF & Screen Form -->
+                        <div class="eightd-printable-area" id="eightd-printable-area">
+                            <!-- D0: Genel Bilgiler -->
+                            <div class="eightd-discipline-card" id="eightd-section-d0">
+                                <div class="eightd-discipline-header">
+                                    <h4 class="eightd-d-title"><i class="fa-solid fa-file-lines" style="color: #64748b;"></i> D0 / Genel Bilgiler & Başlık</h4>
+                                    <span class="eightd-d-badge badge-d0">D0</span>
+                                </div>
+                                <div class="fives-meta-grid">
+                                    <div class="fives-meta-field">
+                                        <label>8D Rapor No</label>
+                                        <input type="text" id="eightd-report-no">
+                                    </div>
+                                    <div class="fives-meta-field">
+                                        <label>Müşteri / Tesis</label>
+                                        <input type="text" id="eightd-customer">
+                                    </div>
+                                    <div class="fives-meta-field">
+                                        <label>Parça No</label>
+                                        <input type="text" id="eightd-part-no">
+                                    </div>
+                                    <div class="fives-meta-field">
+                                        <label>Parça Adı / Tanımı</label>
+                                        <input type="text" id="eightd-part-name">
+                                    </div>
+                                    <div class="fives-meta-field">
+                                        <label>İstasyon / Hat</label>
+                                        <input type="text" id="eightd-station">
+                                    </div>
+                                    <div class="fives-meta-field">
+                                        <label>Açılış Tarihi</label>
+                                        <input type="date" id="eightd-open-date">
+                                    </div>
+                                    <div class="fives-meta-field">
+                                        <label>Hedef Kapatma Tarihi</label>
+                                        <input type="date" id="eightd-target-date">
+                                    </div>
+                                    <div class="fives-meta-field">
+                                        <label>Rapor Statüsü</label>
+                                        <select id="eightd-status">
+                                            <option value="Açık">Açık</option>
+                                            <option value="D3 Karantina Alındı">D3 Karantina Alındı</option>
+                                            <option value="D4 Kök Neden Tespit Edildi">D4 Kök Neden Tespit Edildi</option>
+                                            <option value="D6 Doğrulama Aşamasında">D6 Doğrulama Aşamasında</option>
+                                            <option value="Kapatıldı">Kapatıldı</option>
+                                        </select>
+                                    </div>
+                                    <div class="fives-meta-field">
+                                        <label>Öncelik Derecesi</label>
+                                        <select id="eightd-priority">
+                                            <option value="Kritik (Güvenlik & Fonksiyon)">Kritik (Güvenlik & Fonksiyon)</option>
+                                            <option value="Yüksek (Müşteri Şikayeti)">Yüksek (Müşteri Şikayeti)</option>
+                                            <option value="Orta (İç Proses Hat Duruşu)">Orta (İç Proses Hat Duruşu)</option>
+                                            <option value="Düşük">Düşük</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- D1: Ekip Kurulumu -->
+                            <div class="eightd-discipline-card" id="eightd-section-d1">
+                                <div class="eightd-discipline-header">
+                                    <h4 class="eightd-d-title"><i class="fa-solid fa-users" style="color: #3b82f6;"></i> D1: Problem Çözme Ekibinin Kurulması (Team Formation)</h4>
+                                    <span class="eightd-d-badge badge-d1">D1 Disiplini</span>
+                                </div>
+                                <div class="fives-meta-grid">
+                                    <div class="fives-meta-field">
+                                        <label><i class="fa-solid fa-crown" style="color: #f59e0b;"></i> Şampiyon / Sponsor</label>
+                                        <input type="text" id="eightd-d1-champion">
+                                    </div>
+                                    <div class="fives-meta-field">
+                                        <label><i class="fa-solid fa-user-check" style="color: #3b82f6;"></i> 8D Takım Lideri</label>
+                                        <input type="text" id="eightd-d1-leader">
+                                    </div>
+                                    <div class="fives-meta-field">
+                                        <label><i class="fa-solid fa-shield-halved" style="color: #10b981;"></i> Kalite Mühendisi</label>
+                                        <input type="text" id="eightd-d1-quality">
+                                    </div>
+                                    <div class="fives-meta-field">
+                                        <label><i class="fa-solid fa-gear" style="color: #0ea5e9;"></i> Proses / Üretim Mühendisi</label>
+                                        <input type="text" id="eightd-d1-process">
+                                    </div>
+                                    <div class="fives-meta-field">
+                                        <label><i class="fa-solid fa-wrench" style="color: #64748b;"></i> Bakım / Kalıp Sorumlusu</label>
+                                        <input type="text" id="eightd-d1-maint">
+                                    </div>
+                                    <div class="fives-meta-field">
+                                        <label><i class="fa-solid fa-hard-hat" style="color: #f97316;"></i> Operatör Temsilcisi</label>
+                                        <input type="text" id="eightd-d1-operator">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- D2: Problem Tanımı (5W2H) -->
+                            <div class="eightd-discipline-card" id="eightd-section-d2">
+                                <div class="eightd-discipline-header">
+                                    <h4 class="eightd-d-title"><i class="fa-solid fa-circle-question" style="color: #e11d48;"></i> D2: Problemin Tanımlanması (5W2H Metodolojisi)</h4>
+                                    <span class="eightd-d-badge badge-d2">D2 Disiplini</span>
+                                </div>
+                                <div class="eightd-5w2h-grid">
+                                    <div class="eightd-5w2h-cell" style="grid-column: span 2;">
+                                        <label><i class="fa-solid fa-triangle-exclamation" style="color: #e11d48;"></i> NE OLDU? (What - Hatanın Fiziksel Tanımı & Kusur)</label>
+                                        <textarea id="eightd-d2-what" rows="2"></textarea>
+                                    </div>
+                                    <div class="eightd-5w2h-cell">
+                                        <label><i class="fa-solid fa-location-dot" style="color: #3b82f6;"></i> NEREDE? (Where - Tespit Edilen Yer & İstasyon)</label>
+                                        <input type="text" id="eightd-d2-where">
+                                    </div>
+                                    <div class="eightd-5w2h-cell">
+                                        <label><i class="fa-solid fa-calendar-days" style="color: #f59e0b;"></i> NE ZAMAN? (When - Tespit Tarihi & Saati)</label>
+                                        <input type="text" id="eightd-d2-when">
+                                    </div>
+                                    <div class="eightd-5w2h-cell">
+                                        <label><i class="fa-solid fa-user" style="color: #10b981;"></i> KİM? (Who - Hatayı Tespit Eden Kişi/Rol)</label>
+                                        <input type="text" id="eightd-d2-who">
+                                    </div>
+                                    <div class="eightd-5w2h-cell">
+                                        <label><i class="fa-solid fa-clipboard-question" style="color: #8b5cf6;"></i> NEDEN PROBLEM? (Why - Hangi Standart / Şartname Çiğnendi?)</label>
+                                        <input type="text" id="eightd-d2-why">
+                                    </div>
+                                    <div class="eightd-5w2h-cell">
+                                        <label><i class="fa-solid fa-microscope" style="color: #0ea5e9;"></i> NASIL? (How - Hangi Test / Kontrol Yöntemiyle Fark Edildi?)</label>
+                                        <input type="text" id="eightd-d2-how">
+                                    </div>
+                                    <div class="eightd-5w2h-cell">
+                                        <label><i class="fa-solid fa-hashtag" style="color: #e11d48;"></i> KAÇ TANE? (How Many - Hata Adedi, Oran & PPM Etkisi)</label>
+                                        <input type="text" id="eightd-d2-howmany">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- D3: Acil Karantina & Sınırlama Faaliyetleri (ICA) -->
+                            <div class="eightd-discipline-card" id="eightd-section-d3">
+                                <div class="eightd-discipline-header">
+                                    <h4 class="eightd-d-title"><i class="fa-solid fa-boxes-stacked" style="color: #f59e0b;"></i> D3: Acil Karantina & Sınırlama Faaliyetleri (Immediate Containment - ICA)</h4>
+                                    <span class="eightd-d-badge badge-d3">D3 Disiplini</span>
+                                </div>
+                                <span style="display: block; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 12px;">Müşteriye ve hatta hatalı parça akışını 24 saat içinde %100 durduran 4 aşamalı stok karantina kontrolü</span>
+                                <div class="eightd-stock-grid">
+                                    <div class="eightd-stock-cell">
+                                        <label><i class="fa-solid fa-warehouse" style="color: #e11d48;"></i> 1. Müşteri Deposu / Hattı</label>
+                                        <textarea id="eightd-d3-customer" rows="3" placeholder="Müşterideki stok durumu ve ayıklama sonucu..."></textarea>
+                                    </div>
+                                    <div class="eightd-stock-cell">
+                                        <label><i class="fa-solid fa-truck" style="color: #f59e0b;"></i> 2. Yoldaki / Transit Sevkiyat</label>
+                                        <textarea id="eightd-d3-transit" rows="3" placeholder="Nakliye aracındaki parça kontrolü..."></textarea>
+                                    </div>
+                                    <div class="eightd-stock-cell">
+                                        <label><i class="fa-solid fa-boxes-packing" style="color: #3b82f6;"></i> 3. Fabrika Bitmiş Ürün Ambarı (FG)</label>
+                                        <textarea id="eightd-d3-fg" rows="3" placeholder="Depodaki bitmiş ürün kontrolü..."></textarea>
+                                    </div>
+                                    <div class="eightd-stock-cell">
+                                        <label><i class="fa-solid fa-industry" style="color: #10b981;"></i> 4. Üretim Hattı & Yarı Mamul (WIP)</label>
+                                        <textarea id="eightd-d3-wip" rows="3" placeholder="Hat başı ve üretimdeki parçaların kontrolü..."></textarea>
+                                    </div>
+                                </div>
+                                <div class="fives-meta-field" style="margin-top: 10px;">
+                                    <label><i class="fa-solid fa-tag" style="color: #10b981;"></i> Temiz Nokta Tanımlaması (Clean Point & İrsaliye No / Özel Etiketleme)</label>
+                                    <input type="text" id="eightd-d3-cleanpoint" placeholder="Örn: İrsaliye No: 2026-98144, Özel Yeşil Nokta Etiketli Sevkiyat">
+                                </div>
+                            </div>
+
+                            <!-- D4: Kök Neden Analizi (RCA) -->
+                            <div class="eightd-discipline-card" id="eightd-section-d4">
+                                <div class="eightd-discipline-header">
+                                    <h4 class="eightd-d-title"><i class="fa-solid fa-magnifying-glass-chart" style="color: #8b5cf6;"></i> D4: Kök Neden Analizi (Root Cause Analysis - RCA)</h4>
+                                    <span class="eightd-d-badge badge-d4">D4 Disiplini</span>
+                                </div>
+                                <div class="eightd-root-grid">
+                                    <div class="eightd-root-cell">
+                                        <label><i class="fa-solid fa-hammer" style="color: #e11d48;"></i> 1. OLUŞUM KÖK NEDENİ (Occurrence Root Cause)</label>
+                                        <p style="font-size: 0.76rem; color: var(--text-muted); margin: 0 0 8px 0;">Hata fiziksel olarak neden üretildi? Proses ve operasyon zafiyeti nedir?</p>
+                                        <textarea id="eightd-d4-occurrence" rows="4"></textarea>
+                                    </div>
+                                    <div class="eightd-root-cell">
+                                        <label><i class="fa-solid fa-filter-circle-xmark" style="color: #f59e0b;"></i> 2. KAÇIŞ KÖK NEDENİ (Escape Root Cause)</label>
+                                        <p style="font-size: 0.76rem; color: var(--text-muted); margin: 0 0 8px 0;">Hata mevcut kalite kontrollerinden (E-Test, görsel denetim) neden kaçtı/yakalanamadı?</p>
+                                        <textarea id="eightd-d4-escape" rows="4"></textarea>
+                                    </div>
+                                </div>
+                                <div class="fives-meta-field" style="margin-top: 14px;">
+                                    <label><i class="fa-solid fa-vial" style="color: #8b5cf6;"></i> Kök Neden Canlandırma & Doğrulama Testi (Root Cause Simulation)</label>
+                                    <input type="text" id="eightd-d4-simulation" placeholder="Kök neden kontrollü olarak tekrar üretilip doğrulandı mı?">
+                                </div>
+                                <div style="margin-top: 12px; display: flex; gap: 10px; justify-content: flex-end;">
+                                    <button type="button" class="btn btn-outline btn-sm" id="btn-eightd-to-why" style="font-size: 0.8rem;">
+                                        <i class="fa-solid fa-diagram-project"></i> 5 Neden & Balık Kılçığı Modülüne Aktar
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- D5: Kalıcı Düzeltici Faaliyetler (PCA) -->
+                            <div class="eightd-discipline-card" id="eightd-section-d5">
+                                <div class="eightd-discipline-header">
+                                    <h4 class="eightd-d-title"><i class="fa-solid fa-lightbulb" style="color: #0ea5e9;"></i> D5: Kalıcı Düzeltici Faaliyetlerin Belirlenmesi (Permanent Corrective Actions - PCA)</h4>
+                                    <span class="eightd-d-badge badge-d5">D5 Disiplini</span>
+                                </div>
+                                <div class="eightd-root-grid">
+                                    <div class="eightd-root-cell">
+                                        <label><i class="fa-solid fa-shield-halved" style="color: #10b981;"></i> Oluşumu Engelleyen Kalıcı Faaliyet (Poka-Yoke / Tasarım İyileştirmesi)</label>
+                                        <textarea id="eightd-d5-pca-occ" rows="4"></textarea>
+                                    </div>
+                                    <div class="eightd-root-cell">
+                                        <label><i class="fa-solid fa-crosshairs" style="color: #0ea5e9;"></i> Kaçışı Engelleyen Kalıcı Faaliyet (Tespit Sistemi & Test Güncellemesi)</label>
+                                        <textarea id="eightd-d5-pca-esc" rows="4"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- D6: Faaliyetlerin Devreye Alınması ve Doğrulanması -->
+                            <div class="eightd-discipline-card" id="eightd-section-d6">
+                                <div class="eightd-discipline-header">
+                                    <h4 class="eightd-d-title"><i class="fa-solid fa-vial-circle-check" style="color: #10b981;"></i> D6: Kalıcı Faaliyetlerin Uygulanması & Doğrulanması (Validation)</h4>
+                                    <span class="eightd-d-badge badge-d6">D6 Disiplini</span>
+                                </div>
+                                <div class="fives-meta-grid">
+                                    <div class="fives-meta-field">
+                                        <label>Uygulanma / Devreye Alınma Tarihi</label>
+                                        <input type="date" id="eightd-d6-date">
+                                    </div>
+                                    <div class="fives-meta-field" style="grid-column: span 2;">
+                                        <label>Doğrulama Sonuçları (Cpk, 3 Parti Sıfır Hata Takibi, Müşteri Teyidi)</label>
+                                        <input type="text" id="eightd-d6-validation">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- D7: Tekrarın Önlenmesi & Standartlaştırma -->
+                            <div class="eightd-discipline-card" id="eightd-section-d7">
+                                <div class="eightd-discipline-header">
+                                    <h4 class="eightd-d-title"><i class="fa-solid fa-repeat" style="color: #059669;"></i> D7: Tekrarın Önlenmesi & Standartlaştırma (Prevent Recurrence)</h4>
+                                    <span class="eightd-d-badge badge-d7">D7 Disiplini</span>
+                                </div>
+                                <div class="fives-meta-grid">
+                                    <div class="fives-meta-field">
+                                        <label><i class="fa-solid fa-file-waveform" style="color: #f59e0b;"></i> PFMEA Güncellemesi (Yeni RPN)</label>
+                                        <input type="text" id="eightd-d7-fmea">
+                                    </div>
+                                    <div class="fives-meta-field">
+                                        <label><i class="fa-solid fa-book-bookmark" style="color: #0ea5e9;"></i> Kontrol Planı & SOP / Talimat Güncellemesi</label>
+                                        <input type="text" id="eightd-d7-controlplan">
+                                    </div>
+                                    <div class="fives-meta-field">
+                                        <label><i class="fa-solid fa-share-nodes" style="color: #10b981;"></i> Yatay Yaygınlaştırma (Lessons Learned / Diğer Hatlar)</label>
+                                        <input type="text" id="eightd-d7-lessons">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- D8: Ekip Tebriği & Rapor Kapatma -->
+                            <div class="eightd-discipline-card" id="eightd-section-d8">
+                                <div class="eightd-discipline-header">
+                                    <h4 class="eightd-d-title"><i class="fa-solid fa-award" style="color: #6366f1;"></i> D8: Ekibin Tebriği & Rapor Kapatma Onayı (Closure & Congratulation)</h4>
+                                    <span class="eightd-d-badge badge-d8">D8 Disiplini</span>
+                                </div>
+                                <div class="eightd-closure-grid">
+                                    <div class="eightd-closure-cell">
+                                        <label><i class="fa-solid fa-calendar-check" style="color: #10b981;"></i> Kapatma Tarihi</label>
+                                        <input type="date" id="eightd-d8-date">
+                                    </div>
+                                    <div class="eightd-closure-cell">
+                                        <label><i class="fa-solid fa-signature" style="color: #3b82f6;"></i> Kalite Müdürü Onayı</label>
+                                        <input type="text" id="eightd-d8-manager">
+                                    </div>
+                                    <div class="eightd-closure-cell">
+                                        <label><i class="fa-solid fa-handshake" style="color: #f59e0b;"></i> Müşteri Kalite Onayı</label>
+                                        <input type="text" id="eightd-d8-customer">
+                                    </div>
+                                </div>
+                                <div class="fives-meta-field" style="margin-top: 14px;">
+                                    <label><i class="fa-solid fa-certificate" style="color: #f59e0b;"></i> Ekip Takdiri & Başarı Notu</label>
+                                    <input type="text" id="eightd-d8-congrat">
+                                </div>
+                                <div style="margin-top: 16px; display: flex; justify-content: flex-end; gap: 10px;">
+                                    <button type="button" class="btn btn-primary btn-sm" id="btn-eightd-to-dof" style="background: #0ea5e9; border-color: #0ea5e9;">
+                                        <i class="fa-solid fa-share-from-square"></i> Bu 8D'yi DÖF / CAPA Takip Tablosuna Aktar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Contact Section -->
         <section id="iletisim" class="section contact">
             <div class="container">
@@ -1138,5 +2479,15 @@
 
     <script src="krimpData.js"></script>
     <script src="script.js"></script>
+    <!-- Kalite Yönetim Merkezi Modülleri -->
+    <script src="modules/exportHelper.js"></script>
+    <script src="modules/qualityHub.js"></script>
+    <script src="modules/fiveS.js"></script>
+    <script src="modules/fishbone.js"></script>
+    <script src="modules/dofCapa.js"></script>
+    <script src="modules/kaizen.js"></script>
+    <script src="modules/fmea.js"></script>
+    <script src="modules/pareto.js"></script>
+    <script src="modules/eightD.js"></script>
 </body>
 </html>

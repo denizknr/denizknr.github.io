@@ -498,6 +498,41 @@ ul {
     text-decoration: underline;
 }
 
+.about-lean-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px dashed var(--border-color);
+}
+
+.lean-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.lean-pill i {
+    color: var(--primary);
+    font-size: 0.82rem;
+}
+
+.lean-pill:hover {
+    border-color: var(--primary);
+    background: rgba(37, 99, 235, 0.08);
+    transform: translateY(-2px);
+}
+
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
