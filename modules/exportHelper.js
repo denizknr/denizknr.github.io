@@ -197,11 +197,12 @@
                 const finalName = fileName.endsWith('.pdf') ? fileName : `${fileName}.pdf`;
 
                 if (typeof html2pdf !== 'undefined') {
-                    // Create loading overlay to hide the flash
+                    // Create loading overlay (ignoring it in html2canvas)
                     const overlay = document.createElement('div');
                     overlay.id = 'pdf-loading-overlay';
-                    overlay.style.cssText = 'position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: var(--bg-primary); z-index: 999999; display: flex; align-items: center; justify-content: center; flex-direction: column; color: var(--text-primary); font-family: inherit; transition: opacity 0.3s;';
-                    overlay.innerHTML = '<i class="fa-solid fa-file-pdf fa-3x" style="color: var(--primary); margin-bottom: 15px;"></i><h2 style="margin:0; font-size: 1.5rem; font-weight: 800;">PDF Hazırlanıyor...</h2><p style="margin-top: 10px; font-weight: 500; color: var(--text-secondary);">Lütfen bekleyin, yüksek kaliteli belge oluşturuluyor.</p>';
+                    overlay.setAttribute('data-html2canvas-ignore', 'true');
+                    overlay.style.cssText = 'position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(15, 23, 42, 0.7); z-index: 999999; display: flex; align-items: center; justify-content: center; flex-direction: column; color: #ffffff; font-family: inherit; pointer-events: none;';
+                    overlay.innerHTML = '<i class="fa-solid fa-file-pdf fa-3x" style="color: #e11d48; margin-bottom: 15px;"></i><h2 style="margin:0; font-size: 1.5rem; font-weight: 800; color: #ffffff;">PDF Hazırlanıyor...</h2><p style="margin-top: 10px; font-weight: 500; color: #cbd5e1;">Sayfa yapısı ve yüksek kaliteli vektörel grafikler optimize ediliyor.</p>';
                     document.body.appendChild(overlay);
 
                     const originalCursor = document.body.style.cursor;
@@ -210,22 +211,134 @@
                     // Force Light Theme on actual DOM so charts and SVGs natively update
                     const originalTheme = document.documentElement.getAttribute('data-theme');
                     document.documentElement.setAttribute('data-theme', 'light');
-                    const originalBg = element.style.backgroundColor;
+
+                    // Determine orientation & print target width
+                    const isLandscape = Boolean(customOptions.jsPDF && customOptions.jsPDF.orientation === 'landscape');
+                    const printWidth = isLandscape ? '1040px' : '780px';
+
+                    // Add PDF export class to document body and target element
+                    document.body.classList.add('pdf-export-active');
+                    element.classList.add('pdf-export-active');
+
+                    // Save original element inline styles
+                    const originalInlineStyles = {
+                        width: element.style.width,
+                        minWidth: element.style.minWidth,
+                        maxWidth: element.style.maxWidth,
+                        margin: element.style.margin,
+                        padding: element.style.padding,
+                        paddingBottom: element.style.paddingBottom,
+                        marginBottom: element.style.marginBottom,
+                        backgroundColor: element.style.backgroundColor,
+                        boxSizing: element.style.boxSizing
+                    };
+
+                    element.style.width = printWidth;
+                    element.style.minWidth = printWidth;
+                    element.style.maxWidth = printWidth;
+                    element.style.margin = '0 auto';
+                    element.style.paddingBottom = '0px';
+                    element.style.marginBottom = '0px';
                     element.style.backgroundColor = '#ffffff';
+                    element.style.boxSizing = 'border-box';
+
+                    // Synchronize input values to DOM value attributes so html2canvas captures them
+                    const inputs = element.querySelectorAll('input');
+                    inputs.forEach(inp => {
+                        if (inp.type !== 'checkbox' && inp.type !== 'radio') {
+                            inp.setAttribute('value', inp.value || '');
+                        }
+                    });
+
+                    // Auto-expand all textareas so no content is cut off or hidden behind scrollbars
+                    const textareas = element.querySelectorAll('textarea');
+                    const originalTextareaStyles = [];
+                    textareas.forEach(ta => {
+                        originalTextareaStyles.push({ el: ta, height: ta.style.height, overflow: ta.style.overflow });
+                        ta.style.overflow = 'visible';
+                        ta.style.height = 'auto';
+                        ta.style.height = Math.max(45, ta.scrollHeight + 8) + 'px';
+                    });
+
+                    // Re-render Fishbone SVG if present to guarantee light-theme crisp vectors
+                    if (element.querySelector('#fishbone-svg') && window.FishboneModule && typeof window.FishboneModule.renderSvgFishbone === 'function') {
+                        window.FishboneModule.renderSvgFishbone();
+                    }
+
+                    // Save scroll position and reset to top to avoid html2canvas scroll offset bugs
+                    const originalScrollX = window.scrollX || window.pageXOffset;
+                    const originalScrollY = window.scrollY || window.pageYOffset;
+                    window.scrollTo(0, 0);
 
                     const opt = Object.assign({
-                        margin: [10, 10, 10, 10],
+                        margin: isLandscape ? [8, 8, 8, 8] : [10, 10, 10, 10],
                         filename: finalName,
-                        image: { type: 'jpeg', quality: 1.0 },
-                        pagebreak: { mode: ['css', 'legacy'], avoid: ['svg', '.fishbone-cat-box', '.five-why-row', '.eightd-discipline-card', '.fives-meta-grid', '.card', '.kriter-row', '.fives-q-item', '.fives-rating-group', '.fives-action-item'] },
+                        image: { type: 'jpeg', quality: 0.98 },
+                        enableLinks: false,
+                        pagebreak: { 
+                            mode: ['css', 'legacy'], 
+                            avoid: [
+                                '.pdf-avoid-break',
+                                '.eightd-discipline-card',
+                                '.five-why-row',
+                                '.fishbone-cat-box',
+                                '.krimp-table tr',
+                                '.fives-action-item'
+                            ] 
+                        },
                         html2canvas: { 
                             scale: 2, 
                             useCORS: true, 
                             logging: false,
-                            scrollY: 0
+                            scrollX: 0,
+                            scrollY: 0,
+                            windowWidth: isLandscape ? 1120 : 840
                         },
-                        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+                        jsPDF: { 
+                            unit: 'mm', 
+                            format: 'a4', 
+                            orientation: isLandscape ? 'landscape' : 'portrait' 
+                        }
                     }, customOptions);
+
+                    function cleanup() {
+                        // Restore classes
+                        document.body.classList.remove('pdf-export-active');
+                        element.classList.remove('pdf-export-active');
+
+                        // Restore element styles
+                        element.style.width = originalInlineStyles.width;
+                        element.style.minWidth = originalInlineStyles.minWidth;
+                        element.style.maxWidth = originalInlineStyles.maxWidth;
+                        element.style.margin = originalInlineStyles.margin;
+                        element.style.padding = originalInlineStyles.padding;
+                        element.style.paddingBottom = originalInlineStyles.paddingBottom;
+                        element.style.marginBottom = originalInlineStyles.marginBottom;
+                        element.style.backgroundColor = originalInlineStyles.backgroundColor;
+                        element.style.boxSizing = originalInlineStyles.boxSizing;
+
+                        // Restore textarea styles
+                        originalTextareaStyles.forEach(item => {
+                            item.el.style.height = item.height;
+                            item.el.style.overflow = item.overflow;
+                        });
+
+                        // Restore scroll
+                        window.scrollTo(originalScrollX, originalScrollY);
+
+                        // Restore theme
+                        if (originalTheme) {
+                            document.documentElement.setAttribute('data-theme', originalTheme);
+                        } else {
+                            document.documentElement.removeAttribute('data-theme');
+                        }
+
+                        // Restore cursor and remove overlay
+                        document.body.style.cursor = originalCursor;
+                        if (overlay.parentNode) {
+                            overlay.parentNode.removeChild(overlay);
+                        }
+                    }
 
                     // Wait 400ms for charts and SVGs to re-render in light mode
                     setTimeout(() => {
@@ -240,30 +353,9 @@
                                 a.click();
                                 URL.revokeObjectURL(url);
                             }
-                            
-                            // Restore original theme and remove overlay
-                            if (originalTheme) {
-                                document.documentElement.setAttribute('data-theme', originalTheme);
-                            } else {
-                                document.documentElement.removeAttribute('data-theme');
-                            }
-                            element.style.backgroundColor = originalBg;
-                            document.body.style.cursor = originalCursor;
-                            
-                            setTimeout(() => {
-                                if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
-                            }, 300);
-
+                            cleanup();
                         }).catch(err => {
-                            if (originalTheme) {
-                                document.documentElement.setAttribute('data-theme', originalTheme);
-                            } else {
-                                document.documentElement.removeAttribute('data-theme');
-                            }
-                            element.style.backgroundColor = originalBg;
-                            document.body.style.cursor = originalCursor;
-                            if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
-
+                            cleanup();
                             console.error('html2pdf hata verdi:', err);
                             alert('PDF oluşturulurken bir hata oluştu: ' + (err.message || 'Bilinmeyen hata'));
                         });

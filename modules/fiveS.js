@@ -946,12 +946,14 @@
         const date = document.getElementById('fives-date')?.value || new Date().toISOString().split('T')[0];
         const fileName = `5S_Denetim_Raporu_${line.replace(/[^a-zA-Z0-9]/g, '_')}_${date}`;
 
-        const reportEl = document.querySelector('.fives-container');
+        const reportEl = document.getElementById('qm-panel-fives')?.querySelector('.fives-container') || document.getElementById('qm-panel-fives');
+        const feedbackEl = document.getElementById('fives-feedback-msg');
+        if (feedbackEl) feedbackEl.style.display = 'none';
+
         if (window.ExportHelper && reportEl) {
             window.ExportHelper.toPdf(reportEl, fileName, {
                 jsPDF: { unit: 'mm', format: 'a4', orientation: 'landscape' }
             });
-            alertFeedback('success', 'PDF belgesi hazırlanıyor ve indiriliyor...');
         } else {
             window.print();
         }

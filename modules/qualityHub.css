@@ -20,16 +20,11 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
     padding: 12px;
-    background: var(--navbar-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: var(--bg-card);
     border: 1px solid var(--border-color);
     border-radius: 12px;
     margin-bottom: 32px;
     box-shadow: var(--shadow-sm);
-    position: sticky;
-    top: 76px;
-    z-index: 900;
 }
 
 .qm-nav-bar::-webkit-scrollbar {
@@ -77,6 +72,7 @@
     padding: 2px 7px;
     border-radius: 999px;
     background: rgba(255, 255, 255, 0.25);
+    color: #ffffff;
     font-weight: 700;
 }
 
@@ -232,6 +228,18 @@
     background: rgba(29, 78, 137, 0.15);
     color: var(--primary);
     border: 1px solid rgba(29, 78, 137, 0.3);
+}
+
+.qm-module-badge.status-new {
+    background: rgba(14, 165, 233, 0.15);
+    color: #0369a1;
+    border: 1px solid rgba(14, 165, 233, 0.4);
+}
+
+[data-theme="dark"] .qm-module-badge.status-new {
+    background: rgba(14, 165, 233, 0.22);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.5);
 }
 
 .qm-module-icon {
@@ -1652,6 +1660,462 @@
 .btn-export-pdf:hover {
     background: rgba(225, 29, 72, 0.12) !important;
     border-color: #e11d48 !important;
+}
+
+/* ==========================================================================
+   Print & PDF Export High-Contrast & Exact Print Layout Standards
+   ========================================================================== */
+
+/* Page Break Controller */
+.pdf-page-break {
+    page-break-before: auto;
+}
+
+.pdf-export-active .pdf-page-break,
+@media print {
+    .pdf-page-break {
+        page-break-before: always !important;
+        break-before: page !important;
+        margin-top: 15px !important;
+    }
+}
+
+/* Hiding interactive UI elements during PDF generation */
+.pdf-export-active .fives-actions-group,
+.pdf-export-active .btn-export-excel,
+.pdf-export-active .btn-export-pdf,
+.pdf-export-active .theme-toggle,
+.pdf-export-active .menu-toggle,
+.pdf-export-active .navbar,
+.pdf-export-active .qm-nav-bar,
+.pdf-export-active .btn-sample-5s-audit,
+.pdf-export-active #btn-save-5s-audit,
+.pdf-export-active #btn-reset-5s-audit,
+.pdf-export-active #btn-eightd-reset,
+.pdf-export-active #btn-eightdalert-reset,
+.pdf-export-active #btn-eightd-to-why,
+.pdf-export-active #btn-eightd-to-dof,
+.pdf-export-active .btn-del-why,
+.pdf-export-active .btn-remove-cause,
+.pdf-export-active #btn-fishbone-add-why,
+.pdf-export-active #btn-fishbone-to-dof,
+.pdf-export-active .fishbone-add-bar,
+.pdf-export-active #btn-toggle-dof-form,
+.pdf-export-active #btn-reset-dof-data,
+.pdf-export-active #dof-new-form-container,
+.pdf-export-active .dof-filter-bar,
+.pdf-export-active #btn-toggle-kaizen-form,
+.pdf-export-active #btn-reset-kaizen-data,
+.pdf-export-active #kaizen-new-form-container,
+.pdf-export-active .kaizen-filter-bar,
+.pdf-export-active #btn-toggle-fmea-form,
+.pdf-export-active #btn-reset-fmea-data,
+.pdf-export-active #fmea-new-form-container,
+.pdf-export-active .fmea-filter-bar,
+.pdf-export-active .eightd-stepper,
+.pdf-export-active .fives-pillars-nav,
+.pdf-export-active .fives-questions-card,
+.pdf-export-active .fives-history-card,
+.pdf-export-active #fives-feedback-msg,
+.pdf-export-active #btn-fishbone-sample-1,
+.pdf-export-active #btn-fishbone-sample-2,
+.pdf-export-active #btn-fishbone-sample-3,
+.pdf-export-active #btn-eightd-sample-1,
+.pdf-export-active #btn-eightd-sample-2,
+.pdf-export-active #btn-eightd-sample-3,
+.pdf-export-active .krimp-table th:last-child,
+.pdf-export-active .krimp-table td:last-child {
+    display: none !important;
+}
+
+/* Page Break Helper */
+.pdf-page-break {
+    page-break-before: always !important;
+    break-before: page !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    max-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    visibility: hidden !important;
+}
+
+/* High Contrast & Avoid Page Breaks inside atomic items */
+.pdf-export-active {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    --bg-primary: #ffffff !important;
+    --bg-secondary: #f8fafc !important;
+    --bg-card: #ffffff !important;
+    --border-color: #475569 !important;
+    --text-primary: #000000 !important;
+    --text-secondary: #0f172a !important;
+    --text-muted: #334155 !important;
+}
+
+.pdf-export-active,
+.pdf-export-active * {
+    animation: none !important;
+    transition: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+}
+
+.pdf-export-active .card,
+.pdf-export-active .fives-meta-card,
+.pdf-export-active .fives-header-card,
+.pdf-export-active .eightd-discipline-card,
+.pdf-export-active .fishbone-cat-box,
+.pdf-export-active .five-why-row,
+.pdf-export-active .five-why-summary-grid,
+.pdf-export-active .dof-kpi-card,
+.pdf-export-active .kaizen-kpi-card,
+.pdf-export-active .fmea-kpi-card,
+.pdf-export-active .krimp-table tr,
+.pdf-export-active .eightd-stock-cell,
+.pdf-export-active .eightd-root-cell,
+.pdf-export-active .fives-action-item {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    box-shadow: none !important;
+}
+
+/* Headings Avoid Orphan Breaks */
+.pdf-export-active h1,
+.pdf-export-active h2,
+.pdf-export-active h3,
+.pdf-export-active h4,
+.pdf-export-active h5,
+.pdf-export-active .eightd-discipline-header {
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+    color: #000000 !important;
+    font-weight: 800 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+}
+
+.pdf-export-active label {
+    color: #0f172a !important;
+    font-weight: 700 !important;
+    font-size: 0.84rem !important;
+    opacity: 1 !important;
+    display: inline-block !important;
+    margin-bottom: 3px !important;
+}
+
+.pdf-export-active span,
+.pdf-export-active p,
+.pdf-export-active div,
+.pdf-export-active td,
+.pdf-export-active th {
+    color: #000000 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+}
+
+/* Form Inputs, Textareas, Selects - Crisp & High Contrast */
+.pdf-export-active input[type="text"],
+.pdf-export-active input[type="date"],
+.pdf-export-active select,
+.pdf-export-active textarea {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border: 1.5px solid #334155 !important;
+    border-radius: 4px !important;
+    font-weight: 600 !important;
+    font-size: 0.88rem !important;
+    box-shadow: none !important;
+    opacity: 1 !important;
+    padding: 6px 8px !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+}
+
+.pdf-export-active textarea {
+    overflow: visible !important;
+    height: auto !important;
+    min-height: 42px !important;
+}
+
+/* ==========================================================================
+   5S Audit Report PDF Layout (2 Clean Pages)
+   ========================================================================== */
+.pdf-export-active .fives-main-layout {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+}
+
+/* Page 1: Audit Info + Scorecard + Radar Chart side by side */
+.pdf-export-active .fives-analytics-col {
+    order: 1 !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1.15fr !important;
+    gap: 14px !important;
+    margin-top: 10px !important;
+    margin-bottom: 0 !important;
+    break-after: page !important;
+    page-break-after: always !important;
+}
+
+.pdf-export-active .fives-meta-card {
+    padding: 12px 16px !important;
+    border: 1.5px solid #334155 !important;
+    margin-bottom: 10px !important;
+}
+
+.pdf-export-active .fives-score-summary-card {
+    padding: 14px 16px !important;
+    border: 1.5px solid #334155 !important;
+    background: #ffffff !important;
+}
+
+.pdf-export-active .fives-chart-card {
+    padding: 12px 14px !important;
+    border: 1.5px solid #334155 !important;
+    background: #ffffff !important;
+}
+
+.pdf-export-active .fives-radar-container {
+    height: 250px !important;
+    max-height: 250px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.pdf-export-active .fives-radar-container canvas {
+    max-height: 240px !important;
+    width: auto !important;
+}
+
+/* Page 2: Action Items */
+.pdf-export-active .fives-checklist-col {
+    order: 2 !important;
+    width: 100% !important;
+    margin-top: 0 !important;
+}
+
+.pdf-export-active .fives-actions-card {
+    margin-top: 0 !important;
+    border: 1.5px solid #334155 !important;
+    padding: 16px !important;
+    background: #ffffff !important;
+}
+
+.pdf-export-active .fives-action-item {
+    border: 1.5px solid #475569 !important;
+    background: #f8fafc !important;
+    padding: 10px 14px !important;
+    margin-bottom: 8px !important;
+}
+
+/* ==========================================================================
+   Balık Kılçığı & 5 Neden PDF Layout (2 Clean Pages)
+   ========================================================================== */
+.pdf-export-active #qm-panel-ishikawa .fives-header-card {
+    padding: 12px 16px !important;
+    border: 1.5px solid #334155 !important;
+    margin-bottom: 10px !important;
+}
+
+.pdf-export-active #qm-panel-ishikawa .fives-chart-card {
+    padding: 10px 12px !important;
+    border: 1.5px solid #334155 !important;
+    margin-bottom: 10px !important;
+    background: #ffffff !important;
+}
+
+.pdf-export-active .fishbone-svg-wrapper {
+    height: 250px !important;
+    max-height: 250px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.pdf-export-active #fishbone-svg {
+    height: 245px !important;
+    max-height: 245px !important;
+    width: 100% !important;
+}
+
+.pdf-export-active .fishbone-causes-section {
+    margin-bottom: 0 !important;
+    break-after: page !important;
+    page-break-after: always !important;
+}
+
+.pdf-export-active .fishbone-cat-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 8px !important;
+    margin-bottom: 0 !important;
+}
+
+.pdf-export-active .fishbone-cat-box {
+    padding: 6px 10px !important;
+    font-size: 0.8rem !important;
+    border: 1.5px solid #334155 !important;
+    background: #ffffff !important;
+}
+
+.pdf-export-active .fishbone-cat-header span {
+    font-weight: 800 !important;
+    font-size: 0.9rem !important;
+}
+
+.pdf-export-active .fishbone-cause-item {
+    font-weight: 600 !important;
+    color: #000000 !important;
+    border-bottom: 1px dashed #94a3b8 !important;
+    padding: 4px 0 !important;
+}
+
+/* Page 2: 5 Why */
+.pdf-export-active .five-why-card {
+    border: 1.5px solid #334155 !important;
+    padding: 14px 16px !important;
+    background: #ffffff !important;
+    margin-top: 0 !important;
+}
+
+.pdf-export-active .five-why-row {
+    background: #f8fafc !important;
+    border: 1.5px solid #475569 !important;
+    padding: 8px 12px !important;
+    margin-bottom: 8px !important;
+}
+
+.pdf-export-active .why-badge {
+    color: #ffffff !important;
+    font-weight: 800 !important;
+    font-size: 0.82rem !important;
+    padding: 4px 10px !important;
+    border-radius: 4px !important;
+}
+
+.pdf-export-active .why-badge.badge-root {
+    background: #dc2626 !important;
+}
+
+.pdf-export-active .five-why-box {
+    background: #ffffff !important;
+    border-radius: 6px !important;
+    border: 1.5px solid #334155 !important;
+    padding: 10px 12px !important;
+}
+
+.pdf-export-active .five-why-box.box-root {
+    border-left: 5px solid #dc2626 !important;
+}
+
+.pdf-export-active .five-why-box.box-action {
+    border-left: 5px solid #16a34a !important;
+}
+
+.pdf-export-active .five-why-summary-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px !important;
+    margin-top: 10px !important;
+}
+
+/* ==========================================================================
+   Global 8D Report PDF Layout (3 Clean Pages)
+   ========================================================================== */
+.pdf-export-active .eightd-printable-area {
+    width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+}
+
+.pdf-export-active .eightd-discipline-card {
+    background: #ffffff !important;
+    border: 1.5px solid #334155 !important;
+    margin-bottom: 10px !important;
+    padding: 12px 16px !important;
+}
+
+.pdf-export-active .eightd-d-title {
+    color: #000000 !important;
+    font-weight: 800 !important;
+    font-size: 0.95rem !important;
+}
+
+.pdf-export-active .eightd-d-badge {
+    font-weight: 800 !important;
+}
+
+.pdf-export-active .eightd-5w2h-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+}
+
+.pdf-export-active .eightd-5w2h-cell label {
+    font-size: 0.8rem !important;
+}
+
+.pdf-export-active .eightd-stock-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+}
+
+.pdf-export-active .eightd-stock-cell {
+    border: 1px solid #94a3b8 !important;
+    padding: 8px !important;
+    border-radius: 4px !important;
+    background: #f8fafc !important;
+}
+
+.pdf-export-active .eightd-stock-cell textarea {
+    min-height: 42px !important;
+    height: 45px !important;
+}
+
+.pdf-export-active .eightd-root-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+}
+
+.pdf-export-active .eightd-root-cell textarea {
+    min-height: 45px !important;
+    height: 50px !important;
+}
+
+.pdf-export-active .eightd-closure-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 8px !important;
+}
+
+/* Tables High Contrast */
+.pdf-export-active .krimp-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    border: 1.5px solid #64748b !important;
+}
+
+.pdf-export-active .krimp-table th {
+    background: #f1f5f9 !important;
+    color: #0f172a !important;
+    border: 1px solid #cbd5e1 !important;
+    font-weight: 700 !important;
+    padding: 8px 10px !important;
+}
+
+.pdf-export-active .krimp-table td {
+    color: #000000 !important;
+    border: 1px solid #cbd5e1 !important;
+    font-weight: 500 !important;
+    padding: 8px 10px !important;
 }
 
 /* Print Styles for Quality Reports */

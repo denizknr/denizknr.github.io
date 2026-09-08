@@ -188,45 +188,61 @@
         renderSvgFishbone();
     }
 
+    // Text wrapping helper for SVG text
+    function wrapSvgText(text, maxChars = 22) {
+        if (!text) return [];
+        const words = String(text).split(/\s+/);
+        const lines = [];
+        let cur = '';
+        words.forEach(w => {
+            if ((cur + ' ' + w).trim().length <= maxChars) {
+                cur = (cur + ' ' + w).trim();
+            } else {
+                if (cur) lines.push(cur);
+                cur = w;
+            }
+        });
+        if (cur) lines.push(cur);
+        return lines.slice(0, 4);
+    }
+
     // Dinamik SVG Balık Kılçığı Çizimi (6M Ishikawa Diagramı)
     function renderSvgFishbone() {
         const svg = document.getElementById('fishbone-svg');
         if (!svg) return;
 
-        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        const strokeColor = isDark ? '#94a3b8' : '#334155';
-        const spineColor = '#e11d48';
-        const textColor = isDark ? '#f1f5f9' : '#0f172a';
-        const subTextColor = isDark ? '#94a3b8' : '#475569';
+        const isPdf = document.body.classList.contains('pdf-export-active');
+        const isDark = !isPdf && document.documentElement.getAttribute('data-theme') === 'dark';
+        const strokeColor = isPdf ? '#0f172a' : (isDark ? '#94a3b8' : '#334155');
+        const spineColor = '#dc2626';
+        const textColor = isPdf ? '#000000' : (isDark ? '#f8fafc' : '#0f172a');
+        const subTextColor = isPdf ? '#1e293b' : (isDark ? '#94a3b8' : '#334155');
         const boxBg = isDark ? '#1e293b' : '#ffffff';
-        const boxBorder = isDark ? '#334155' : '#cbd5e1';
+        const boxBorder = isPdf ? '#0f172a' : (isDark ? '#334155' : '#94a3b8');
 
         // SVG Boyutları
         const width = 1000;
         const height = 520;
         const spineY = 260;
         const spineStartX = 40;
-        const spineEndX = 780;
+        const spineEndX = 770;
 
-        // Üst 3 dal X pozisyonları: İnsan (200), Makine (400), Malzeme (600)
-        // Alt 3 dal X pozisyonları: Metot (200), Ortam (400), Ölçüm (600)
+        // Üst 3 dal X pozisyonları: İnsan (220), Makine (420), Malzeme (620)
+        // Alt 3 dal X pozisyonları: Metot (220), Ortam (420), Ölçüm (620)
         const branchCoords = [
-            { id: 'man', xBottom: 220, xTop: 150, yTop: 50, isTop: true },
-            { id: 'machine', xBottom: 420, xTop: 350, yTop: 50, isTop: true },
-            { id: 'material', xBottom: 620, xTop: 550, yTop: 50, isTop: true },
-            { id: 'method', xBottom: 220, xTop: 150, yTop: 470, isTop: false },
-            { id: 'milieu', xBottom: 420, xTop: 350, yTop: 470, isTop: false },
-            { id: 'measurement', xBottom: 620, xTop: 550, yTop: 470, isTop: false }
+            { id: 'man', xBottom: 220, xTop: 140, yTop: 45, isTop: true },
+            { id: 'machine', xBottom: 420, xTop: 340, yTop: 45, isTop: true },
+            { id: 'material', xBottom: 620, xTop: 540, yTop: 45, isTop: true },
+            { id: 'method', xBottom: 220, xTop: 140, yTop: 475, isTop: false },
+            { id: 'milieu', xBottom: 420, xTop: 340, yTop: 475, isTop: false },
+            { id: 'measurement', xBottom: 620, xTop: 540, yTop: 475, isTop: false }
         ];
 
         let svgHtml = `
             <defs>
-                <marker id="spine-arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+                <marker id="spine-arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
                     <path d="M 0 1 L 10 5 L 0 9 z" fill="${spineColor}" />
                 </marker>
-                <filter id="card-shadow" x="-5%" y="-5%" width="110%" height="115%">
-                    <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.15" />
-                </filter>
             </defs>
         `;
 
@@ -236,18 +252,24 @@
                   stroke="${spineColor}" stroke-width="5" stroke-linecap="round" marker-end="url(#spine-arrow)" />
         `;
 
-        // 2. Problem Başı (Head Box)
-        const probText = currentData.problem;
+        // 2. Problem Başı (Head Box) - Vektörel SVG text (foreignObject yerine tspan ile net render)
+        const probText = currentData.problem || 'TANIMLANMAMIŞ PROBLEM';
+        const probLines = wrapSvgText(probText, 22);
+        const lineH = 15;
+        const startY = 48 + Math.max(0, (54 - probLines.length * lineH) / 2);
+        let tspans = '';
+        probLines.forEach((line, idx) => {
+            tspans += `<tspan x="102" y="${startY + (idx * lineH)}" text-anchor="middle">${escapeHtml(line)}</tspan>`;
+        });
+
         svgHtml += `
-            <g transform="translate(790, ${spineY - 55})">
-                <rect width="195" height="110" rx="8" fill="${boxBg}" stroke="${spineColor}" stroke-width="2.5" filter="url(#card-shadow)" />
-                <rect width="195" height="26" rx="8" fill="${spineColor}" />
-                <text x="97" y="18" fill="#ffffff" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="0.5">PROBLEM / ETKİ</text>
-                <foreignObject x="10" y="32" width="175" height="72">
-                    <div xmlns="http://www.w3.org/1999/xhtml" style="font-size: 11px; font-weight: 600; color: ${textColor}; line-height: 1.35; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; text-align: center; font-family: inherit;">
-                        ${escapeHtml(probText)}
-                    </div>
-                </foreignObject>
+            <g transform="translate(780, ${spineY - 55})">
+                <rect width="205" height="110" rx="8" fill="${boxBg}" stroke="${spineColor}" stroke-width="2.5" />
+                <rect width="205" height="26" rx="8" fill="${spineColor}" />
+                <text x="102" y="18" fill="#ffffff" font-size="11" font-weight="800" text-anchor="middle" letter-spacing="0.5">PROBLEM / ETKİ</text>
+                <text fill="${textColor}" font-size="11" font-weight="700">
+                    ${tspans}
+                </text>
             </g>
         `;
 
@@ -263,17 +285,17 @@
             `;
 
             // Kategori Başlık Rozeti
-            const badgeY = b.isTop ? b.yTop - 18 : b.yTop + 6;
+            const badgeY = b.isTop ? b.yTop - 20 : b.yTop + 6;
             svgHtml += `
                 <g transform="translate(${b.xTop - 65}, ${badgeY})">
-                    <rect width="130" height="26" rx="13" fill="${boxBg}" stroke="${cat.color}" stroke-width="1.8" filter="url(#card-shadow)" />
-                    <text x="65" y="17" fill="${cat.color}" font-size="11" font-weight="700" text-anchor="middle">
+                    <rect width="130" height="26" rx="13" fill="${boxBg}" stroke="${cat.color}" stroke-width="2.2" />
+                    <text x="65" y="18" fill="${cat.color}" font-size="11.5" font-weight="800" text-anchor="middle">
                         ${cat.label}
                     </text>
                 </g>
             `;
 
-            // Alt Nedenler (Riblets)
+            // Alt Nedenler (Riblets) - Yüksek kontrastlı, net ve belirgin
             const count = causes.length;
             if (count > 0) {
                 const step = (spineY - b.yTop) / (count + 1);
@@ -281,21 +303,21 @@
                     const frac = (idx + 1) / (count + 1);
                     const currY = b.isTop ? (spineY - step * (idx + 1)) : (spineY + step * (idx + 1));
                     const currX = b.xBottom - (b.xBottom - b.xTop) * frac;
-                    const ribLength = 110;
+                    const ribLength = 115;
                     const ribEndX = currX - ribLength;
 
-                    // Yatay Kılçık
+                    // Yatay Kılçık (Net ve kalın)
                     svgHtml += `
                         <line x1="${currX}" y1="${currY}" x2="${ribEndX}" y2="${currY}" 
-                              stroke="${cat.color}" stroke-width="1.5" stroke-dasharray="2,2" opacity="0.8" />
-                        <circle cx="${currX}" cy="${currY}" r="3" fill="${cat.color}" />
+                              stroke="${cat.color}" stroke-width="2.2" stroke-linecap="round" />
+                        <circle cx="${currX}" cy="${currY}" r="4" fill="${cat.color}" />
                     `;
 
-                    // Neden Metni
+                    // Neden Metni (Yüksek kontrastlı, asla silik çıkmaz)
                     const textY = currY - 4;
                     const truncated = cause.length > 28 ? cause.substring(0, 26) + '...' : cause;
                     svgHtml += `
-                        <text x="${ribEndX - 6}" y="${textY + 4}" fill="${textColor}" font-size="10" font-weight="500" text-anchor="end">
+                        <text x="${ribEndX - 6}" y="${textY + 4}" fill="${textColor}" font-size="11" font-weight="700" text-anchor="end">
                             ${escapeHtml(truncated)}
                         </text>
                     `;
@@ -532,7 +554,8 @@
         init,
         loadPreset,
         exportToExcel,
-        exportToPdf
+        exportToPdf,
+        renderSvgFishbone
     };
 
     if (document.readyState === 'loading') {
