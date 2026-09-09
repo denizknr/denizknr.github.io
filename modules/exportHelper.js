@@ -214,7 +214,8 @@
 
                     // Determine orientation & print target width
                     const isLandscape = Boolean(customOptions.jsPDF && customOptions.jsPDF.orientation === 'landscape');
-                    const printWidth = isLandscape ? '1040px' : '780px';
+                    const printWidthNum = isLandscape ? 1040 : 794;
+                    const printWidth = printWidthNum + 'px';
 
                     // Add PDF export class to document body and target element
                     document.body.classList.add('pdf-export-active');
@@ -236,7 +237,8 @@
                     element.style.width = printWidth;
                     element.style.minWidth = printWidth;
                     element.style.maxWidth = printWidth;
-                    element.style.margin = '0 auto';
+                    element.style.margin = '0';
+                    element.style.padding = '0';
                     element.style.paddingBottom = '0px';
                     element.style.marginBottom = '0px';
                     element.style.backgroundColor = '#ffffff';
@@ -292,7 +294,7 @@
                             logging: false,
                             scrollX: 0,
                             scrollY: 0,
-                            windowWidth: isLandscape ? 1120 : 840
+                            windowWidth: printWidthNum
                         },
                         jsPDF: { 
                             unit: 'mm', 
