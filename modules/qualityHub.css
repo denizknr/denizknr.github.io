@@ -1777,10 +1777,20 @@
 /* Keep report sections together while allowing natural pagination between
    sections. This works with the CSS-only html2pdf pagebreak mode. */
 .pdf-export-active .pdf-avoid-break,
-.pdf-export-active .fives-analytics-col,
-.pdf-export-active .fives-checklist-col {
+.pdf-export-active .fives-analytics-col {
     page-break-inside: avoid !important;
     break-inside: avoid !important;
+}
+
+/* Prevent flex/grid children from keeping their screen-sized minimum width
+   when the export helper constrains a report to the A4 canvas. */
+.pdf-export-active .fives-container,
+.pdf-export-active .fives-container > *,
+.pdf-export-active .fives-container .fives-main-layout > * {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
 }
 
 /* Headings Avoid Orphan Breaks */
