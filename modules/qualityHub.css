@@ -1869,8 +1869,10 @@
     gap: 14px !important;
     margin-top: 10px !important;
     margin-bottom: 0 !important;
-    break-after: page !important;
-    page-break-after: always !important;
+    /* Do not force a page break here: with short audit metadata it creates
+       an otherwise empty PDF page before the action list. */
+    break-after: auto !important;
+    page-break-after: auto !important;
 }
 
 .pdf-export-active .fives-meta-card {
@@ -1923,6 +1925,8 @@
     background: #f8fafc !important;
     padding: 10px 14px !important;
     margin-bottom: 8px !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
 }
 
 /* ==========================================================================
