@@ -1671,15 +1671,6 @@
     page-break-before: auto;
 }
 
-.pdf-export-active .pdf-page-break,
-@media print {
-    .pdf-page-break {
-        page-break-before: always !important;
-        break-before: page !important;
-        margin-top: 15px !important;
-    }
-}
-
 /* Hiding interactive UI elements during PDF generation */
 .pdf-export-active .fives-actions-group,
 .pdf-export-active .btn-export-excel,
@@ -1787,9 +1778,7 @@
    sections. This works with the CSS-only html2pdf pagebreak mode. */
 .pdf-export-active .pdf-avoid-break,
 .pdf-export-active .fives-analytics-col,
-.pdf-export-active .fives-checklist-col,
-.pdf-export-active .five-why-card,
-.pdf-export-active .eightd-printable-area {
+.pdf-export-active .fives-checklist-col {
     page-break-inside: avoid !important;
     break-inside: avoid !important;
 }
@@ -1943,6 +1932,8 @@
     border: 1.5px solid #334155 !important;
     margin-bottom: 10px !important;
     background: #ffffff !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
 }
 
 .pdf-export-active .fishbone-svg-wrapper {
@@ -1961,8 +1952,10 @@
 
 .pdf-export-active .fishbone-causes-section {
     margin-bottom: 0 !important;
-    break-after: page !important;
-    page-break-after: always !important;
+    /* A dedicated .pdf-page-break follows this section. Keeping another
+       break-after here creates a blank/shifted page in CSS pagebreak mode. */
+    break-after: auto !important;
+    page-break-after: auto !important;
 }
 
 .pdf-export-active .fishbone-cat-grid {
@@ -1977,6 +1970,8 @@
     font-size: 0.8rem !important;
     border: 1.5px solid #334155 !important;
     background: #ffffff !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
 }
 
 .pdf-export-active .fishbone-cat-header span {
@@ -1997,6 +1992,10 @@
     padding: 14px 16px !important;
     background: #ffffff !important;
     margin-top: 0 !important;
+    /* The complete card can exceed one page when extra Why steps are added;
+       keep its rows atomic rather than forcing the whole card onto one page. */
+    page-break-inside: auto !important;
+    break-inside: auto !important;
 }
 
 .pdf-export-active .five-why-row {
