@@ -1784,7 +1784,6 @@
 
 /* Prevent flex/grid children from keeping their screen-sized minimum width
    when the export helper constrains a report to the A4 canvas. */
-.pdf-export-active .fives-container,
 .pdf-export-active .fives-container > *,
 .pdf-export-active .fives-container .fives-main-layout > * {
     width: 100% !important;
@@ -2091,7 +2090,6 @@
    Global 8D Report PDF Layout (3 Clean Pages)
    ========================================================================== */
 .pdf-export-active .eightd-printable-area {
-    width: 100% !important;
     margin: 0 auto !important;
     padding: 0 !important;
 }
@@ -2100,7 +2098,6 @@
    layout has generous spacing for screen use, so compact it only during PDF
    export instead of changing the on-screen form. */
 .pdf-export-active #eightdalert-printable-area {
-    width: 100% !important;
     padding: 10px 12px !important;
     border-width: 1.5px !important;
     border-radius: 4px !important;
