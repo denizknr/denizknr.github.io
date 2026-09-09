@@ -506,8 +506,10 @@
         }
 
         const fileName = `8D_Raporu_${currentReport.meta.reportNo.replace(/[^a-zA-Z0-9]/g, '_')}.pdf`;
+        // The 8D form uses two- and three-column grids. Landscape A4 prevents
+        // the right-hand fields from being clipped in the generated PDF.
         window.ExportHelper.toPdf(printableContainer, fileName, {
-            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            jsPDF: { unit: 'mm', format: 'a4', orientation: 'landscape' }
         });
     }
 
