@@ -1793,6 +1793,44 @@
     box-sizing: border-box !important;
 }
 
+/* Portrait A4 variants for the two primary report templates. */
+.pdf-export-portrait .fives-meta-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+}
+
+.pdf-export-portrait .fives-analytics-col {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+}
+
+.pdf-export-portrait .fives-radar-container {
+    height: 190px !important;
+    max-height: 190px !important;
+}
+
+.pdf-export-portrait .fives-radar-container canvas {
+    max-height: 180px !important;
+}
+
+.pdf-export-portrait .eightd-printable-area .fives-meta-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+}
+
+.pdf-export-portrait .eightd-5w2h-grid,
+.pdf-export-portrait .eightd-stock-grid,
+.pdf-export-portrait .eightd-root-grid {
+    grid-template-columns: 1fr !important;
+}
+
+.pdf-export-portrait .eightd-closure-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+}
+
+.pdf-export-portrait .eightd-discipline-card {
+    margin-bottom: 7px !important;
+    padding: 8px 10px !important;
+}
+
 /* Headings Avoid Orphan Breaks */
 .pdf-export-active h1,
 .pdf-export-active h2,

@@ -506,10 +506,10 @@
         }
 
         const fileName = `8D_Raporu_${currentReport.meta.reportNo.replace(/[^a-zA-Z0-9]/g, '_')}.pdf`;
-        // The 8D form uses two- and three-column grids. Landscape A4 prevents
-        // the right-hand fields from being clipped in the generated PDF.
+        // Use portrait A4 consistently; portrait-specific PDF CSS stacks the
+        // wide form grids so no right-hand fields are clipped.
         window.ExportHelper.toPdf(printableContainer, fileName, {
-            jsPDF: { unit: 'mm', format: 'a4', orientation: 'landscape' }
+            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
         });
     }
 

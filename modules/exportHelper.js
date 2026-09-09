@@ -220,6 +220,10 @@
                     // Add PDF export class to document body and target element
                     document.body.classList.add('pdf-export-active');
                     element.classList.add('pdf-export-active');
+                    if (!isLandscape) {
+                        document.body.classList.add('pdf-export-portrait');
+                        element.classList.add('pdf-export-portrait');
+                    }
 
                     // Save original element inline styles
                     const originalInlineStyles = {
@@ -313,6 +317,8 @@
                         // Restore classes
                         document.body.classList.remove('pdf-export-active');
                         element.classList.remove('pdf-export-active');
+                        document.body.classList.remove('pdf-export-portrait');
+                        element.classList.remove('pdf-export-portrait');
 
                         // Restore element styles
                         element.style.width = originalInlineStyles.width;

@@ -952,7 +952,7 @@
 
         if (window.ExportHelper && reportEl) {
             window.ExportHelper.toPdf(reportEl, fileName, {
-                jsPDF: { unit: 'mm', format: 'a4', orientation: 'landscape' }
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
             });
         } else {
             window.print();
