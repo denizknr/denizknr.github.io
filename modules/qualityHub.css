@@ -2106,6 +2106,24 @@
 
 .pdf-export-active #eightdalert-printable-area .fives-meta-grid {
     gap: 7px !important;
+    min-width: 0 !important;
+}
+
+.pdf-export-active #eightdalert-printable-area .fives-meta-grid > * {
+    min-width: 0 !important;
+    max-width: 100% !important;
+}
+
+.pdf-export-active #eightdalert-printable-area > .fives-meta-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+}
+
+.pdf-export-active #eightdalert-printable-area .eightd-discipline-card:nth-of-type(5) .fives-meta-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+}
+
+.pdf-export-active #eightdalert-printable-area .eightd-discipline-card:last-child .fives-meta-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
 }
 
 .pdf-export-active #eightdalert-printable-area textarea,
