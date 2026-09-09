@@ -277,8 +277,11 @@
                         filename: finalName,
                         image: { type: 'jpeg', quality: 0.98 },
                         enableLinks: false,
+                        // Legacy mode treats arbitrary elements as break markers and can
+                        // create shifted or blank pages. CSS mode respects the explicit
+                        // break-before/after rules used by the report layouts.
                         pagebreak: { 
-                            mode: ['css', 'legacy'], 
+                            mode: ['css'],
                             avoid: [
                                 '.pdf-avoid-break',
                                 '.eightd-discipline-card',
@@ -294,7 +297,10 @@
                             logging: false,
                             scrollX: 0,
                             scrollY: 0,
-                            windowWidth: printWidthNum
+                            windowWidth: printWidthNum,
+                            // Keep the cloned viewport deterministic so browser viewport
+                            // height cannot introduce a one-pixel page drift.
+                            windowHeight: isLandscape ? 735 : 1070
                         },
                         jsPDF: { 
                             unit: 'mm', 

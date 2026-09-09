@@ -1783,6 +1783,17 @@
     box-shadow: none !important;
 }
 
+/* Keep report sections together while allowing natural pagination between
+   sections. This works with the CSS-only html2pdf pagebreak mode. */
+.pdf-export-active .pdf-avoid-break,
+.pdf-export-active .fives-analytics-col,
+.pdf-export-active .fives-checklist-col,
+.pdf-export-active .five-why-card,
+.pdf-export-active .eightd-printable-area {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+}
+
 /* Headings Avoid Orphan Breaks */
 .pdf-export-active h1,
 .pdf-export-active h2,
