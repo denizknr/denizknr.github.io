@@ -281,11 +281,7 @@
                     const originalScrollY = window.scrollY || window.pageYOffset;
                     window.scrollTo(0, 0);
 
-                    const exportHeight = Math.ceil(Math.max(
-                        element.scrollHeight,
-                        element.offsetHeight,
-                        element.getBoundingClientRect().height
-                    ));
+                    const exportHeight = Math.ceil(element.scrollHeight);
 
                     const opt = Object.assign({
                         margin: isLandscape ? [8, 8, 8, 8] : [10, 10, 10, 10],

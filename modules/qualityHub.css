@@ -1,9 +1,4 @@
 @media print {
-    @page {
-        size: A4;
-        margin: 10mm;
-    }
-
     .pdf-export-active,
     .pdf-export-active * {
         -webkit-print-color-adjust: exact !important;
