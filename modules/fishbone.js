@@ -298,7 +298,8 @@
             // Alt Nedenler (Riblets) - Yüksek kontrastlı, net ve belirgin
             const count = causes.length;
             if (count > 0) {
-                const step = (spineY - b.yTop) / (count + 1);
+                const branchSpan = b.isTop ? (spineY - b.yTop) : (b.yTop - spineY);
+                const step = branchSpan / (count + 1);
                 causes.forEach((cause, idx) => {
                     const frac = (idx + 1) / (count + 1);
                     const currY = b.isTop ? (spineY - step * (idx + 1)) : (spineY + step * (idx + 1));
@@ -314,10 +315,10 @@
                     `;
 
                     // Neden Metni (Yüksek kontrastlı, asla silik çıkmaz)
-                    const textY = currY - 4;
+                    const textY = b.isTop ? (currY - 6) : (currY + 14);
                     const truncated = cause.length > 28 ? cause.substring(0, 26) + '...' : cause;
                     svgHtml += `
-                        <text x="${ribEndX - 6}" y="${textY + 4}" fill="${textColor}" font-size="11" font-weight="700" text-anchor="end">
+                        <text x="${ribEndX - 6}" y="${textY}" fill="${textColor}" font-size="11" font-weight="700" text-anchor="end">
                             ${escapeHtml(truncated)}
                         </text>
                     `;
