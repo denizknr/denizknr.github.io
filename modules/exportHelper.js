@@ -281,12 +281,6 @@
                     const originalScrollY = window.scrollY || window.pageYOffset;
                     window.scrollTo(0, 0);
 
-                    const exportHeight = Math.ceil(Math.max(
-                        element.scrollHeight,
-                        element.offsetHeight,
-                        element.getBoundingClientRect().height
-                    ));
-
                     const opt = Object.assign({
                         margin: isLandscape ? [8, 8, 8, 8] : [10, 10, 10, 10],
                         filename: finalName,
@@ -312,10 +306,7 @@
                             logging: false,
                             scrollX: 0,
                             scrollY: 0,
-                            windowWidth: printWidthNum,
-                            // Match clone viewport to rendered content height to avoid
-                            // clipping and cumulative page drift on long reports.
-                            windowHeight: Math.max(exportHeight + 24, isLandscape ? 735 : 1070)
+                            windowWidth: printWidthNum
                         },
                         jsPDF: { 
                             unit: 'mm', 
