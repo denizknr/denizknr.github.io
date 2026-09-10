@@ -235,18 +235,23 @@
                         paddingBottom: element.style.paddingBottom,
                         marginBottom: element.style.marginBottom,
                         backgroundColor: element.style.backgroundColor,
-                        boxSizing: element.style.boxSizing
+                        boxSizing: element.style.boxSizing,
+                        display: element.style.display,
+                        overflow: element.style.overflow
                     };
 
                     element.style.width = printWidth;
                     element.style.minWidth = printWidth;
                     element.style.maxWidth = printWidth;
-                    element.style.margin = '0';
+                    element.style.margin = '0 auto';
                     element.style.padding = '0';
                     element.style.paddingBottom = '0px';
                     element.style.marginBottom = '0px';
                     element.style.backgroundColor = '#ffffff';
                     element.style.boxSizing = 'border-box';
+                    element.style.display = 'block';
+                    element.style.overflow = 'visible';
+                    element.style.setProperty('--pdf-export-width', printWidth);
 
                     // Synchronize input values to DOM value attributes so html2canvas captures them
                     const inputs = element.querySelectorAll('input');
@@ -295,15 +300,15 @@
                                 '.fives-action-item'
                             ] 
                         },
-                        html2canvas: { 
+                        html2canvas: {
                             scale: 2, 
                             useCORS: true, 
                             logging: false,
                             scrollX: 0,
                             scrollY: 0,
                             windowWidth: printWidthNum,
-                            // Keep the cloned viewport deterministic so browser viewport
-                            // height cannot introduce a one-pixel page drift.
+                            // Keep viewport tied to A4 page geometry for deterministic
+                            // pagination and consistent sticky/fixed behavior in clone.
                             windowHeight: isLandscape ? 735 : 1070
                         },
                         jsPDF: { 
@@ -330,6 +335,9 @@
                         element.style.marginBottom = originalInlineStyles.marginBottom;
                         element.style.backgroundColor = originalInlineStyles.backgroundColor;
                         element.style.boxSizing = originalInlineStyles.boxSizing;
+                        element.style.display = originalInlineStyles.display;
+                        element.style.overflow = originalInlineStyles.overflow;
+                        element.style.removeProperty('--pdf-export-width');
 
                         // Restore textarea styles
                         originalTextareaStyles.forEach(item => {
