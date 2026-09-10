@@ -281,6 +281,7 @@
                     const originalScrollY = window.scrollY || window.pageYOffset;
                     window.scrollTo(0, 0);
 
+                    void element.offsetHeight;
                     const exportHeight = Math.ceil(element.scrollHeight);
 
                     const opt = Object.assign({
