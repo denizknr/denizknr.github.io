@@ -1,4 +1,9 @@
 @media print {
+    @page {
+        size: A4;
+        margin: 10mm;
+    }
+
     .pdf-export-active,
     .pdf-export-active * {
         -webkit-print-color-adjust: exact !important;
@@ -8,6 +13,16 @@
     .pdf-export-active {
         width: 100% !important;
         margin: 0 auto !important;
+        overflow: visible !important;
+    }
+
+    .pdf-export-active .qm-tab-panel,
+    .pdf-export-active .fives-container,
+    .pdf-export-active .eightd-printable-area {
+        width: 100% !important;
+        max-width: var(--pdf-export-width, 100%) !important;
+        margin: 0 auto !important;
+        box-sizing: border-box !important;
         overflow: visible !important;
     }
 
@@ -24,6 +39,29 @@
         width: 100% !important;
         max-width: 100% !important;
         box-sizing: border-box !important;
+    }
+
+    .pdf-export-active .fives-meta-grid,
+    .pdf-export-active .dof-kpi-grid,
+    .pdf-export-active .kaizen-cards-grid,
+    .pdf-export-active .eightd-5w2h-grid,
+    .pdf-export-active .eightd-stock-grid,
+    .pdf-export-active .eightd-root-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+
+    .pdf-export-active .table-responsive {
+        overflow: visible !important;
+    }
+
+    .pdf-export-active .krimp-table th {
+        position: static !important;
+        top: auto !important;
+    }
+
+    .pdf-export-active .fives-header-main,
+    .pdf-export-active .fives-actions-group {
+        align-items: flex-start !important;
     }
 }
 
@@ -96,5 +134,18 @@
 .pdf-export-active .pdf-page-break {
     page-break-before: always !important;
     break-before: page !important;
+    display: block !important;
     height: 0 !important;
+}
+
+.pdf-export-active .fives-header-card,
+.pdf-export-active .fives-meta-card,
+.pdf-export-active .fives-chart-card,
+.pdf-export-active .fives-history-card,
+.pdf-export-active .five-why-card,
+.pdf-export-active .fishbone-cat-box,
+.pdf-export-active .eightd-discipline-card,
+.pdf-export-active .dof-kpi-card {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
 }
