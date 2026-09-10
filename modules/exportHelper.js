@@ -281,9 +281,6 @@
                     const originalScrollY = window.scrollY || window.pageYOffset;
                     window.scrollTo(0, 0);
 
-                    void element.offsetHeight;
-                    const exportHeight = Math.ceil(element.scrollHeight);
-
                     const opt = Object.assign({
                         margin: isLandscape ? [8, 8, 8, 8] : [10, 10, 10, 10],
                         filename: finalName,
@@ -310,9 +307,9 @@
                             scrollX: 0,
                             scrollY: 0,
                             windowWidth: printWidthNum,
-                            // Keep a deterministic cloned viewport and leave extra headroom
-                            // for clone-only wrapping differences to prevent clipping.
-                            windowHeight: exportHeight + 480
+                            // Keep viewport tied to A4 page geometry for deterministic
+                            // pagination and consistent sticky/fixed behavior in clone.
+                            windowHeight: isLandscape ? 735 : 1070
                         },
                         jsPDF: { 
                             unit: 'mm', 
